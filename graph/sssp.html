@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ssdut dsa web" />
+    <meta name="author" content="" />
+
+    <title>ssdut.DSA/图/最短路径</title>
+    <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/xenon-core.css">
+    <link rel="stylesheet" href="../assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="../assets/css/xenon-components.css">
+    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/viz-1.0.1.css">
+    <link rel="stylesheet" href="../assets/css/visual.css">
+    <link rel="stylesheet" href="../assets/css/drawgraph.css">
+
+
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body class="page-body">
+    <div class="page-container">
+        <!-- add class"sidebar-collapsed" to close sidebar by default,"chat-visible" to make chat appear always -->
+
+        <!-- Add"fixed" class to make the sidebar fixed always to the browser viewport. -->
+        <!-- Adding class"toggle-others" will keep only one menu item open at a time. -->
+        <!-- Adding class"collapsed" collapse sidebar root elements and show only icons. -->
+        <div class="sidebar-menu toggle-others fixed">
+
+            <div class="sidebar-menu-inner">
+
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="/" class="logo-expanded">
+                            <img src="../assets/images/logo@2x.png" width="80" alt="" />
+                        </a>
+
+                        <a href="/" class="logo-collapsed">
+                            <img src="../assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+                 
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class"multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class"auto-inherit-active-class" will automatically add"active" class for parent elements who are marked already with class"active" -->
+                    <li >
+                        <a href="/index.html">
+                            <i class="fa-home"></i>
+                            <span class="title">首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/list/ll.html">
+                            <i class="fa-chain"></i>
+                            <span class="title">线性表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/list/ll.html">
+                                    <span class="title">单链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/stack.html">
+                                    <span class="title">栈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/queue.html">
+                                    <span class="title">队列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/dll.html">
+                                    <span class="title">双向链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/deque.html">
+                                    <span class="title">双端队列</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/tree/bst.html">
+                            <i class="fa-sitemap"></i>
+                            <span class="title">二叉树</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/tree/bst.html">
+                                    <span class="title">二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/avl.html">
+                                    <span class="title">平衡二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/heap.html">
+                                    <span class="title">堆</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="opened active">
+                        <a href="/graph/graphds.html">
+                            <i class="fa-share-alt"></i>
+                            <span class="title">图</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/graph/graphds.html">
+                                    <span class="title">图的数据结构</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/dfsbfs.html">
+                                    <span class="title">图的遍历</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/mst.html">
+                                    <span class="title">最小生成树</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="/graph/sssp.html">
+                                    <span class="title">最短路径</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/maxflow.html">
+                                    <span class="title">网络最大流</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/hashtable/lp.html">
+                            <i class="fa-random"></i>
+                            <span class="title">散列表</span>                          
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/hashtable/lp.html">
+                                    <span class="title">线性探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/qp.html">
+                                    <span class="title">二次探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/dh.html">
+                                    <span class="title">双散列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/sc.html">
+                                    <span class="title">分离链接</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="/sorting/bubble.html" >
+                            <i class="fa-sort-amount-asc"></i>
+                            <span class="title">排序</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/sorting/bubble.html">
+                                    <span class="title">冒泡排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/selection.html">
+                                    <span class="title">选择排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/insertion.html">
+                                    <span class="title">插入排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/merge.html">
+                                    <span class="title">归并排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/quick.html">
+                                    <span class="title">快速排序</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/sorting/radix.html" >
+                                    <span class="title">基数排序</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>             
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <!-- User Info, Notifications and Menu Bar -->
+          
+                <div class="row" style="margin:-30px -30px 0 -30px; background-color: #FFF; padding:15px 10px 10px; ">
+                    <div class="col-auto">
+                        <ul class="user-info-menu left-links list-inline list-unstyled">
+                            <li class="hidden-sm hidden-xs">
+                                <a href="#" data-toggle="sidebar">
+                                    <i class="fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>        
+                    </div>
+                    <!-- Left links for user info navbar -->
+                    <div class="col-auto">
+                        <h4 id="page-title" >链表</h4>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <div id="current-action" ></div>
+                    </div>               
+                    <div class="col-auto" >
+                                    <!-- Right links for user info navbar -->              
+                        <div id="speed-control">
+                            减速
+                            <div id="speed-input" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 72.2222%;"></span>
+                            </div>
+                            加速
+                        </div>              
+                    </div>
+                </div>
+            
+
+            <script type="text/javascript">
+                jQuery(document).ready(function($) {     
+                    // Charts
+                    var xenonPalette = ['#68b828', '#7c38bc', '#0e62c7', '#fcd036', '#4fcdfc', '#00b19d', '#ff6264', '#f7aa47'];
+                    // Pageviews Visitors Chart
+                  
+                      
+                     
+                    $("#page-title").text('最短路径');
+                });             
+                
+            </script>
+
+            <div class="row">
+
+              
+                <div id="dark-overlay"></div>
+
+
+                <div id="viz">
+
+                </div>
+                
+
+                <div id="overlay" hidden="" style="opacity: 0; display: none;"></div>
+
+
+                <div id="popup" hidden="">
+                    <div id="popup-content"></div>
+                    <span id="hide-popup" hidden="" style="background-color: rgb(255, 138, 39);">X <u>关闭</u></span>
+                </div>
+         
+
+                <script>
+                    var PHP_DOMAIN ="";
+
+                    // surprise colour!
+                    // Referenced to in  home.js and viz.js also
+                    var colourArray = ["#52bc69","#d65775" /*"#ed5a7d"*/ ,"#2ebbd1","#d9513c","#fec515","#4b65ba","#ff8a27","#a7d41e"]; // green, pink, blue, red, yellow, indigo, orange, lime
+
+                    function disableScroll() {
+                        $('html').css('overflow', 'hidden');
+                    }
+
+                    function enableScroll() {
+                        $('html').css('overflow', 'visible');
+                    }
+
+                    function replaceAll(find, replace, str) {
+                        return str.replace(new RegExp(find, 'g'), replace);
+                    }
+
+                    function getColours() {
+                        var generatedColours = new Array();
+                        while (generatedColours.length < 4) {
+                            var n = (Math.floor(Math.random() * colourArray.length));
+                            if ($.inArray(n, generatedColours) == -1)
+                                generatedColours.push(n);
+                        }
+                        return generatedColours;
+                    }
+
+                    function isOn(value, position) {
+                        return (value >> position) & 1 === 1;
+                    }
+
+                    function customAlert(msg) {
+                        $('#custom-alert p').html(msg);
+                        var m = -1 * ($('#custom-alert').outerHeight() / 2);
+                        $('#custom-alert').css('margin-top', m + 'px');
+                        $('#dark-overlay').fadeIn(function() {
+                            $('#custom-alert').fadeIn(function() {
+                                setTimeout(function() {
+                                    $('#custom-alert').fadeOut(function() {
+                                        $('#dark-overlay').fadeOut();
+                                    });
+                                }, 1000);
+                            });
+                        });
+                    }
+
+                    function showLoadingScreen() {
+                        $('#loading-overlay').show();
+                        $('#loading-message').show();
+                    }
+
+                    function hideLoadingScreen() {
+                        $('#loading-overlay').hide();
+                    }
+
+                    function commonAction(retval, msg) {
+                        //setTimeout(function() {
+                        if (retval) { // mode =="exploration" && // now not only for exploration mode, but check if this opens other problems
+                         
+                            $('#current-action').html(mode =="exploration" ? msg : ("e-Lecture Example (auto play until done)<br>" + msg));
+                            $('#progress-bar').slider("option","max", gw.getTotalIteration() - 1);
+                            triggerRightPanels();
+                            isPlaying = true;
+                        }
+                        //}, 500);
+                    }
+
+                    function getQueryVariable(variable) {
+                        var query = window.location.search.substring(1);
+                        var vars = query.split('&');
+                        for (var i = 0; i < vars.length; i++) {
+                            var pair = vars[i].split('=');
+                            if (decodeURIComponent(pair[0]) == variable)
+                                return decodeURIComponent(pair[1]);
+                        }
+                        return"";
+                    }
+
+                    var generatedColours = getColours();
+                    var surpriseColour = colourArray[generatedColours[0]];
+                    var colourTheSecond = colourArray[generatedColours[1]];
+                    var colourTheThird = colourArray[generatedColours[2]];
+                    var colourTheFourth = colourArray[generatedColours[3]];
+
+                    $(function() {
+                       
+
+                        // title
+                        $('#title a').click(function() {
+                            $('#title a').removeClass('selected-viz');
+                            $(this).addClass('selected-viz');
+                            // temporary quick fix for Google Chrome Aug 2016 issue...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100.1%";
+                            }, 100); // force resize/redraw...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100%";
+                            }, 600);
+                        });
+
+                        // overlays stuffs
+                        $('#trigger-about').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#about').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-team').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#team').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-terms').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#termsofuse').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('.close-overlay').click(function() {
+                            $('.overlays').fadeOut(function() {
+                                $('#dark-overlay').fadeOut();
+                            });
+                        });
+
+                        $('#dark-overlay').click(function() {
+                            $('.overlays').fadeOut();
+                            $('#dark-overlay').fadeOut();
+                        });
+                    });
+                </script>
+
+
+
+
+                <script>
+                    window.onpopstate = function(event) {
+                        var slide = event.state['slide'];
+                        openSlide(slide, function() {
+                            runSlide(slide);
+                        });
+                    };
+
+                    function getUrlParameter(sParam) {
+                        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                            sURLVariables = sPageURL.split('&'),
+                            sParameterName, i;
+
+                        for (i = 0; i < sURLVariables.length; i++) {
+                            sParameterName = sURLVariables[i].split('=');
+                            if (sParameterName[0] === sParam) return sParameterName[1] === undefined ? true : sParameterName[1];
+                        }
+                    };
+
+                    function pushState(slideValue) {
+                        var url = '/zh/list';
+                        if (typeof slideValue != 'undefined' && slideValue != null) url += '?slide=' + slideValue;
+                        window.history.pushState({
+                            slide: slideValue
+                        },"slide" + slideValue, url);
+                    }
+
+                    function showPopup(callback) {
+                        $('#popup').fadeIn(100, callback);
+                    }
+
+                    function hidePopup(callback) {
+                        $('#popup').fadeOut(100, callback);
+                    }
+
+                    $(function() {
+                        var slide = getUrlParameter('slide');
+
+          
+
+                        $('.mcq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#mcq-answer-' + questionId).val();
+                            var userAnswer = $('input[type=radio][name=mcq-' + questionId + '-choice]:checked').val();
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green"><b>Correct!</b></font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red"><b>Wrong Answer! Try again...</b></font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                        $('.msq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#msq-answer-' + questionId).val();
+
+                            var answers = [];
+                            $('input[type=checkbox][class=msq-choice]:checked').each(function() {
+                                answers.push($(this).attr('id').split('-')[3]);
+                            });
+                            answers.sort();
+                            var userAnswer = answers.join(',');
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green">Correct!</font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red">Wrong Answer! Try again...</font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                      
+
+                        $('#hide-popup').click(function() {
+                            hidePopup();
+                        });
+
+                        $('#popup').hover(function() {
+                            $('#hide-popup').show();
+                        }, function() {
+                            $('#hide-popup').hide();
+                        });
+
+
+
+
+                        // temporary quick fix for Google Chrome Aug 2016 issue..., put at last part so that everything else has been loaded
+                        // setTimeout(function(){ document.body.style.zoom ="100.1%"; }, 500);
+                        // setTimeout(function(){ document.body.style.zoom ="100%"; }, 600);
+                        // I turn it off on 14 June 2018, seems 'ok'?
+                    });
+
+               
+
+                    function adjustPopupToImageSize() {
+                        var width = $('#popup-image').prop('width');
+                        var height = $('#popup-image').prop('height');
+                        $('#popup').width(width + 20);
+                        $('#popup').height(height + 20);
+                        if (width == 0 && height == 0) {
+                            setTimeout(adjustPopupToImageSize, 200);
+                        } else {
+                            showPopup();
+                        }
+                    }
+
+                    function POPUP_IMAGE(url) {
+                        $('#popup-content').html('<img id="popup-image" src="' + url + '">');
+                        adjustPopupToImageSize();
+                    }
+
+                    function URL(url) {
+                        window.open(url, '_blank');
+                    }
+
+                </script>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Main Footer -->
+            <!-- Choose between footer styles:"footer-type-1" or"footer-type-2" -->
+            <!-- Add class"sticky" to  always stick the footer to the end of page (if page contents is small) -->
+            <!-- Or class"fixed" to  always fix the footer to the end of page -->
+            <footer class="main-footer sticky footer-type-2 sticky fixed">
+
+                <div class="footer-inner">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">                               
+                                <a id="actions-toggle" class="btn btn-sm btn-info dropdown-toggle " data-bs-toggle="dropdown"  data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">                            
+                                    操作                                                      
+                                </a>                                    
+                                <div id="actions" class="dropdown-menu">
+                                    <div class="dropdown dropend">
+                                        <a id="search" class="dropdown-item " onclick="drawGraph()" >
+                                            绘制图</a>                                        
+                                    </div>
+                                    <div class="dropdown dropend">                                        
+                                        <a id="create" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-create" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">创建</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown-create">
+                                            <div class="dropdown-item" onclick="example(CP3_4_3);" >
+                                                <a>无向无权图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_4);">
+                                                <a>有向无权图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_17);">
+                                                <a>有向加权图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_18);" >
+                                                <a>有向负权重图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_19);" >
+                                                <a>有向负权重有环图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_40);" >
+                                                <a>树形无向有权图</a>
+                                            </div>          
+                                            <div class="dropdown-item" onclick="example(BELLMANFORD_KILLER);" >
+                                                <a>不适用贝尔曼-福特的图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(DIJKSTRA_KILLER);" >
+                                                <a>不适用迪杰斯特拉算法的图</a>
+                                            </div> 
+                                            <div class="dropdown-item" onclick="example(DAG);" >
+                                                <a>有向加权无环图</a>
+                                            </div>               
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="dropdown dropend">
+                                        <a id="insert" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-insert" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            贝尔曼-福特算法</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-insert" style="min-width: 200px;">
+                                            <div  class="dropdown-item-text" >
+                                                起始结点
+                                            </div>   
+                                            <div id="insert-head" class="dropdown-item-text" >
+                                                <input type="number" id="bellmanford-v" title="Enter an Integer" autocomplete="off" min="0" max="99" value="0">
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="bellmanford()" >
+                                                    执行
+                                                </div>                                          
+                                            </div>                                           
+                                        </div>  
+                                    </div>
+
+                                    <div class="dropdown dropend">
+                                        <a id="insert" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-insert" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            迪杰斯特拉算法</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-insert" style="min-width: 200px;">
+                                            <div  class="dropdown-item-text" >
+                                                起始结点
+                                            </div>   
+                                            <div id="insert-head" class="dropdown-item-text" >
+                                                <p><input type="number" id="dijkstra-v" title="Enter an Integer" autocomplete="off" min="0" max="99" value="0"></p>
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="dijkstra(1)" >
+                                                    原版
+                                                </div>                                          
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="dijkstra(2)" >
+                                                    优化版
+                                                </div>                                          
+                                            </div>                                           
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-auto">
+                            <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick="goToBeginning()"><img
+                                src="../assets/images/goToBeginning.png" alt="go to beginning"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="previous" class="media-control-button" title="step backward" onclick="stepBackward()"><img
+                                src="../assets/images/prevFrame.png" alt="previous frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="pause" class="media-control-button" title="pause" onclick="pause()" ><img
+                                src="../assets/images/pause.png" alt="pause"></span>
+                            <span id="play" class="media-control-button" title="play" onclick="play()" style="display: none;">
+                                <img src="../assets/images/play.png" alt="play"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="next" class="media-control-button" title="step forward" onclick="stepForward()"><img
+                                src="../assets/images/nextFrame.png" alt="next frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="go-to-end" class="media-control-button" title="go to end" onclick="goToEnd()"><img
+                                src="../assets/images/goToEnd.png" alt="go to end"></span>
+                        </div>
+
+
+                        <div class="col-5 me-auto">
+                            <div id="progress-bar" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="1800" data-value="223">
+                            </div>
+
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">
+                                <a id="codetrace-toggle" class="btn btn-sm btn-warning dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" data-bs-offset="0,20">                            
+                                    代码跟踪
+                                                  
+                                </a>
+                                <div id="codetrace-panel" class="dropdown-menu dropdown-menu-end">
+                                    <div class="row" style="width: 600px;">
+                                        <div class="col-sm-12">
+                                            <div id="status" class=" col-sm-12" >
+                                                <p></p>
+                                            </div>
+                                            <div id="codetrace" class=" col-sm-12">
+                                                <p id="code1" style="padding-top: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code2" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code3" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code4" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code5" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code6" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code7" style="padding-bottom: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                     </div>  
+            </footer>
+        </div>
+    </div>    
+
+    <div class="page-loading-overlay">
+        <div class="loader-2"></div>
+    </div>
+
+    <div id="drawgraph" class="overlays" style="display: none;">  
+        <script>var JSONresult;</script>    
+        <div id="main">      
+            <div id="draw-status">
+                <p>绘制具有不同属性的图，然后尝试在其图上运行各种图的遍历算法。
+                    <div>默认绘图模式是有向图（每个边有一个或最多两个箭头）。
+                </div>
+            </p>
+        </div>      
+        <div id="draw-warn"><p>没有警告</p></div>      
+        <div id="draw-err"><p>没有错误</p></div>      
+        <div id="viz">        
+            <svg onclick="GraphVisu(false,true,null,null,null,true); " width="640" height="360">
+                 
+            </svg>    
+        </div>    
+            <div id="drawgraph-actions">      
+                <p onclick="drawCancel()">取消绘制</p>      
+                <p onclick="GraphVisu(false,true,true)">消除</p>      
+                <p onclick="drawDone()">绘制完成</p>      
+                <form id="drawgraph-form">        
+                    <!--<input type="checkbox" id="submit" name="submit" value="submit" checked="checked">Submit drawn graph to database for random graph and online quiz purposes        <br>-->
+                    <input type="checkbox" id="copy" name="submit" value="submit">导出到剪贴板      
+                </form>    
+            </div>  
+        </div>
+    </div>
+
+
+    <!-- Bottom Scripts -->
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/bootstrap5.dropdown.ml.hack.js"></script>
+    <script src="../assets/js/TweenMax.min.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/xenon-api.js"></script>
+    <script src="../assets/js/xenon-toggles.js"></script>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="../assets/js/xenon-widgets.js"></script>
+    <script src="../assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+    <!--   <script src="../assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>-->
+    <script src="../assets/js/toastr/toastr.min.js"></script>
+
+
+    
+    <script src="../assets/js/jquery-ui/jquery-ui.js"></script>
+    <script src="../assets/js/knob/jquery.knob.min.js"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="../assets/js/xenon-custom.js"></script>
+    
+    <script src="../assets/js/d3.min.js"></script>
+    <script src="../assets/js/viz-1.0.3.js"></script>
+    <script src="../assets/js/visualgo_print.js"></script>
+    <script src="../assets/js/graph_library.js"></script>
+   
+    <script type="text/javascript">
+        // SSSP Widget
+        // author: Steven Halim
+        
+        var SSSP = function() {
+          var self = this;
+          var gw = new GraphWidget();
+        
+          var iVL = {};
+          var iEL = {};
+          var amountVertex = 0;
+          var amountEdge = 0;
+        
+          this.getgw = function() { return gw; }
+        
+          fixJSON = function() {
+            amountVertex = 0;
+            amountEdge = 0;
+            for (var key in iVL) amountVertex++;
+            for (var key in iEL) amountEdge++;
+        
+            for (var key in iEL) iEL[key]["w"] = parseInt(iEL[key]["w"]); // integer
+          }
+        
+          takeJSON = function(graph) {
+            if (graph == null) return;
+            graph = JSON.parse(graph);
+            iVL = graph["vl"];
+            iEL = graph["el"];
+            fixJSON();
+          }
+        
+          statusChecking = function() {
+            $("#draw-status p").html('请绘制一个<b>有向加权图</b>，其中<b>顶点0是源</b>。请<b>创造许多路径</b>，使其<b>对各种SSSP算法具有挑战性</b>。');
+          }
+        
+          warnChecking = function() {
+            var warn = "";
+            if (amountVertex >= 10) warn += 'Vertex 太多了，请画比较小的 graph。';
+        
+            var visited = [];
+            var stack = [];
+            stack.push(0);
+            visited[0] = true;
+            while (stack.length > 0) {
+              var now = stack.pop();
+              for (var key2 in iEL)
+                if (iEL[key2]["u"] == now)
+                  if (!visited[iEL[key2]["v"]]) {
+                    visited[iEL[key2]["v"]] = true;
+                    stack.push(+iEL[key2]["v"]);
+                  }
+            }
+            for (var i = 0; i < amountVertex; ++i)
+              if (!visited[i])
+                warn += '顶点 {i} 无法从顶点0到达。';
+        
+            if (warn == "") $("#draw-warn p").html('没有 warning。');
+            else            $("#draw-warn p").html(warn);
+          }
+        
+          errorChecking = function() {
+            var error = "";
+            if (amountVertex == 0) {
+              $("#draw-err p").html('图表不能为空。');
+              return;
+            }
+        
+            if (error == "") $("#draw-err p").html('没有 error');
+            else             $("#draw-err p").html(error);
+          }
+        
+          var intervalID;
+        
+          this.startLoop = function() {
+            intervalID = setInterval(function() {
+              takeJSON(JSONresult);
+              warnChecking();
+              errorChecking();
+              statusChecking();
+            }, 100);
+          }
+        
+          this.stopLoop = function() { clearInterval(intervalID); }
+        
+          this.draw = function() {
+            if ($("#draw-err p").html() != '没有 error')
+              return false;
+            if ($("#submit").is(':checked'))
+              this.submit(JSONresult);
+            if ($("#copy").is(':checked'))
+              window.prompt('复制到剪贴板', JSONresult);
+        
+            graph = createState(iVL, iEL);
+            gw.updateGraph(graph, 500);
+            return true;
+          }
+        
+          // this.submit = function(graph) { // not used now
+          //   $.ajax({
+          //     url: PHP_DOMAIN + "php/Graph.php?mode=" + MODE_SUBMIT_GRAPH,
+          //     type: "POST",
+          //     data: {canvasWidth: 1000, canvasHeight: 500, graphTopics: 'SSSP', graphState: graph, fbAccessToken: fbAccessToken},
+          //     error: function(xhr, errorType, exception) { //Triggered if an error communicating with server
+          //       var errorMessage = exception || xhr.statusText; //If exception null, then default to xhr.statusText
+          //       alert("There was an error submitting your graph " + errorMessage);
+          //     }
+          //   }).done(function(data) {
+          //     $("#drawgraph-err").html(data);
+          //   });
+          // }
+        
+          this.importjson = function(JSON) {
+            takeJSON(JSON);
+            graph = createState(iVL, iEL);
+            gw.updateGraph(graph, 500);
+          }
+        
+          // this.initRandom = function(graph) {
+          //   iVL = graph.iVL;
+          //   iEL = graph.iEL;
+          //   amountVertex = iVL.length;
+          //   amountEdge = iEL.length;
+          //   fixJSON();
+          //   statusChecking();
+          //   var newState = createState(iVL, iEL);
+          //   gw.updateGraph(newState, 500);
+          // }
+        
+          this.getGraph = function() {
+            return {
+              'vl': iVL,
+              'el': iEL
+            };
+          }
+        
+          this.getV = function() {
+            return amountVertex;
+          }
+        
+          this.bellmanford = function(sourceVertex, callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, edgeGrey = {};
+            var stateList = [];
+            var key, i, cs;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+              toastr.error('没有图表运行此项。请首先选择图表。.');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+              toastr.error('图中不存在此顶点。请选择另一个源点.');
+              return false;
+            }
+        
+            var d = {}, p = {};
+            for (var i = 0; i < amountVertex; i++) {
+              d[i] = 999;
+              p[i] = -1;
+              iVL[i]["state"] = VERTEX_DEFAULT;
+              iVL[i]["extratext"] = "Inf";
+            }
+            d[sourceVertex] = 0;
+        
+            //vertexTraversed[sourceVertex] = true;
+            iVL[sourceVertex]["extratext"] = "source, 0";
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed);
+            cs["status"] = sourceVertex + ' 是源点<br>设 p[v] = -1, d[v] = Inf, 但是 d[" + sourceVertex + "] = 0.';
+            cs["lineNo"] = 1;
+            stateList.push(cs);
+        
+            delete vertexHighlighted[sourceVertex];
+            var EdgeProcessed = 0;
+            var NextStatus = '第一趟开始。';
+        
+            for (var i = 1; i < amountVertex; i++) { // V-1 passes of Bellman Ford's
+              var NumChange = 0;
+        
+              for (key in iEL) {
+                delete edgeHighlighted[key];
+                delete edgeGrey[key];
+              }
+        
+              for (key in iEL)
+                if (p[iEL[key]["v"]] == iEL[key]["u"]) edgeHighlighted[key] = true;
+                else                                   edgeGrey[key] = true;
+        
+              for (var key in iVL) vertexHighlighted[key] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+              cs["status"] = NextStatus + '<br>目前为止，突出显示的边是当前的SSSP生成树.';
+              for (var key in iVL) delete vertexHighlighted[key];
+        
+              cs["lineNo"] = 2;
+              stateList.push(cs);
+        
+              for (key in iEL) { // start afresh for next round
+                delete edgeHighlighted[key];
+                delete edgeGrey[key];
+              }
+              for (var key in iVL) delete vertexHighlighted[key];
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+              cs["status"] = '为此准备所有的边 #pass: ' + i + ".";
+              cs["lineNo"] = 2;
+              stateList.push(cs);
+        
+              for (var j = 0; j < amountEdge; j++) {
+                EdgeProcessed++;
+                var u = iEL[j]["u"], v = iEL[j]["v"], w = iEL[j]["w"];
+                var thisStatus = "#pass: " + i + ", relax(" + u + "," + v + "," + w + "), #edge_processed = " + EdgeProcessed + ".";
+        
+                for (var key in iVL) delete vertexHighlighted[key]; // turn off all vertex highlights first
+                vertexTraversed[u] = vertexTraversed[v] = true;
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["vl"][u]["state"] = cs["vl"][v]["state"] = VERTEX_GREEN_FILL;
+                cs["status"] = thisStatus;
+                cs["lineNo"] = [3, 4];
+                cs["el"][j]["animateHighlighted"] = true;
+                stateList.push(cs);
+        
+                // if we can relax vertex B, do updates and some more highlights
+                if ((d[u] != 999) && (w != 999) && (d[u]+w < d[v])) {
+                  d[v] = d[u]+w;
+                  p[v] = u;
+                  iVL[v]["extratext"] = d[v];
+                  thisStatus = thisStatus + "<br>d[" + v + "] = " + d[v] + ", p[" + v + "] = " + p[v] + ".";
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+                  NumChange++;
+                }
+                else {
+                  thisStatus = thisStatus + "<br>没有变化.";
+                  edgeGrey[j] = true;
+                }
+        
+                // highlight the edge being relaxed in the input graph
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["lineNo"] = [3, 4];
+                cs["status"] = thisStatus;
+                stateList.push(cs);
+              }
+        
+              if (NumChange == 0) NextStatus = '最后一趟没有变化，现在可以停止贝尔曼福特算法.'; // optimized Bellman Ford's
+              else                NextStatus = NumChange + ' 在最后一次松弛<font color="orange">橙色</font>的边，我们将继续.';
+            }
+        
+            for (var k = 0; k < amountVertex; k++) vertexHighlighted[k] = true;
+            for (var key in iEL) {
+              delete edgeHighlighted[key];
+              delete edgeGrey[key];
+            }
+            for (var l = 0; l < amountEdge; l++)
+              if (p[iEL[l]["v"]] == iEL[l]["u"]) edgeHighlighted[l] = true;
+              else                               edgeGrey[l] = true;
+        
+            cs = processEnding(iVL, iEL, sourceVertex, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey, "#edge_processed = " + EdgeProcessed + ", V*E = " + amountVertex + "*" + amountEdge + " = " + (amountVertex*amountEdge) + ".<br>", d);
+            cs["lineNo"] = [5, 6];
+            stateList.push(cs);
+        
+            populatePseudocode(0);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          function processEnding(iVL, iEL, sourceVertex, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey, baseStatus, d) {
+            actual_d = RunBellmanFord(iVL, iEL, sourceVertex);
+            var GotWA = false;
+            for (var key in iVL)
+              if (d[key] != actual_d[key])
+                GotWA = true;
+            var last_cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            for (var key in iVL)
+              if (d[key] != actual_d[key]) {
+                last_cs["vl"][key]["extratext"] = last_cs["vl"][key]["extratext"] + " => " + actual_d[key];
+                last_cs["vl"][key]["state"] = VERTEX_RED_FILL;
+                for (var key2 in iEL) {
+                  var u = iEL[key2]["u"], v = iEL[key2]["v"];
+                  if (v == key)
+                    last_cs["el"][key2]["state"] = EDGE_GREY; // the predecessor information is also invalid
+                }
+              }
+            last_cs["status"] = baseStatus;
+            if (!GotWA) last_cs["status"] += '这是源顶点的SSSP生成树 ' + sourceVertex + ".";
+            else        last_cs["status"] += "<span style='color: red; background-color: white;'>" + '错误：红色顶点具有错误的最短路径值</span>.';
+            return last_cs;
+          }
+        
+          this.dijkstra = function(sourceVertex, versionType, callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, edgeGrey = {};
+            var stateList = [];
+            var key, i, cs;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+               toastr.error('没有图表运行此项。请首先选择图表。.');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+               toastr.error('图中不存在此顶点。请选择另一个源点.');
+              return false;
+            }
+        
+            if (versionType == 1) { // original
+              isCorrect = !HasNegativeWeight(iVL, iEL);
+              if (!isCorrect) {
+                cs = createState(iVL, iEL);
+                cs["status"] = "<span style='color: yellow; background-color: black;'>" + '∃ ≥ 1 的边具有负权值。<br>原始的戴克斯特拉算法可能会产生错误的答案</span>.';
+                cs["lineNo"] = 1;
+                stateList.push(cs);
+              }
+            }
+            else { // Modified
+              isCorrect = !HasNegativeWeightCycle(iVL, iEL, sourceVertex);
+              if (!isCorrect) {
+                cs = createState(iVL, iEL);
+                cs["status"] = "<span style='color: yellow; background-color: black;'>" + '∃ ≥ 1 <b>负权重循环可从源点到达。</b><br>修改后的戴克斯特啦算法将会陷入无限循环</span>.';
+                cs["lineNo"] = 1;
+                stateList.push(cs);
+              }
+            }
+        
+            var d = {}, p = {};
+            for (var i = 0; i < amountVertex; i++) {
+              d[i] = 999;
+              p[i] = -1;
+              iVL[i]["state"] = VERTEX_DEFAULT;
+              iVL[i]["extratext"] = "Inf";
+            }
+            d[sourceVertex] = 0;
+        
+            vertexTraversed[sourceVertex] = true;
+            iVL[sourceVertex]["extratext"] = "source, 0";
+        
+            var pq = [], done = [];
+            var EdgeProcessed = 0;
+        
+            if (versionType == 1) { // original
+              for (var i = 0; i < amountVertex; i++)
+                if (i == sourceVertex) pq.push(new ObjectPair(0, i));
+                else                   pq.push(new ObjectPair(999, i));
+            }
+            else // modified
+              pq.push(new ObjectPair(0, sourceVertex)); // only push one
+        
+            function ShowPQ() {
+              if (pq.length == 0) return "{}";
+              var result = "{<span style='color: green; background-color: pink;'>(" + pq[0].getFirst() + "," + pq[0].getSecond() + ")</span>";
+              if (pq.length > 1) result += ", (" + pq[1].getFirst() + "," + pq[1].getSecond() + ")";
+              if (pq.length > 2) result += ", (" + pq[2].getFirst() + "," + pq[2].getSecond() + ")";
+              if (pq.length > 3) result += ", ...";
+              return result + "}";
+            }
+        
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            cs["status"] = sourceVertex + ' 是源点<br>设 p[v] = -1, d[v] = Inf, 但是 d[' + sourceVertex + '] = 0, PQ = ' + ShowPQ() + ".";
+            cs["lineNo"] = 2;
+            stateList.push(cs);
+        
+            while (pq.length > 0) {
+              pq.sort(ObjectPair.compare); // sort by distance, then by vertex number, lousy O(n log n) PQ update
+              if (versionType == 2 && (EdgeProcessed >= 100 && HasNegativeWeightCycle(iVL, iEL, sourceVertex))) { // to prevent infinite loop in Modified Dijkstra on negative cycle
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["status"] = "#edge_processed = " + EdgeProcessed + '... 修改后的戴克斯特拉算法提前停止以防止死循环.';
+                stateList.push(cs);
+                break;
+              }
+        
+              var curFront = pq[0].getSecond();
+              done.push(curFront);
+        
+              var newStatus = '<ul><li>当前的优先队列PQ<br></li></ul> ' + ShowPQ();
+              var frontitem = pq.shift(); // front most item
+              var dist = frontitem.getFirst(); // not used in original dijkstra
+              var f = frontitem.getSecond();
+              vertexHighlighted[f] = true;
+        
+              if (versionType == 2 && dist > d[f]) {
+                newStatus += ".<br>(" + dist + "," + f + ") "+'是一个旧信息所以跳过.';
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["vl"][f]["state"] = VERTEX_GREEN_FILL;
+                cs["lineNo"] = [3, 4];
+                cs["status"] = newStatus;
+                stateList.push(cs);
+                continue; // do not do anything else...
+              }
+              else {
+                newStatus += '.<br>探索顶点的领点 u = ' + f + ", d[u] = " + d[f] + ".";
+                vertexTraversed[curFront] = true; // only re-highlight here
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["vl"][f]["state"] = VERTEX_GREEN_FILL;
+                cs["lineNo"] = 3;
+                cs["status"] = newStatus;
+                stateList.push(cs);
+              }
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == f) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var u = iEL[j]["u"], v = iEL[j]["v"], w = iEL[j]["w"];
+        
+                vertexTraversed[v] = true;
+                EdgeProcessed++;
+                var thisStatus = 'relax(' + u + ',' + v + ',' + w + '), #edge_processed = ' + EdgeProcessed;
+        
+                if ((d[u] != 999) && (w != 999) && (d[u]+w < d[v])) {
+                  d[v] = d[u]+w;
+                  if (versionType == 1)
+                    for (var k = 0; k < pq.length; k++) // lousy O(n) PQ update, but it works for this animation (only for version 1)
+                      if (pq[k].getSecond() == v) {
+                        pq.splice(k, 1);
+                        break;
+                      }
+        
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+        
+                  if ((p[v] != -1) && (p[v] != u))  { // it has a parent before and its parent is not u
+                    for (var k = 0; k < amountEdge; k++)
+                      if (iEL[k]["u"] == p[v] && iEL[k]["v"] == v) {
+                        delete edgeHighlighted[k];
+                        edgeGrey[k] = true; // now make it "grey"
+                      }
+                      else if (iEL[k]["u"] == v && iEL[k]["v"] == p[v] && edgeHighlighted[k])
+                        delete edgeHighlighted[k];
+                  }
+        
+                  delete edgeGrey[j]; // just in case the update is on the same edge
+                  p[v] = u; // now update parent information
+                  iVL[v]["extratext"] = d[v];
+        
+                  var canRelaxThis = true;
+                  for (var k = 0; k < done.length; k++)
+                    if (done[k] == v) {
+                      canRelaxThis = false;
+                      break;
+                    }
+        
+                  if (versionType == 2 || canRelaxThis) // for standard dijkstra
+                    pq.push(new ObjectPair(d[v], parseInt(v)));
+        
+                  pq.sort(ObjectPair.compare);
+                  thisStatus = thisStatus + ".<br>d[" + v + "] = d[" + u + "]+w(" + u + "," + v + ") = " + d[u] + "+" + w + " = " + d[v] + ", p[" + v + "] = " + p[v] + ", PQ = " + ShowPQ() + ".";
+                }
+                else {
+                  thisStatus = thisStatus + ".<br>d[" + u + "]+w(" + u + "," + v + ") > d[" + v + "], i.e. " + (d[u] == 999 ? "Inf" : d[u]) + "+" + w + " &gt; " + (d[v] == 999 ? "Inf" : d[v]) + ", 所以没有变化.";
+                  edgeGrey[j] = true; // make this grey
+                }
+        
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["status"] = thisStatus;
+                if (versionType == 1) cs["lineNo"] = [4, 5];
+                else                  cs["lineNo"] = [5, 6];
+                cs["vl"][u]["state"] = VERTEX_GREEN_FILL;
+                cs["el"][j]["animateHighlighted"] = true;
+                stateList.push(cs);
+              }
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+              if (versionType == 1) {
+                cs["status"] = 'd[' + f + '] = ' + d[f] + ' 是最终结果，因为已经处理了该顶点的所有输出边.';
+                cs["lineNo"] = [4, 5];
+              }
+              else {
+                cs["status"] = 'd[' + f + '] = ' + d[f] + ' 如有必要，仍然可以在将来重新更新，这个顶点只是“暂时”完成.';
+                cs["lineNo"] = [5, 6];
+              }
+              stateList.push(cs);
+            }
+        
+            if (versionType == 1 || (versionType == 2 && EdgeProcessed < 100)) // to prevent infinite loop in Modified Dijkstra on negative cycle
+              stateList.push(processEnding(iVL, iEL, sourceVertex, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey, "#edge_processed = " + EdgeProcessed + ", O((V+E) log V) = " + Math.ceil((amountVertex+amountEdge) * Math.log(amountVertex)/Math.log(2.0)) + ".<br>", d));
+        
+            if (versionType == 1) populatePseudocode(1);
+            else                  populatePseudocode(2);
+        
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.bfs = function(sourceVertex, callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, edgeGrey = {};
+            var stateList = [];
+            var key, i, cs, isCorrect;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+              $('#bfs-err').html('没有图表运行此项。请首先选择图表。.');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+              $('#bfs-err').html('图中不存在此顶点。请选择另一个源点.');
+              return false;
+            }
+        
+            isCorrect = IsConstantWeighted(iVL, iEL);
+            if (!isCorrect) {
+              cs = createState(iVL, iEL);
+              cs["status"] = "<span style='color: yellow; background-color: black;'>" + '警告：这个图不是一个<b>非加权 / 恒定加权图</b>。<div>BFS可能会产生错误的SSSP答案</div></span>.';
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+            }
+        
+            var d = {}, p = {};
+            for (var i = 0; i < amountVertex; i++) {
+              d[i] = 999;
+              p[i] = -1;
+              iVL[i]["state"] = VERTEX_DEFAULT;
+              iVL[i]["extratext"] = "Inf";
+            }
+            d[sourceVertex] = 0;
+        
+            vertexTraversed[sourceVertex] = true;
+            iVL[sourceVertex]["extratext"] = "source, 0";
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            cs["status"] = sourceVertex + ' 是源点<br>设 p[v] = -1, d[v] = Inf, 但是 d[" + sourceVertex + "] = 0 并将此顶点推送到队列.';
+            cs["lineNo"] = 2;
+            stateList.push(cs);
+        
+            var q = [];
+            q.push(sourceVertex);
+            var EdgeProcessed = 0;
+        
+            function ShowQ() {
+              var result = "{" + q[0];
+              if (q.length > 1) result += ", " + q[1];
+              if (q.length > 2) result += ", " + q[2];
+              if (q.length > 3) result += ", " + q[3];
+              if (q.length > 4) result += ", ...";
+              return result + "}";
+            }
+        
+            while (q.length > 0) {
+              vertexHighlighted[q[0]] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+              newStatus = '现在的队列是 ' + ShowQ() + ".<br><span style='color: green; background-color: pink;'>" + '探索顶点的领点 u = ' + q[0] + "</span>.";
+              cs["vl"][q[0]]["state"] = VERTEX_GREEN_FILL;
+              cs["status"] = newStatus;
+              cs["lineNo"] = 3;
+              stateList.push(cs);
+        
+              var f = q.shift(); // front most item
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == f) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var u = iEL[j]["u"], v = iEL[j]["v"], w = iEL[j]["w"]; // w not necessarily 1, we make it more flexible
+        
+                vertexTraversed[v] = true;
+                EdgeProcessed++;
+                var thisStatus = "relax(" + u + "," + v + "," + w + "), #edge_processed = " + EdgeProcessed;
+        
+                if ((d[u] != 999) && (d[v] == 999)) { // only if the destination has not been visited yet (most likely lead to Wrong Answer for unweighted graphs)
+                  d[v] = d[u]+w;
+        
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+        
+                  if (p[v] != -1) { // it has a parent before
+                    for (var k = 0; k < amountEdge; k++)
+                      if (iEL[k]["u"] == p[v] && iEL[k]["v"] == v) {
+                        delete edgeHighlighted[k];
+                        edgeGrey[k] = true; // now make it "grey"
+                      }
+                      else if (iEL[k]["u"] == v && iEL[k]["v"] == p[v] && edgeHighlighted[k])
+                        delete edgeHighlighted[k];
+                  }
+        
+                  q.push(v);
+                  delete edgeGrey[j]; // just in case the update is on the same edge
+                  p[v] = u;
+                  iVL[v]["extratext"] = d[v];
+                  thisStatus = thisStatus + ".<br>d[" + v + "] = " + d[v] + ", p[" + v + "] = " + p[v] + ", Q = " + ShowQ() + ".";
+                  vertexTraversed[v] = true;
+                }
+                else {
+                  thisStatus = thisStatus + ".<br>目标顶点已被访问，因此没有变化.";
+                  edgeGrey[j] = true;
+                }
+        
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["status"] = thisStatus;
+                if (edgeGrey[j]) cs["lineNo"] = [4, 5];
+                else             cs["lineNo"] = [4, 5, 6];
+                cs["vl"][u]["state"] = VERTEX_GREEN_FILL;
+                cs["el"][j]["animateHighlighted"] = true;
+                stateList.push(cs);
+              }
+            }
+        
+            stateList.push(processEnding(iVL, iEL, sourceVertex, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey, "#edge_processed = " + EdgeProcessed + ", O(V+E) = " + amountVertex + "+" + amountEdge + " = " + (amountVertex+amountEdge) + ".<br>", d));
+        
+            populatePseudocode(3);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.dfs = function(sourceVertex, callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, edgeGrey = {};
+            var stateList = [];
+            var key, i, cs, isCorrect = true;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+              $('#dfs-err').html('没有图表运行此项。请首先选择图表。.');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+              $('#dfs-err').html('图中不存在此顶点。请选择另一个源点.');
+              return false;
+            }
+        
+            isCorrect = IsTree(iVL, iEL);
+            if (!isCorrect) {
+              cs = createState(iVL, iEL);
+              cs["status"] = "<span style='color: yellow; background-color: black;'>" + '警告：输入图不是一个<b>无向树。</b><div>DFS 可能会产生错误的答案</div>.</span>"';
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+            }
+        
+            var d = {}, p = {};
+            for (var i = 0; i < amountVertex; i++) {
+              d[i] = 999;
+              p[i] = -1;
+              iVL[i]["state"] = VERTEX_DEFAULT;
+              iVL[i]["extratext"] = "Inf";
+            }
+            d[sourceVertex] = 0;
+        
+            vertexTraversed[sourceVertex] = true;
+            iVL[sourceVertex]["extratext"] = "source, 0";
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            cs["status"] = sourceVertex + ' 是源点<br>设 p[v] = -1, d[v] = Inf, 但是 d[" + sourceVertex + "] = 0.';
+            cs["lineNo"] = 2;
+            stateList.push(cs);
+        
+            var EdgeProcessed = 0;
+        
+            function dfsRecur(u) {
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+              cs["status"] = "DFS(" + u + ")";
+              cs["vl"][u]["state"] = VERTEX_GREEN_FILL;
+              cs["lineNo"] = 3;
+              stateList.push(cs);
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var u = iEL[j]["u"], v = iEL[j]["v"], w = iEL[j]["w"];
+        
+                EdgeProcessed++;
+                var thisStatus = "relax(" + u + "," + v + "," + w + "), #edge_processed = " + EdgeProcessed;
+        
+                if ((d[u] != 999) && (d[v] == 999)) {
+                  d[v] = d[u]+w;
+        
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+        
+                  if (p[v] != -1) { // it has a parent before
+                    for (var k = 0; k < amountEdge; k++)
+                      if (iEL[k]["u"] == p[v] && iEL[k]["v"] == v) {
+                        delete edgeHighlighted[k];
+                        edgeGrey[k] = true; // now make it "grey"
+                      }
+                      else if (iEL[k]["u"] == v && iEL[k]["v"] == p[v] && edgeHighlighted[k])
+                        delete edgeHighlighted[k];
+                  }
+        
+                  delete edgeGrey[j]; // just in case the update is on the same edge
+                  p[v] = u;
+                  iVL[v]["extratext"] = d[v];
+                  thisStatus = thisStatus + ".<br>d[" + v + "] = " + d[v] + ", p[" + v + "] = " + p[v] + ".";
+                  vertexTraversed[v] = true;
+        
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                  cs["lineNo"] = [4, 5, 6];
+                  cs["status"] = thisStatus;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+        
+                  dfsRecur(v);
+        
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                  cs["vl"][u]["state"] = VERTEX_GREEN_FILL;
+                  cs["vl"][v]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["status"] = '完成DFS(' + v + '), 原路返回到DFS(" + u + ").';
+                  stateList.push(cs);
+                }
+                else {
+                  edgeGrey[j] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                  thisStatus = thisStatus + ".<br>松弛操作不成功.";
+                  cs["lineNo"] = [4, 5];
+                  cs["status"] = thisStatus;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+                }
+              }
+              vertexTraversed[u] = true;
+            }
+            dfsRecur(sourceVertex);
+        
+            stateList.push(processEnding(iVL, iEL, sourceVertex, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey, "#edge_processed = " + EdgeProcessed + ", O(V+E) = " + amountVertex + "+" + amountEdge + " = " + (amountVertex+amountEdge) + ".<br>", d));
+        
+            populatePseudocode(4);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.dp = function(sourceVertex, callback) {
+            var notVisited = {}, vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, edgeTraversed = {}, edgeGrey = {};
+            var stateList = [];
+            var key, i, cs, isCorrect = true;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+              $('#dp-err').html('没有图表运行此项。请首先选择图表。.');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+              $('#dp-err').html('图中不存在此顶点。请选择另一个源点.');
+              return false;
+            }
+        
+            isCorrect = IsDAG(iVL, iEL);
+            if (!isCorrect) {
+              $('#dp-err').html('输入图不是一个有向无环图.');
+              return false;
+            }
+        
+            var order = TopoSort(iVL, iEL);
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            cs["status"] = '由于这是一个DAG，它至少有一个拓扑排序.<br><span style="color: red; background-color: white;">其中一个拓扑排序是: {' + order + "}.</span>";
+            for (var i = 0; i < order.length; i++)
+              cs["vl"][order[i]]["extratext"] = i;
+            cs["lineNo"] = 1;
+            stateList.push(cs);
+        
+            var d = {};
+            var p = {};
+            for (var i = 0; i < amountVertex; i++) {
+              d[i] = 999;
+              p[i] = -1;
+            }
+            d[sourceVertex] = 0;
+        
+            for (key in iVL) {
+              iVL[key]["state"] = VERTEX_DEFAULT;
+              iVL[key]["extratext"] = "Inf";
+            }
+        
+            vertexHighlighted[sourceVertex] = true;
+            iVL[sourceVertex]["extratext"] = "source, 0";
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            cs["status"] = sourceVertex + ' 是源点<br>设 p[v] = -1, d[v] = Inf, 但是 d[" + sourceVertex + "] = 0.';
+            cs["lineNo"] = 2;
+            stateList.push(cs);
+        
+            delete vertexHighlighted[sourceVertex];
+            for (key in iEL) delete edgeTraversed[key];
+        
+            var EdgeProcessed = 0;
+        
+            while (order.length > 0) {
+              var u = order[0];
+              order.shift();
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+              cs["vl"][u]["state"] = VERTEX_GREEN_FILL;
+              cs["status"] = '目前的拓扑序列:' + " {<span style='color: green; background-color: pink;'>" + u + "</span>" + (order.length > 0 ? "," : "") + order + '}.<br>因此，我们处理顶点的传出边 ' + u + ".";
+              cs["lineNo"] = [3, 4];
+              stateList.push(cs);
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var u = iEL[j]["u"], v = iEL[j]["v"], w = iEL[j]["w"];
+        
+                EdgeProcessed++;
+                var thisStatus = "relax(" + u + "," + v + "," + w + "), #edge_processed = " + EdgeProcessed;
+        
+                if ((d[u] != 999) && (d[u]+w < d[v])) {
+                  d[v] = d[u]+w;
+        
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+        
+                  if (p[v] != -1) { // it has a parent before
+                    for (var k = 0; k < amountEdge; k++)
+                      if (iEL[k]["u"] == p[v] && iEL[k]["v"] == v) {
+                        delete edgeHighlighted[k];
+                        edgeGrey[k] = true; // now make it "grey"
+                      }
+                      else if (iEL[k]["u"] == v && iEL[k]["v"] == p[v] && edgeHighlighted[k])
+                        delete edgeHighlighted[k];
+                  }
+        
+                  delete edgeGrey[j]; // just in case the update is on the same edge
+                  p[v] = u;
+                  iVL[v]["extratext"] = d[v];
+                  thisStatus = thisStatus + ".<br>d[" + v + "] = " + d[v] + ", p[" + v + "] = " + p[v] + ".";
+                  vertexTraversed[v] = true;
+                }
+                else {
+                  edgeGrey[j] = true;
+                  thisStatus = thisStatus + ".<br>松弛操作不成功.";
+                }
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+                cs["lineNo"] = 5;
+                cs["status"] = thisStatus;
+                cs["vl"][u]["state"] = VERTEX_GREEN_FILL;
+                cs["el"][j]["animateHighlighted"] = true;
+                stateList.push(cs);
+              }
+              vertexTraversed[u] = true;
+            }
+        
+            for (key in iVL) delete vertexTraversed[key];
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey);
+            cs["status"] = "#edge_processed = " + EdgeProcessed + ", O(V+E) = " + amountVertex + "+" + amountEdge + " = " + (amountVertex+amountEdge) + '.<br>这是源顶点的SSSP生成树 = ' + sourceVertex + ".";
+            stateList.push(cs);
+        
+            populatePseudocode(5);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.examples = function(id) {
+            iVL = getExampleGraph(id, VL);
+            iEL = getExampleGraph(id, EL);
+            fixJSON();
+            var newState = createState(iVL, iEL);
+            gw.updateGraph(newState, 500);
+            return true;
+          }
+        
+          this.loadGraph = function(vertexList, edgeList) {
+            iVL = vertexList;
+            iEL = edgeList;
+            fixJSON();
+            var newState = createState(iVL, iEL);
+            gw.updateGraph(newState, 500);
+          }
+        
+          function createState(iVLObject, iELObject, vertexHighlighted, edgeHighlighted, vertexTraversed, edgeGrey) {
+            if (vertexHighlighted == null) vertexHighlighted = {};
+            if (edgeHighlighted == null) edgeHighlighted = {};
+            if (vertexTraversed == null) vertexTraversed = {};
+            if (edgeGrey == null) edgeGrey = {};
+        
+            var key;
+            var state = {
+              "vl": {},
+              "el": {}
+            };
+        
+            for (key in iVLObject) {
+              state["vl"][key] = {};
+              state["vl"][key]["cx"] = iVLObject[key]["x"];
+              state["vl"][key]["cy"] = iVLObject[key]["y"];
+              state["vl"][key]["text"] = key;
+              state["vl"][key]["extratext"] = iVLObject[key]["extratext"];
+              if (iVLObject[key]["state"] == OBJ_HIDDEN)
+                state["vl"][key]["state"] = OBJ_HIDDEN;
+              else
+                state["vl"][key]["state"] = VERTEX_DEFAULT;
+            }
+        
+            for (key in iELObject) {
+              state["el"][key] = {};
+              state["el"][key]["vertexA"] = iELObject[key]["u"];
+              state["el"][key]["vertexB"] = iELObject[key]["v"];
+              state["el"][key]["type"] = EDGE_TYPE_DE;
+              state["el"][key]["weight"] = iELObject[key]["w"];
+              if (iELObject[key]["state"] == OBJ_HIDDEN)
+                state["el"][key]["state"] = OBJ_HIDDEN;
+              else
+                state["el"][key]["state"] = EDGE_DEFAULT;
+              state["el"][key]["displayWeight"] = true;
+              state["el"][key]["animateHighlighted"] = false;
+            }
+        
+            for (key in vertexTraversed) state["vl"][key]["state"] = VERTEX_TRAVERSED;
+            for (key in vertexHighlighted) state["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+        
+            for (key in edgeHighlighted) {
+              state["el"][key]["state"] = EDGE_HIGHLIGHTED;
+              for (var keyR in iEL) if ((iEL[key]["u"] == iEL[keyR]["v"]) && (iEL[key]["v"] == iEL[keyR]["u"])) edgeHighlighted[keyR] = true;
+            }
+        
+            for (key in edgeGrey) {
+              var hasComplement = false, complementHighlighted = false;
+              for (key2 in iELObject)
+                if ((iELObject[key]["u"] == iELObject[key2]["v"]) && (iELObject[key]["v"] == iELObject[key2]["u"])) { // if one on top another...
+                  hasComplement = true;
+                  for (key3 in edgeHighlighted)
+                    if (key3 == key2)
+                      complementHighlighted = true;
+                }
+              if (hasComplement && complementHighlighted) // one on top of the other, and the other side is highlighted... hide this
+                state["el"][key]["state"] = OBJ_HIDDEN;
+              else // if not overlapping, grey it
+                state["el"][key]["state"] = EDGE_GREY;
+            }
+        
+            return state;
+          }
+        
+          function populatePseudocode(act) {
+            switch (act) {
+              case 0: // Bellman Ford's
+                $('#code1').html('initSSSP');
+                $('#code2').html('for i = 1 to |V|-1');
+                $('#code3').html('&nbsp;&nbsp;for each edge(u, v) in E // in Edge List order');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;relax(u, v, w(u, v))');
+                $('#code5').html('for each edge(u, v) in E');
+                $('#code6').html('&nbsp;&nbsp;if can still relax that edge, -&infin; cycle found');
+                $('#code7').html('');
+                break;
+              case 1: // Original Dijkstra's
+                $('#code1').html('show warning if the graph has -ve weight edge');
+                $('#code2').html('initSSSP, pre-populate PQ');
+                $('#code3').html('while !PQ.empty() // PQ is a Priority Queue');
+                $('#code4').html('&nbsp;&nbsp;for each neighbor v of u = PQ.front(), PQ.pop()');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;relax(u, v, w(u, v)) + update PQ');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+              case 2: // Modified Dijkstra's
+                $('#code1').html('show warning if the graph has -ve weight cycle');
+                $('#code2').html('initSSSP, PQ.push((0,sourceVertex))');
+                $('#code3').html('while !PQ.empty() // PQ is a Priority Queue');
+                $('#code4').html('&nbsp;&nbsp;u = PQ.front(), PQ.pop()');
+                $('#code5').html('&nbsp;&nbsp;for each neighbor v of u if u is valid');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;relax(u, v, w(u, v)) + insert new pair to PQ');
+                $('#code7').html('');
+                break;
+              case 3: // BFS
+                $('#code1').html('show warning if the graph is weighted');
+                $('#code2').html('initSSSP, Q.push(sourceVertex)');
+                $('#code3').html('while !Q.empty() // Q is a normal Queue');
+                $('#code4').html('&nbsp;&nbsp;for each neighbor v of u = Q.front(), Q.pop()');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;if !visited[v]');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relax(u, v, w(u, v)), Q.push(v)');
+                $('#code7').html('');
+                break;
+              case 4: // DFS
+                $('#code1').html('show warning if the graph is not a tree');
+                $('#code2').html('initSSSP, then DFS(sourceVertex)');
+                $('#code3').html('DFS(u)');
+                $('#code4').html('&nbsp;&nbsp;for each neighbor v of u');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;if !visited[v]');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relax(u, v, w(u, v)), DFS(v)');
+                $('#code7').html('');
+                break;
+              case 5: // DP
+                $('#code1').html('order = Topological Sort the input DAG');
+                $('#code2').html('initSSSP');
+                $('#code3').html('while !order.empty()');
+                $('#code4').html('&nbsp;&nbsp;u = order.front()');
+                $('#code5').html('&nbsp;&nbsp;relax all outgoing edges of vertex u');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+            }
+          }
+        }
+        
+        
+        
+        // SSSP_action.js
+        var actionsWidth = 150;
+        var statusCodetraceWidth = 410;
+        var isExamplesOpen = false, isBellmanFordsOpen = false, isDijkstrasOpen = false, isBFSOpen = false, isDFSOpen = false, isDPOpen = false;
+        
+        function openExamples() {
+          if (!isExamplesOpen) {
+            $('.examples').fadeIn('fast');
+            isExamplesOpen = true;
+          }
+        }
+        
+        function closeExamples() {
+          if (isExamplesOpen) {
+            $('.examples').fadeOut('fast');
+            isExamplesOpen = false;
+          }
+        }
+        
+        function openBellmanFords() {
+          if (!isBellmanFordsOpen) {
+            $('.bellmanford').fadeIn('fast');
+            isBellmanFordsOpen = true;
+          }
+        }
+        
+        function closeBellmanFords() {
+          if (isBellmanFordsOpen) {
+            $('.bellmanford').fadeOut('fast');
+            toastr.error("");
+            isBellmanFordsOpen = false;
+          }
+        }
+        
+        function openDijkstras() {
+          if (!isDijkstrasOpen) {
+            $('.dijkstra').fadeIn('fast');
+            isDijkstrasOpen = true;
+          }
+        }
+        
+        function closeDijkstras() {
+          if (isDijkstrasOpen) {
+            $('.dijkstra').fadeOut('fast');
+             toastr.error("");
+            isDijkstrasOpen = false;
+          }
+        }
+        
+        function openBFS() {
+          if (!isBFSOpen) {
+            $('.bfs').fadeIn('fast');
+            isBFSOpen = true;
+          }
+        }
+        
+        function closeBFS() {
+          if (isBFSOpen) {
+            $('.bfs').fadeOut('fast');
+            $('#bfs-err').html("");
+            isBFSOpen = false;
+          }
+        }
+        
+        function openDFS() {
+          if (!isDFSOpen) {
+            $('.dfs').fadeIn('fast');
+            isDFSOpen = true;
+          }
+        }
+        
+        function closeDFS() {
+          if (isDFSOpen) {
+            $('.dfs').fadeOut('fast');
+            $('#dfs-err').html("");
+            isDFSOpen = false;
+          }
+        }
+        
+        function openDP() {
+          if (!isDPOpen) {
+            $('.dp').fadeIn('fast');
+            isDPOpen = true;
+          }
+        }
+        
+        function closeDP() {
+          if (isDPOpen) {
+            $('.dp').fadeOut('fast');
+            $('#dp-err').html("");
+            isDPOpen = false;
+          }
+        }
+        
+        function hideEntireActionsPanel() {
+          closeExamples();
+          closeBellmanFords();
+          closeDijkstras();
+          closeBFS();
+          closeDFS();
+          closeDP();
+          hideActionsPanel();
+        }
+        
+        
+        
+        // local
+        write(false, false);
+        var ssspWidget, gw, randomGraphID;
+        
+        $(function() {
+          $('#play').hide();
+          ssspWidget = new SSSP();
+          gw = ssspWidget.getgw();
+          var options = [CP3_4_3, CP3_4_4, CP3_4_17, CP3_4_18, CP3_4_19, CP3_4_40, BELLMANFORD_KILLER, DIJKSTRA_KILLER, DAG];
+          ssspWidget.examples(options[Math.floor(Math.random()*9)]);
+          randomGraphID = -1;
+        
+          var graphJSON = getQueryVariable("create");
+          if (graphJSON.length > 0) {
+            ssspWidget.importjson(graphJSON);
+            window.history.pushState("object or string", "Title", window.location.href.split('?')[0]);
+          }
+        
+          $('#examples').click(function() {
+            openExamples();
+            closeBellmanFords();
+            closeDijkstras();
+            closeBFS();
+            closeDFS();
+            closeDP();
+          });
+        
+          $('#bellmanford').click(function() {
+            closeExamples();
+            openBellmanFords();
+            closeDijkstras();
+            closeBFS();
+            closeDFS();
+            closeDP();
+          });
+        
+          $('#dijkstra').click(function() {
+            closeExamples();
+            closeBellmanFords();
+            openDijkstras();
+            closeBFS();
+            closeDFS();
+            closeDP();
+          });
+        
+          $('#bfs').click(function() {
+            closeExamples();
+            closeBellmanFords();
+            closeDijkstras();
+            openBFS();
+            closeDFS();
+            closeDP();
+          });
+        
+          $('#dfs').click(function() {
+            closeExamples();
+            closeBellmanFords();
+            closeDijkstras();
+            closeBFS();
+            openDFS();
+            closeDP();
+          });
+        
+          $('#dp').click(function() {
+            closeExamples();
+            closeBellmanFords();
+            closeDijkstras();
+            closeBFS();
+            closeDFS();
+            openDP();
+          });
+        });
+        
+        // function importjson() {
+        //   if (isPlaying) stop();
+        //   if (mode == "exploration") {
+        //     ssspWidget.importjson();
+        //     closeExamples();
+        //     isPlaying = false;
+        //   }
+        // }
+        
+        function drawGraph() {
+          if (isPlaying) stop();
+          if (mode == "exploration") {
+            $('#dark-overlay').fadeIn(function() {
+              $('#drawgraph').fadeIn();
+            });
+            ssspWidget.startLoop();
+            isPlaying = false;
+          }
+        }
+        
+        function drawDone() {
+          if (!ssspWidget.draw()) return false;
+          ssspWidget.stopLoop();
+          $('#drawgraph').fadeOut();
+          $('#dark-overlay').fadeOut();
+        }
+        
+        function drawCancel() {
+          ssspWidget.stopLoop();
+          $('#drawgraph').fadeOut();
+          $('#dark-overlay').fadeOut();
+        }
+        
+        function createRandom() {
+          if (isPlaying) stop();
+          if (mode == "exploration") {
+            $.ajax({
+              url: PHP_DOMAIN + "/php/Graph.php?mode=" + MODE_GET_RANDOM_SUBMITTED_GRAPH + "&directed=" + 1 + "&connected=" + 1
+            }).done(function(data) {
+              data = JSON.parse(data);
+              var graph = extractQnGraph(data.graph);
+              if (data.graphID == randomGraphID) // make sure it is different, make sure #graph > 1
+                createRandom();
+              randomGraphID = data.graphID;
+              ssspWidget.initRandom(graph);
+              $('#rate-sample-graph').show();
+            })
+            $('#progress-bar').slider("option", "max", 0);
+            closeExamples();
+            isPlaying = false;
+          }
+        }
+        
+        function example(id) {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if (ssspWidget.examples(id)) { // (mode == "exploration") && 
+              $('#progress-bar').slider("option", "max", 0);
+              closeExamples();
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function bellmanford(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#bellmanford-v').val());
+          commonAction(ssspWidget.bellmanford(input, callback), "BellmanFord(" + input + ")");
+          setTimeout(function() { $("#bellmanford-v").val(1 + Math.floor(Math.random()*ssspWidget.getV())); }, 500); // randomized for next click between [0..V-1]
+        }
+        
+        function dijkstra(versionType, callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#dijkstra-v').val());
+          commonAction(ssspWidget.dijkstra(input, versionType, callback), (versionType == 1) ? ("OriginalDijkstra(" + input + ")") : ("ModifiedDijkstra(" + input + ")"));
+          setTimeout(function() { $("#dijkstra-v").val(1 + Math.floor(Math.random()*ssspWidget.getV())); }, 500);
+        }
+        
+        function bfs(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#bfs-v').val());
+          commonAction(ssspWidget.bfs(input, callback), "BFS(" + input + ")");
+          setTimeout(function() { $("#bfs-v").val(1 + Math.floor(Math.random()*ssspWidget.getV())); }, 500);
+        }
+        
+        function dfs(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#dfs-v').val());
+          commonAction(ssspWidget.dfs(input, callback), "DFS(" + input + ")");
+          setTimeout(function() { $("#dfs-v").val(1 + Math.floor(Math.random()*ssspWidget.getV())); }, 500);
+        }
+        
+        function dp(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#dp-v').val());
+          commonAction(ssspWidget.dp(input, callback), "DP(" + input + ")");
+          setTimeout(function() { $("#dp-v").val(1 + Math.floor(Math.random()*ssspWidget.getV())); }, 500);
+        }
+        
+        function loadGraph(graph) {
+          if (ssspWidget) {
+            ssspWidget.loadGraph(graph['vl'], graph['el']);
+          }
+        }
+        
+        // Implement these functions in each visualisation
+        var userGraph = {
+          'vl': {},
+          'el': {},
+        };
+        
+        // This function will be called before entering E-Lecture Mode
+        function ENTER_LECTURE_MODE() {
+          if (ssspWidget) userGraph = ssspWidget.getGraph();
+        }
+        
+        // This function will be called before returning to Explore Mode
+        function ENTER_EXPLORE_MODE() {
+          loadGraph(userGraph);
+        }
+        
+        // Lecture action functions
+        function CUSTOM_ACTION(action, data, mode) {
+          if (action == 'bellmanford') {
+            hideSlide(function() {
+              $('#bellmanford-v').val(data); // force
+              bellmanford(showSlide);
+            });
+          }
+          else if (action == 'dijkstra') {
+            hideSlide(function() {
+              $('#dijkstra-v').val(data); // force
+              dijkstra(1, showSlide);
+            });
+          }
+          else if (action == 'dijkstra_modified') {
+            hideSlide(function() {
+              $('#dijkstra-v').val(data); // force
+              dijkstra(2, showSlide);
+            });
+          }
+          else if (action == 'bfs') {
+            hideSlide(function() {
+              $('#bfs-v').val(data); // force
+              bfs(showSlide);
+            });
+          }
+          else if (action == 'dfs') {
+            hideSlide(function() {
+              $('#dfs-v').val(data); // force
+              dfs(showSlide);
+            });
+          }
+          else if (action == 'dp') {
+            hideSlide(function() {
+              $('#dp-v').val(data); // force
+              dp(showSlide);
+            });
+          }
+        }
+        </script>
+</body>
+
+</html>

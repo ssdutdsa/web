@@ -1,0 +1,3390 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ssdut dsa web" />
+    <meta name="author" content="" />
+
+    <title>ssdut.DSA/二叉树/二叉搜索树</title>
+    <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/xenon-core.css">
+    <link rel="stylesheet" href="../assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="../assets/css/xenon-components.css">
+    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/viz-1.0.1.css">
+    <link rel="stylesheet" href="../assets/css/visual.css">
+    <link rel="stylesheet" href="../assets/css/drawgraph.css">
+
+
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body class="page-body">
+    <div class="page-container">
+        <!-- add class"sidebar-collapsed" to close sidebar by default,"chat-visible" to make chat appear always -->
+
+        <!-- Add"fixed" class to make the sidebar fixed always to the browser viewport. -->
+        <!-- Adding class"toggle-others" will keep only one menu item open at a time. -->
+        <!-- Adding class"collapsed" collapse sidebar root elements and show only icons. -->
+        <div class="sidebar-menu toggle-others fixed">
+
+            <div class="sidebar-menu-inner">
+
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="/" class="logo-expanded">
+                            <img src="../assets/images/logo@2x.png" width="80" alt="" />
+                        </a>
+
+                        <a href="/" class="logo-collapsed">
+                            <img src="../assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+                 
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class"multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class"auto-inherit-active-class" will automatically add"active" class for parent elements who are marked already with class"active" -->
+                    <li >
+                        <a href="/index.html">
+                            <i class="fa-home"></i>
+                            <span class="title">首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/list/ll.html">
+                            <i class="fa-chain"></i>
+                            <span class="title">线性表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/list/ll.html">
+                                    <span class="title">单链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/stack.html">
+                                    <span class="title">栈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/queue.html">
+                                    <span class="title">队列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/dll.html">
+                                    <span class="title">双向链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/deque.html">
+                                    <span class="title">双端队列</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="opened active">
+                        <a href="/tree/bst.html">
+                            <i class="fa-sitemap"></i>
+                            <span class="title">二叉树</span>
+                        </a>
+                        <ul>
+                            <li class="active">
+                                <a href="/tree/bst.html">
+                                    <span class="title">二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/avl.html">
+                                    <span class="title">平衡二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/heap.html">
+                                    <span class="title">堆</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/graph/graphds.html">
+                            <i class="fa-share-alt"></i>
+                            <span class="title">图</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/graph/graphds.html">
+                                    <span class="title">图的数据结构</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/dfsbfs.html">
+                                    <span class="title">图的遍历</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/mst.html">
+                                    <span class="title">最小生成树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/sssp.html">
+                                    <span class="title">最短路径</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/maxflow.html">
+                                    <span class="title">网络最大流</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/hashtable/lp.html">
+                            <i class="fa-random"></i>
+                            <span class="title">散列表</span>                          
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/hashtable/lp.html">
+                                    <span class="title">线性探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/qp.html">
+                                    <span class="title">二次探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/dh.html">
+                                    <span class="title">双散列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/sc.html">
+                                    <span class="title">分离链接</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="/sorting/bubble.html" >
+                            <i class="fa-sort-amount-asc"></i>
+                            <span class="title">排序</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/sorting/bubble.html">
+                                    <span class="title">冒泡排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/selection.html">
+                                    <span class="title">选择排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/insertion.html">
+                                    <span class="title">插入排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/merge.html">
+                                    <span class="title">归并排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/quick.html">
+                                    <span class="title">快速排序</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/sorting/radix.html" >
+                                    <span class="title">基数排序</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>             
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <!-- User Info, Notifications and Menu Bar -->
+          
+                <div class="row" style="margin:-30px -30px 0 -30px; background-color: #FFF; padding:15px 10px 10px; ">
+                    <div class="col-auto">
+                        <ul class="user-info-menu left-links list-inline list-unstyled">
+                            <li class="hidden-sm hidden-xs">
+                                <a href="#" data-toggle="sidebar">
+                                    <i class="fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>        
+                    </div>
+                    <!-- Left links for user info navbar -->
+                    <div class="col-auto">
+                        <h4 id="page-title" >链表</h4>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <div id="current-action" ></div>
+                    </div>               
+                    <div class="col-auto" >
+                                    <!-- Right links for user info navbar -->              
+                        <div id="speed-control">
+                            减速
+                            <div id="speed-input" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 72.2222%;"></span>
+                            </div>
+                            加速
+                        </div>              
+                    </div>
+                </div>
+            
+
+
+            <div class="row">
+
+           
+                <div id="dark-overlay"></div>
+
+
+                <div id="viz">
+
+                </div>
+                
+
+                <div id="overlay" hidden="" style="opacity: 0; display: none;"></div>
+
+
+                <div id="popup" hidden="">
+                    <div id="popup-content"></div>
+                    <span id="hide-popup" hidden="" style="background-color: rgb(255, 138, 39);">X <u>关闭</u></span>
+                </div>
+         
+
+                <script>
+                    var PHP_DOMAIN ="";
+
+                    // surprise colour!
+                    // Referenced to in  home.js and viz.js also
+                    var colourArray = ["#52bc69","#d65775" /*"#ed5a7d"*/ ,"#2ebbd1","#d9513c","#fec515","#4b65ba","#ff8a27","#a7d41e"]; // green, pink, blue, red, yellow, indigo, orange, lime
+
+                    function disableScroll() {
+                        $('html').css('overflow', 'hidden');
+                    }
+
+                    function enableScroll() {
+                        $('html').css('overflow', 'visible');
+                    }
+
+                    function replaceAll(find, replace, str) {
+                        return str.replace(new RegExp(find, 'g'), replace);
+                    }
+
+                    function getColours() {
+                        var generatedColours = new Array();
+                        while (generatedColours.length < 4) {
+                            var n = (Math.floor(Math.random() * colourArray.length));
+                            if ($.inArray(n, generatedColours) == -1)
+                                generatedColours.push(n);
+                        }
+                        return generatedColours;
+                    }
+
+                    function isOn(value, position) {
+                        return (value >> position) & 1 === 1;
+                    }
+
+                    function customAlert(msg) {
+                        $('#custom-alert p').html(msg);
+                        var m = -1 * ($('#custom-alert').outerHeight() / 2);
+                        $('#custom-alert').css('margin-top', m + 'px');
+                        $('#dark-overlay').fadeIn(function() {
+                            $('#custom-alert').fadeIn(function() {
+                                setTimeout(function() {
+                                    $('#custom-alert').fadeOut(function() {
+                                        $('#dark-overlay').fadeOut();
+                                    });
+                                }, 1000);
+                            });
+                        });
+                    }
+
+                    function showLoadingScreen() {
+                        $('#loading-overlay').show();
+                        $('#loading-message').show();
+                    }
+
+                    function hideLoadingScreen() {
+                        $('#loading-overlay').hide();
+                    }
+
+                    function commonAction(retval, msg) {
+                        //setTimeout(function() {
+                        if (retval) { // mode =="exploration" && // now not only for exploration mode, but check if this opens other problems
+                         
+                            $('#current-action').html(mode =="exploration" ? msg : ("e-Lecture Example (auto play until done)<br>" + msg));
+                            $('#progress-bar').slider("option","max", gw.getTotalIteration() - 1);
+                            triggerRightPanels();
+                            isPlaying = true;
+                        }
+                        //}, 500);
+                    }
+
+                    function getQueryVariable(variable) {
+                        var query = window.location.search.substring(1);
+                        var vars = query.split('&');
+                        for (var i = 0; i < vars.length; i++) {
+                            var pair = vars[i].split('=');
+                            if (decodeURIComponent(pair[0]) == variable)
+                                return decodeURIComponent(pair[1]);
+                        }
+                        return"";
+                    }
+
+                    var generatedColours = getColours();
+                    var surpriseColour = colourArray[generatedColours[0]];
+                    var colourTheSecond = colourArray[generatedColours[1]];
+                    var colourTheThird = colourArray[generatedColours[2]];
+                    var colourTheFourth = colourArray[generatedColours[3]];
+
+                    $(function() {
+                       
+
+                        // title
+                        $('#title a').click(function() {
+                            $('#title a').removeClass('selected-viz');
+                            $(this).addClass('selected-viz');
+                            // temporary quick fix for Google Chrome Aug 2016 issue...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100.1%";
+                            }, 100); // force resize/redraw...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100%";
+                            }, 600);
+                        });
+
+                        // overlays stuffs
+                        $('#trigger-about').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#about').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-team').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#team').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-terms').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#termsofuse').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('.close-overlay').click(function() {
+                            $('.overlays').fadeOut(function() {
+                                $('#dark-overlay').fadeOut();
+                            });
+                        });
+
+                        $('#dark-overlay').click(function() {
+                            $('.overlays').fadeOut();
+                            $('#dark-overlay').fadeOut();
+                        });
+                    });
+                </script>
+
+
+
+
+                <script>
+                    window.onpopstate = function(event) {
+                        var slide = event.state['slide'];
+                        openSlide(slide, function() {
+                            runSlide(slide);
+                        });
+                    };
+
+                    function getUrlParameter(sParam) {
+                        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                            sURLVariables = sPageURL.split('&'),
+                            sParameterName, i;
+
+                        for (i = 0; i < sURLVariables.length; i++) {
+                            sParameterName = sURLVariables[i].split('=');
+                            if (sParameterName[0] === sParam) return sParameterName[1] === undefined ? true : sParameterName[1];
+                        }
+                    };
+
+                    function pushState(slideValue) {
+                        var url = '/zh/list';
+                        if (typeof slideValue != 'undefined' && slideValue != null) url += '?slide=' + slideValue;
+                        window.history.pushState({
+                            slide: slideValue
+                        },"slide" + slideValue, url);
+                    }
+
+                    function showPopup(callback) {
+                        $('#popup').fadeIn(100, callback);
+                    }
+
+                    function hidePopup(callback) {
+                        $('#popup').fadeOut(100, callback);
+                    }
+
+                    $(function() {
+                        var slide = getUrlParameter('slide');
+
+          
+
+                        $('.mcq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#mcq-answer-' + questionId).val();
+                            var userAnswer = $('input[type=radio][name=mcq-' + questionId + '-choice]:checked').val();
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green"><b>Correct!</b></font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red"><b>Wrong Answer! Try again...</b></font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                        $('.msq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#msq-answer-' + questionId).val();
+
+                            var answers = [];
+                            $('input[type=checkbox][class=msq-choice]:checked').each(function() {
+                                answers.push($(this).attr('id').split('-')[3]);
+                            });
+                            answers.sort();
+                            var userAnswer = answers.join(',');
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green">Correct!</font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red">Wrong Answer! Try again...</font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                      
+
+                        $('#hide-popup').click(function() {
+                            hidePopup();
+                        });
+
+                        $('#popup').hover(function() {
+                            $('#hide-popup').show();
+                        }, function() {
+                            $('#hide-popup').hide();
+                        });
+
+
+
+
+                        // temporary quick fix for Google Chrome Aug 2016 issue..., put at last part so that everything else has been loaded
+                        // setTimeout(function(){ document.body.style.zoom ="100.1%"; }, 500);
+                        // setTimeout(function(){ document.body.style.zoom ="100%"; }, 600);
+                        // I turn it off on 14 June 2018, seems 'ok'?
+                    });
+
+               
+
+                    function adjustPopupToImageSize() {
+                        var width = $('#popup-image').prop('width');
+                        var height = $('#popup-image').prop('height');
+                        $('#popup').width(width + 20);
+                        $('#popup').height(height + 20);
+                        if (width == 0 && height == 0) {
+                            setTimeout(adjustPopupToImageSize, 200);
+                        } else {
+                            showPopup();
+                        }
+                    }
+
+                    function POPUP_IMAGE(url) {
+                        $('#popup-content').html('<img id="popup-image" src="' + url + '">');
+                        adjustPopupToImageSize();
+                    }
+
+                    function URL(url) {
+                        window.open(url, '_blank');
+                    }
+
+                </script>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Main Footer -->
+            <!-- Choose between footer styles:"footer-type-1" or"footer-type-2" -->
+            <!-- Add class"sticky" to  always stick the footer to the end of page (if page contents is small) -->
+            <!-- Or class"fixed" to  always fix the footer to the end of page -->
+            <footer class="main-footer sticky footer-type-2 sticky fixed">
+
+                <div class="footer-inner">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">                               
+                                <a id="actions-toggle" class="btn btn-sm btn-info dropdown-toggle " data-bs-toggle="dropdown"  data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">                            
+                                    操作                                                      
+                                </a>                                    
+                                <div id="actions" class="dropdown-menu">
+                                    <div class="dropdown dropend">                                        
+                                        <a id="create" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-create" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            创建</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown-create">
+                                            <div  class="dropdown-item" onclick="empty()" >
+                                                <a>清空</a>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="dropdown-item" onclick="random()" >
+                                                <a>随机</a>
+                                            </div>
+                                            <div  class="dropdown-item"  onclick="example(1)">
+                                                <a>不平衡示例</a>
+                                            </div> 
+                                            <div  class="dropdown-item" onclick="example(2)" >
+                                                <a>平衡示例</a>
+                                            </div>
+                                          
+                                            <div class="dropdown-divider"></div>
+                                            <div  class="dropdown-item" onclick="skewed('left')" >
+                                                <a>退化为左子树示例</a>
+                                            </div>                                      
+                                            <div  class="dropdown-item" onclick="skewed('right')" >
+                                                <a>退化为右子树示例</a>
+                                            </div>                                                                                            
+                                        </div>
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="search" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-search" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"  aria-expanded="false">
+                                            搜索</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown-search">
+                                           
+                                            <div  class="dropdown-item" onclick="findMinMax(true)" >
+                                                <a>最小值</a>
+                                            </div>
+                                            <div  class="dropdown-item" onclick="findMinMax(false)" >
+                                                <a>最大值</a>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div id="create-random-fixed-size" class="dropdown-header" >
+                                                <p>搜索值</p>
+                                            </div>    
+                                            <div id="" class="  dropdown-item-text" >                          
+                                                <div id="search-input" class="new-menu-option" style="float: left;"> <input type="number" id="v-search" title="Enter an Integer" autocomplete="off" min="0" max="99" value="5"></div>
+                                                <div id="search-go" class="btn btn-sm btn-blue  " onclick="searchVertex()">
+                                                    执行</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="insert" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-insert" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            插入</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown-insert" style="min-width: 200px;">
+                                            <div  class="dropdown-item-text" >
+                                                在树中插入
+                                            </div>   
+                                            <div  class="dropdown-item-text" >
+                                                <input type="number" id="v-insert" title="Enter an Integer" autocomplete="off" min="0" max="99" value="85">
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="insertVertex()" >
+                                                    执行
+                                                </div>                                          
+                                            </div>
+                                           
+                                        </div>  
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="remove" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-remove" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            移除</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-remove" style="min-width: 200px;">                                  
+                                            
+                                            <div id="remove-kth" class="dropdown-item-text" >
+                                                从树中移除
+                                            </div>
+                                            <div id="removekth-input" class="dropdown-item-text" >
+                                                <input type="number" id="v-remove" title="Enter an Integer" autocomplete="off" min="1" max="8" value="2">
+                                                <div id="removekth-go" class="btn btn-sm btn-blue " onclick="removeVertex()"  >
+                                                    执行
+                                                </div>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="predsucc" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-predsucc" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            前驱/后继</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-predsucc"  style="min-width:200px;">                                  
+                                            
+                                            <div id="remove-kth" class="dropdown-item-text" >
+                                                查询值
+                                            </div>
+                                            <div  class="dropdown-item-text" >
+                                               <p> <input type="number" id="v-predsucc" title="Enter an Integer" autocomplete="off" min="1" max="8" value="2"></p>
+                                                <div class="btn btn-sm btn-blue " onclick="predsucc(true);" title="Remove k-th" >
+                                                    其前驱
+                                                </div>
+                                                <div class="btn btn-sm btn-blue " onclick="predsucc(false);" title="Remove k-th" >
+                                                    其后继
+                                                </div>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="inorder" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-remove" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            遍历</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-remove" style="min-width: 200px;">                                  
+                                            
+                                            <div  class="dropdown-item" onclick="inorderTraversal()" >
+                                                <a>中序遍历</a>
+                                            </div>
+                                           
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-auto">
+                            <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick="goToBeginning()"><img
+                                src="../assets/images/goToBeginning.png" alt="go to beginning"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="previous" class="media-control-button" title="step backward" onclick="stepBackward()"><img
+                                src="../assets/images/prevFrame.png" alt="previous frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="pause" class="media-control-button" title="pause" onclick="pause()" ><img
+                                src="../assets/images/pause.png" alt="pause"></span>
+                            <span id="play" class="media-control-button" title="play" onclick="play()" style="display: none;">
+                                <img src="../assets/images/play.png" alt="play"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="next" class="media-control-button" title="step forward" onclick="stepForward()"><img
+                                src="../assets/images/nextFrame.png" alt="next frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="go-to-end" class="media-control-button" title="go to end" onclick="goToEnd()"><img
+                                src="../assets/images/goToEnd.png" alt="go to end"></span>
+                        </div>
+
+
+                        <div class="col-5 me-auto">
+                            <div id="progress-bar" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="1800" data-value="223">
+                            </div>
+
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">
+                                <a id="codetrace-toggle" class="btn btn-sm btn-warning dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" data-bs-offset="0,20">                            
+                                    代码跟踪
+                                                  
+                                </a>
+                                <div id="codetrace-panel" class="dropdown-menu dropdown-menu-end">
+                                    <div class="row" style="width: 600px;">
+                                        <div class="col-sm-12">
+                                            <div id="status" class=" col-sm-12" >
+                                                <p></p>
+                                            </div>
+                                            <div id="codetrace" class=" col-sm-12">
+                                                <p id="code1" style="padding-top: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code2" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code3" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code4" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code5" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code6" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code7" style="padding-bottom: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </footer>
+        </div>
+    </div>    
+
+    <div class="page-loading-overlay">
+        <div class="loader-2"></div>
+    </div>
+
+  
+
+
+    <!-- Bottom Scripts -->
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/bootstrap5.dropdown.ml.hack.js"></script>
+    <script src="../assets/js/TweenMax.min.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/xenon-api.js"></script>
+    <script src="../assets/js/xenon-toggles.js"></script>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="../assets/js/xenon-widgets.js"></script>
+    <script src="../assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+    <!--   <script src="../assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>-->
+    <script src="../assets/js/toastr/toastr.min.js"></script>
+
+
+    
+    <script src="../assets/js/jquery-ui/jquery-ui.js"></script>
+    <script src="../assets/js/knob/jquery.knob.min.js"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="../assets/js/xenon-custom.js"></script>
+    
+    <script src="../assets/js/d3.min.js"></script>
+    <script src="../assets/js/viz-1.0.3.js"></script>
+    <script src="../assets/js/visualgo_print.js"></script>
+    <script src="../assets/js/graph_library.js"></script>
+
+    <script type="text/javascript">
+        // BST Widget, also includes AVL tree
+        // original author: Ivan Reinaldo, then maintained by Steven Halim
+        
+        var BST = function() {
+          var self = this;
+          var gw = new GraphWidget();
+          var isAVL = false;
+        
+          var valueRange = [1, 100]; // Range of valid values of BST vertexes allowed
+          var maxHeightAllowed = 9; // max 9 edges (10 vertices)
+        
+          var initialArray = [15, 6, 23, 4, 7, 71, 5, 50];
+          var initialAvlArray = [15, 6, 50, 4, 7, 23, 71, 5];
+        
+          /*
+           * iBST: Internal representation of BST in this object
+           * The keys are the text of the nodes, and the value is the attributes of the corresponding node encapsulated in a JS object, which are:
+           * - "parent": text of the parent node. If the node is root node, the value is null.
+           * - "leftChild": text of the left child. No child -> null
+           * - "rightChild": text of the right child. No child -> null
+           * - "cx": X-coordinate of center of the node
+           * - "cy": Y-coordinate of center of the node
+           * - "height": height of the node. Height of root is 0
+           * - "vertexClassNumber": Vertex class number of the corresponding node
+           *
+           * In addition, there is a key called "root" in iBST, containing the text of the root node.
+           * If BST is empty, root is null.
+           */
+        
+          var iBST = {};
+          var amountVertex = 0;
+          iBST["root"] = null;
+        
+          if (isAVL) init(initialAvlArray);
+          else       init(initialArray);
+        
+          this.getGraphWidget = function() { return gw; };
+        
+          function dummyInit() {
+            iBST["root"] = 15;
+            iBST[15] = {
+              "parent": null,
+              "leftChild": 6,
+              "rightChild": 23,
+              "vertexClassNumber": 0
+            };
+            iBST[6] = {
+              "parent": 15,
+              "leftChild": 4,
+              "rightChild": 7,
+              "vertexClassNumber": 1
+            };
+            iBST[23] = {
+              "parent": 15,
+              "leftChild": null,
+              "rightChild": 71,
+              "vertexClassNumber": 2
+            };
+            iBST[4] = {
+              "parent": 6,
+              "leftChild": null,
+              "rightChild": 5,
+              "vertexClassNumber": 3
+            };
+            iBST[7] = {
+              "parent": 6,
+              "leftChild": null,
+              "rightChild": null,
+              "vertexClassNumber": 4
+            };
+            iBST[71] = {
+              "parent": 23,
+              "leftChild": 50,
+              "rightChild": null,
+              "vertexClassNumber": 5
+            };
+            iBST[5] = {
+              "parent": 4,
+              "leftChild": null,
+              "rightChild": null,
+              "vertexClassNumber": 6
+            };
+            iBST[50] = {
+              "parent": 71,
+              "leftChild": null,
+              "rightChild": null,
+              "vertexClassNumber": 7
+            };
+        
+            var key;
+            recalculatePosition();
+        
+            for (key in iBST) {
+              if (key == "root")
+                continue;
+        
+              var cur = iBST[key];
+              gw.addVertex(cur["cx"], cur["cy"], key, cur["vertexClassNumber"], true);
+            }
+        
+            for (key in iBST) {
+              if (key == "root")
+                continue;
+        
+              var cur = iBST[key];
+              var parentVertex = iBST[cur["parent"]];
+              if (cur["parent"] == null)
+                continue;
+        
+              gw.addEdge(parentVertex["vertexClassNumber"], cur["vertexClassNumber"], cur["vertexClassNumber"], EDGE_TYPE_UDE, 1, true);
+            }
+        
+            amountVertex = 8;
+          }
+        
+          this.generate = function(array) { init(array); };
+        
+          this.generateEmpty = function() {
+            var vertexAmt = 0;
+            var initArr = [];
+            init(initArr);
+            return true;
+          };
+        
+          this.generateExample = function(id) {
+            if (isAVL && (id == 1)) {
+               toastr.warning("AVL树不允许创建不平衡示例"); 
+              return false;
+            }
+            var vertexAmt = 8; // for id == 1
+            var initArr = [15,6,23,4,7,71,5,50];
+            if (id == 2) {
+              vertexAmt = 10;
+              initArr = [41,20,65,11,29,50,91,32,72,99];
+            }
+            else if (id == 3) {
+              vertexAmt = 15;
+              initArr = [8,4,12,2,6,10,14,1,3,5,7,9,11,13,15];
+            }
+            else if (id == 4) {
+              vertexAmt = 12;
+              initArr = [8,6,16,3,7,13,19,2,11,15,18,10];
+            }
+            else if (id == 5) {
+              vertexAmt = 20;
+              initArr = [13,8,18,5,11,16,20,3,7,10,12,15,17,19,2,4,6,9,14,1];
+            }
+            init(initArr);
+            return true;
+          }
+        
+          this.generateRandom = function() {
+            var vertexAmt = Math.floor((Math.random()*7 + 5));
+            var initArr = [];
+        
+            while (initArr.length < vertexAmt) {
+              var random = Math.floor(1 + Math.random()*99);
+              if ($.inArray(random, initArr) < 0)
+                initArr.push(random);
+            }
+        
+            if (isAVL) {
+              var initArrAvl = [];
+        
+              function recursion(startVal, endVal) {
+                var total = startVal + endVal + 1;
+                if (total < 1)
+                  return;
+                if (startVal > endVal)
+                  return;
+                if (total == 1)
+                  initArrAvl.push(initArr[startVal]);
+                else if (total % 2 != 0) {
+                  initArrAvl.push(initArr[parseInt(total/2)]);
+                  recursion(startVal, parseInt(total/2) - 1);
+                  recursion(parseInt(total/2) + 1, endVal);
+                }
+                else {
+                  initArrAvl.push(initArr[parseInt(total/2) - 1]);
+                  recursion(startVal, parseInt(total/2) - 2);
+                  recursion(parseInt(total/2), endVal);
+                }
+              }
+        
+              function sortNumber(a, b) { return a-b; }
+              initArr.sort(sortNumber);
+              recursion(0, initArr.length-1);
+              init(initArrAvl);
+            }
+            else
+              init(initArr);
+        
+            return true;
+          }
+        
+          this.generateSkewed = function(side) {
+            if (isAVL) {
+               toastr.error('AVL trees are not skewed. Select the BST header to use this action.');
+              return false;
+            }
+            else {
+              var vertexAmt = Math.floor(5 + Math.random()*5); // [5..9] vertices (allow +1 for one more right/left extreme insertion)
+              var initArr = new Array();
+              while (initArr.length < vertexAmt) {
+                var random = Math.floor(1 + Math.random()*99); // value [1..99]
+                if ($.inArray(random, initArr) < 0)
+                  initArr.push(random);
+              }
+              if (side == "left") {
+                initArr.sort(function(a, b) {
+                  return b-a;
+                });
+              }
+              else if (side == "right") {
+                initArr.sort(function(a, b) {
+                  return a-b;
+                });
+              }
+              init(initArr);
+              return true;
+            }
+          };
+        
+          this.isAVL = function(bool) {
+            if (typeof bool != 'boolean') return;
+        
+            if (bool != isAVL) {
+              clearScreen();
+              if (bool)
+                init(initialAvlArray);
+              else
+                init(initialArray);
+              isAVL = bool;
+            }
+          };
+        
+          this.getIsAVL = function() {
+            return isAVL;
+          };
+        
+          this.getRandomInBST = function() {
+            var arr = new Array();
+            for (var key in iBST) {
+              if (key == "root") continue;
+              arr.push(key);
+            }
+            return parseInt(arr[Math.floor(Math.random()*arr.length)]);
+          }
+        
+          this.getRandomNotInBST = function() {
+            var arr = new Array();
+            for (var key in iBST) {
+              if (key == "root") continue;
+              arr.push(parseInt(key));
+            }
+            var candidate = 1 + Math.floor(Math.random()*99); // [1..99]
+            while ($.inArray(candidate, arr) > 0)
+              candidate = 1 + Math.floor(Math.random()*99);
+            return candidate;
+          }
+        
+          this.search = function(val, callback) {
+            var sl = [], vertexTraversed = {}, edgeTraversed = {}, cur = iBST["root"], cs, currentVertexClass, key, ans;
+        
+            cs = createState(iBST);
+            //cs["status"] = "The current BST";  //status_search_0
+            cs["status"] = '现在的BST';
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            while (cur != val && cur != null) {
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              currentVertexClass = iBST[cur]["vertexClassNumber"];
+              cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+              vertexTraversed[cur] = true;
+              //cs["status"] = "Comparing " + cur + " with " + val + "."; //status_search_1
+              cs["status"] = '比较变量{cur}和变量{val}'.replace("{cur}", cur).replace("{val}", val);
+              cs["lineNo"] = 3;
+              sl.push(cs);
+        
+              if (parseInt(val) > parseInt(cur)) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                //cs["status"] = cur + " is smaller than " + val + "."; //status_search_2
+                cs["status"] = '{cur}小于{val}'.replace("{cur}", cur).replace("{val}", val);
+                cs["lineNo"] = 5;
+                sl.push(cs);
+        
+                cur = iBST[cur]["rightChild"];
+                if (cur == null) {
+                  cs = createState(iBST, vertexTraversed, edgeTraversed);
+                  //cs["status"] = "Value " + val + " is not in the BST."; //status_search_3
+                  cs["status"] = '变量 {val} 不在搜索树中'.replace("{val}", val);
+                  cs["lineNo"] = [1, 2];
+                  sl.push(cs);
+                  break;
+                }
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                var edgeHighlighted = iBST[cur]["vertexClassNumber"];
+                edgeTraversed[edgeHighlighted] = true;
+                cs["el"][edgeHighlighted]["animateHighlighted"] = true;
+                cs["el"][edgeHighlighted]["state"] = EDGE_TRAVERSED;
+                //cs["status"] = "So search on the right."; //status_search_4
+                cs["status"] = '向右查找';
+                cs["lineNo"] = 6;
+                sl.push(cs);
+              }
+              else {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                //cs["status"] = cur + " is greater than " + val + "."; //status_search_5
+                cs["status"] = '{cur}大于{val}'.replace("{cur}", cur).replace("{val}", val);
+                cs["lineNo"] = 7;
+                sl.push(cs);
+        
+                cur = iBST[cur]["leftChild"];
+                if (cur == null) {
+                  cs = createState(iBST, vertexTraversed, edgeTraversed);
+                  //cs["status"] = "Value " + val + " is not in the BST.";  //status_search_6
+                  cs["status"] = '变量 {val} 不在搜索树中<br>'.replace("{val}", val);
+                  cs["lineNo"] = [1, 2];
+                  sl.push(cs);
+                  break;
+                }
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                var edgeHighlighted = iBST[cur]["vertexClassNumber"];
+                edgeTraversed[edgeHighlighted] = true;
+                cs["el"][edgeHighlighted]["animateHighlighted"] = true;
+                cs["el"][edgeHighlighted]["state"] = EDGE_TRAVERSED;
+                //cs["status"] = "So search on the left.";  //status_search_7
+                cs["status"] = '向左查找';
+                cs["lineNo"] = 7;
+                sl.push(cs);
+              }
+            }
+        
+            if (cur != null) {
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              currentVertexClass = iBST[cur]["vertexClassNumber"];
+              cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+              //cs["status"] = "Found value " + val + ".";  //status_search_8
+              cs["status"] = '找到值{val}'.replace("{val}", val);
+              cs["lineNo"] = 4;
+              sl.push(cs);
+            }
+        
+            gw.startAnimation(sl, callback);
+            populatePseudocode(4);
+            return true;
+          }
+        
+          this.findMax = function() {
+            var ans = -1;
+            for (key in iBST) {
+              if (key == "root") continue;
+              ans = Math.max(ans, key);
+            }
+            return ans;
+          }
+        
+          this.findMinMax = function(isMin, callback) {
+            var sl = [], vertexTraversed = {}, edgeTraversed = {}, cur = iBST["root"], cs, key, ans;
+        
+            cs = createState(iBST);
+            
+            cs["status"] = '现在的搜索树';
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            if (cur == null) {
+              cs = createState(iBST);
+              if (isMin) {
+                //cs["status"] = "Tree is empty, there is no minimum value."; //status_minmax_1
+                cs["status"] = '树是空的，没有最小值';
+              }
+              else {
+                //cs["status"] = "Tree is empty, there is no maximum value."; //status_minmax_2
+                cs["status"] = '树是空的，没有最大值';
+              }
+              cs["lineNo"] = 1;
+              sl.push(cs);
+              gw.startAnimation(sl, callback);
+              return true;
+            }
+        
+            while (cur != null) {
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              key = iBST[cur]["vertexClassNumber"];
+              cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+              vertexTraversed[cur] = true;
+              if (( isMin && (iBST[cur]["leftChild"] != null)) ||
+                  (!isMin && (iBST[cur]["rightChild"] != null))) {
+                if (isMin) {
+                  //cs["status"] = cur + " is not the minimum value as it has a left child.";  //status_minmax_3
+                  cs["status"] = '变量{cur}不是最小值，因为它有左子树。'.replace("{cur}", cur);
+                }
+                else {
+                  //cs["status"] = cur + " is not the maximum value as it has a right child.";  //status_minmax_4
+                  cs["status"] = '当前变量{cur}不是最大值，因为它有右子树。'.replace("{cur}", cur);
+                }
+                cs["lineNo"] = 2;
+              }
+              else {
+                ans = cur;
+                if (isMin) {
+                  //cs["status"] = "Minimum value found!";  //status_minmax_5
+                  cs["status"] = '找到最小值！';
+                }
+                else {
+                  //cs["status"] = "Maximum value found!";  //status_minmax_6
+                  cs["status"] = '找到最大值！';
+                }
+        
+                cs["lineNo"] = 4;
+              }
+              cur = (isMin ? iBST[cur]["leftChild"] : iBST[cur]["rightChild"]);
+              sl.push(cs);
+        
+              if (cur == null) break;
+        
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              var edgeHighlighted = iBST[cur]["vertexClassNumber"];
+              edgeTraversed[edgeHighlighted] = true;
+              cs["el"][edgeHighlighted]["animateHighlighted"] = true;
+              cs["el"][edgeHighlighted]["state"] = EDGE_TRAVERSED;
+              if (isMin) {
+                //cs["status"] = "Go left to check for smaller value..."; //status_minmax_7
+                cs["status"] = '向左搜索更小的值';
+              }
+              else {
+                //cs["status"] = "Go right to check for larger value..."; //status_minmax_8
+                cs["status"] = '向右搜索更大的值';
+              }
+        
+              cs["lineNo"] = 3;
+              sl.push(cs);
+            }
+        
+            cs = createState(iBST);
+            if (isMin) {
+              //cs["status"] = "Find Min has ended.<br>The minimum value is " + ans + ".";  //status_minmax_9
+              cs["status"] = '查找最小值结束。<div>最小值是{ans}</div>'.replace("{ans}", ans);
+            }
+            else {
+              //cs["status"] = "Find Max has ended.<br>The maximum value is " + ans + ".";  //status_minmax_10
+              cs["status"] = '查找最大值结束。<div>最小值是{ans}</div>'.replace("{ans}", ans);
+            }
+        
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            populatePseudocode(isMin ? 2 : 1);
+            gw.startAnimation(sl, callback);
+            return true;
+          }
+        
+          this.findPredSucc = function(val, isPred, callback) {
+            var sl = [], vertexTraversed = {}, edgeTraversed = {}, cur = iBST["root"], cs, key, currentVertexClass;
+            cur = val = parseInt(val);
+        
+            if (val == null || val == undefined || isNaN(val)) {
+              toastr.error('请输入一个有效的数值！');
+              return false;invalidval
+            }
+        
+            if (iBST[val] == null) {
+              toastr.error('输入的值不在现有二叉搜索树中');
+              return false;
+            }
+        
+            key = iBST[val]["vertexClassNumber"];
+            cs = createState(iBST);
+            //cs["status"] = "The current BST.";  //status_predsucc_0
+            cs["status"] = '现在的搜索树';
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            if (( isPred && (iBST[val]["leftChild"] != null)) ||
+                (!isPred && (iBST[val]["rightChild"] != null))) {
+              var subTreeRoot = (isPred ? iBST[val]["leftChild"] : iBST[val]["rightChild"]);
+              var subTreeRootKey = iBST[subTreeRoot]["vertexClassNumber"];
+        
+              edgeTraversed[subTreeRootKey] = true;
+        
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+              cs["el"][subTreeRootKey]["animateHighlighted"] = true;
+              if (isPred) {
+                //cs["status"] = "This vertex has a left child, so go left.";  //status_predsucc_1
+                cs["status"] = '这个节点有左子树，所以向右搜索';
+              } else {
+                //cs["status"] = "This vertex has a right child, so go right.";  //status_predsucc_2
+                cs["status"] = '这个节点有右子树，所以向左搜索';
+              }
+        
+              cs["lineNo"] = 1;
+              sl.push(cs);
+        
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+              cs["vl"][subTreeRootKey]["state"] = VERTEX_HIGHLIGHTED;
+              if (isPred) {
+                //cs["status"] = "Check whether the left child has a right child."; //status_predsucc_3
+                cs["status"] = '检查左子树是否有右子树。';
+              } else {
+                //cs["status"] = "Check whether the right child has a left child."; //status_predsucc_4
+                cs["status"] = '检查右子树是否有左子树。';
+              }
+              cs["lineNo"] = 1;
+              sl.push(cs);
+        
+              if (( isPred && (iBST[subTreeRoot]["rightChild"] != null)) ||
+                  (!isPred && (iBST[subTreeRoot]["leftChild"] != null))) {
+                cur = subTreeRoot;
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                cs["vl"][subTreeRootKey]["state"] = VERTEX_HIGHLIGHTED;
+                if (isPred) {
+                  //cs["status"] = "Right child found! Go to the right."; //status_predsucc_5
+                  cs["status"] = '找到右子树！向右搜索。';
+                } else {
+                  //cs["status"] = "Left child found! Go to the left."; //status_predsucc_6
+                  cs["status"] = '找到左子树！向左搜索';
+                }
+                cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                while (( isPred && (iBST[cur]["rightChild"] != null)) ||
+                       (!isPred && (iBST[cur]["leftChild"] != null))) {
+                  cs = createState(iBST, vertexTraversed, edgeTraversed);
+                  cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                  vertexTraversed[cur] = true;
+                  if (isPred) {
+                    //cs["status"] = cur + " is not the predecessor vertex as it has a right child."; //status_predsucc_7
+                    cs["status"] = '{cur}不是前驱节点，因为它有右子树。'.replace("{cur}", cur);
+                  } else {
+                    //cs["status"] = cur + " is not the successor vertex as it has a left child.";  //status_predsucc_8
+                    cs["status"] = '{cur}不是后继节点，因为它有左子树。'.replace("{cur}", cur);
+                  }
+                  cs["lineNo"] = 1;
+                  sl.push(cs);
+        
+                  cur = (isPred ? iBST[cur]["rightChild"] : iBST[cur]["leftChild"]);
+                  currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+                  cs = createState(iBST, vertexTraversed, edgeTraversed);
+                  var edgeHighlighted = currentVertexClass;
+                  edgeTraversed[edgeHighlighted] = true;
+                  cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["el"][edgeHighlighted]["animateHighlighted"] = true;
+                  cs["el"][edgeHighlighted]["state"] = EDGE_TRAVERSED;
+                  if (isPred) {
+                    //cs["status"] = "Go right to check for larger value."; //status_predsucc_9
+                    cs["status"] = '向右搜索，检查是否有较大的值。<br>';
+                  } else {
+                    //cs["status"] = "Go left to check for smaller value."; //status_predsucc_10
+                    cs["status"] = '向左搜索，检查是否有较小的值。';
+                  }
+                  cs["lineNo"] = 1;
+                  sl.push(cs);
+                }
+        
+                ans = cur;
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                if (isPred) {
+                  //cs["status"] = "Predecessor found!<br>The predecessor of " + val + " is " + ans + ".";  //status_predsucc_11
+                  cs["status"] = '找到前驱！<div>{val} 的前驱是 {ans}。</div>'.replace("{ans}", ans).replace("{val}", val);
+                } else {
+                  //cs["status"] = "Successor found!<br>The successor of " + val + " is " + ans + ".";  //status_predsucc_12
+                  cs["status"] = 'Successor found!<br>The successor of {val} is {ans}.'.replace("{ans}", ans).replace("{val}", val);
+                }
+                cs["vl"][key]["extratext"] = "value";
+                cs["vl"][currentVertexClass]["extratext"] = (isPred ? "predecessor" : "successor");
+                cs["lineNo"] = 1;
+                sl.push(cs);
+              }
+              else {
+                ans = subTreeRoot;
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                cs["vl"][subTreeRootKey]["state"] = VERTEX_HIGHLIGHTED;
+                if (isPred) {
+                  //cs["status"] = "No right child found, so this vertex is the predecessor.<br>The predecessor of " + val + " is " + ans + ".";  //status_predsucc_13
+                  cs["status"] = '右子树未找到，所以当前节点是前驱节点，{val}的前驱节点是{ans}'.replace("{ans}", ans).replace("{val}", val);
+                } else {
+                  //cs["status"] = "No left child found, so this vertex is the successor.<br>The successor of " + val + " is " + ans + "."; //status_predsucc_14
+                  cs["status"] = '左子树未找到，所以当前节点是后继节点，{val}的后继节点是{ans}'.replace("{ans}", ans).replace("{val}", val);
+                }
+                cs["vl"][key]["extratext"] = "value";
+                cs["vl"][subTreeRootKey]["extratext"] = (isPred ? "predecessor" : "successor");
+                cs["lineNo"] = 1;
+                sl.push(cs);
+              }
+            }
+            else {
+              currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+              edgeTraversed[currentVertexClass] = true;
+        
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+              cs["el"][currentVertexClass]["state"] = EDGE_HIGHLIGHTED;
+              if (isPred) {
+                //cs["status"] = "No left child found, so check the parent..";  //status_predsucc_15
+                cs["status"] = '未找到左子树，检查父节点。';
+              } else {
+                //cs["status"] = "No right child found, so check the parent.."; //status_predsucc_16
+                cs["status"] = '未找到右子树，检查父节点。';
+              }
+              cs["lineNo"] = [2, 3];
+              sl.push(cs);
+        
+              cur = iBST[cur]["parent"];
+              currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+              while (true) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                vertexTraversed[cur] = true;
+                if (( isPred && (cur > val)) ||
+                    (!isPred && (cur < val))) {
+                  if (isPred) {
+                    //cs["status"] = cur + " is not the predecessor vertex as " + val + " is part of the left sub-tree";  //status_predsucc_17
+                    cs["status"] = '{cur} is not the predecessor vertex as {val} is part of the left sub-tree'.replace("{cur}", cur).replace("{val}", val);
+                  } else {
+                    //cs["status"] = cur + " is not the successor vertex as " + val + " is part of the right sub-tree"; //status_predsucc_18
+                    cs["status"] = '{cur}不是后继节点，因为{val}是右子树的一部分<br>'.replace("{cur}", cur).replace("{val}", val);
+                  }
+                  cs["lineNo"] = 4;
+                  sl.push(cs);
+                }
+                else {
+                  ans = cur;
+                  if (isPred) {
+                    //cs["status"] = "Predecessor found!<br>The predecessor of " + val + " is " + ans + ".";  //status_predsucc_19
+                    cs["status"] = '找到前驱！<div>{val} 的前驱是 {ans}。</div>'.replace("{ans}", ans).replace("{val}", val);
+                  } else {
+                    //cs["status"] = "Successor found!<br>The successor of " + val + " is " + ans + ".";  //status_predsucc_20
+                    cs["status"] = '找到后继！<div>{val} 的后继是 {ans}。</div>'.replace("{ans}", ans).replace("{val}", val);
+                  }
+                  cs["vl"][key]["extratext"] = "value";
+                  cs["vl"][currentVertexClass]["extratext"] =  (isPred ? "predecessor" : "successor");
+                  cs["lineNo"] = 7;
+                  sl.push(cs);
+                  break;
+                }
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                var edgeHighlighted = currentVertexClass;
+                if (cur != iBST["root"])
+                  edgeTraversed[edgeHighlighted] = true;
+                cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                if (cur != iBST["root"])
+                  cs["el"][edgeHighlighted]["state"] = EDGE_HIGHLIGHTED;
+                //cs["status"] = "Go up to check for smaller value."; //status_predsucc_21
+                cs["status"] = '往上查看较小的值。';
+                cs["lineNo"] = 5;
+                sl.push(cs);
+        
+                cur = iBST[cur]["parent"];
+                if (cur == null) break;
+        
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+              }
+        
+              if (cur == null) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+                if (isPred) {
+                  //cs["status"] = "Parent is null, so " + val + " has no predecessor.";  //status_predsucc_22
+                  cs["status"] = '父节点是null，所以 {val} 没有前驱。'.replace("{val}", val);
+                } else {
+                  //cs["status"] = "Parent is null, so " + val + " has no successor.";  //status_predsucc_23
+                  cs["status"] = '父节点是null，所以 {val} 没有后继。<br>'.replace("{val}", val);
+                }
+                cs["lineNo"] = 6;
+                sl.push(cs);
+        
+                ans = null;
+              }
+            }
+        
+            gw.startAnimation(sl, callback);
+            populatePseudocode(isPred ? 9 : 8);
+            return true;
+          }
+        
+          this.inorderTraversal = function(callback) {
+            var sl = [], vertexTraversed = {}, edgeTraversed = {}, cur = iBST["root"], cs, key;
+            var vertexHighlighted = {};
+        
+            cs = createState(iBST);
+            //cs["status"] = "The current BST.";  //status_inorder_0
+            cs["status"] = '现在的搜索树';
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            if (iBST["root"] == null) {
+              cs = createState(iBST);
+              //cs["status"] = "The Binary Search Tree is empty.<br>Return empty result.";  //status_inorder_1
+              cs["status"] = '二叉搜索树是空的。<div>返回空的结果。</div>';
+              cs["lineNo"] = [1, 2];
+              sl.push(cs);
+              return true;
+            }
+            else {
+              key = iBST[iBST["root"]]["vertexClassNumber"];
+        
+              cs = createState(iBST);
+              cs["vl"][key]["state"] = VERTEX_TRAVERSED;
+              cs["vl"][key]["extratext"] = "root";
+              //cs["status"] = "The root " + iBST["root"] + " is not null.";  //status_inorder_2
+              cs["status"] = '根，{root} 不是null。'.replace("{root}", iBST["root"]);
+              cs["lineNo"] = 1;
+              sl.push(cs);
+        
+              cs = createState(iBST);
+              cs["vl"][key]["state"] = VERTEX_TRAVERSED;
+              cs["vl"][key]["extratext"] = "root";
+              //cs["status"] = "So recurse and check left child of " + iBST["root"] + ".";  //status_inorder_3
+              cs["status"] = '所以递归检查{root}的左子树。'.replace("{root}", iBST["root"]);
+              cs["lineNo"] = 3;
+              sl.push(cs);
+        
+              inorderTraversalRecursion(iBST["root"]);
+            }
+        
+            cs = createState(iBST, vertexTraversed, edgeTraversed);
+            inorderHighlightVertex(key);
+            //cs["status"] = "In-order traversal of the whole BST is complete.";  //status_inorder_4
+            cs["status"] = '整个搜索树的中序遍历完成了。';
+            cs["vl"][key]["extratext"] = "root";
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            gw.startAnimation(sl, callback);
+        
+            function inorderTraversalRecursion(cur) {
+              var curLeft = iBST[cur]["leftChild"], curRight = iBST[cur]["rightChild"];
+              var key = iBST[cur]["vertexClassNumber"];
+        
+              if (curLeft == null) {
+                vertexTraversed[cur] = true;
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                inorderHighlightVertex(key);
+                //cs["status"] = "The left child of vertex with value " + cur + " is empty.<br>Return empty.";  //status_inorder_5
+                cs["status"] = '值为{cur}的节点的左子节点为空。<br>返回空值。'.replace("{cur}", cur);
+                cs["lineNo"] = [1, 2];
+                sl.push(cs);
+              }
+              else {
+                var curLeftClass = iBST[curLeft]["vertexClassNumber"];
+        
+                vertexTraversed[cur] = true;
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                inorderHighlightVertex(key);
+                //cs["status"] = "The left child of vertex with value " + cur + " is " + curLeft + " (not null).";  //status_inorder_6
+                cs["status"] = '具有值{cur}的节点的左子节点是{curLeft}（非空）。'.replace("{cur}", cur).replace("{curLeft}", curLeft);
+                cs["lineNo"] = 1;
+                sl.push(cs);
+                edgeTraversed[curLeftClass] = true;
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["el"][curLeftClass]["animateHighlighted"] = true;
+                inorderHighlightVertex(key);
+                //cs["status"] = "So recurse and check left child of vertex with value " + curLeft + ".";//status_inorder_7
+                cs["status"] = '因此，使用 {curLeft} 递归并检查节点的左子节点。<br>'.replace("{curLeft}", curLeft);
+                cs["lineNo"] = 3;
+                sl.push(cs);
+                inorderTraversalRecursion(curLeft);
+              }
+        
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              vertexHighlighted[key] = true;
+              inorderHighlightVertex(key);
+              //cs["status"] = "Visit vertex with value " + cur + ".<br>And preparing to visit the right child of this vertex.";  //status_inorder_8
+              cs["status"] = '访问值为{cur}的节点.<br>准备继续访问其右子树.'.replace("{cur}", cur);
+              cs["lineNo"] = 4;
+              sl.push(cs);
+        
+              if (curRight == null) {
+                vertexTraversed[cur] = true;
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                inorderHighlightVertex(key);
+                //cs["status"] = "The right child of vertex with value " + cur + " is empty.<br>Return empty.<br>"; //status_inorder_9
+                cs["status"] = '具有值{cur}的节点的右子节点为空。<br>返回空值。<br>'.replace("{cur}", cur);
+                cs["lineNo"] = [1, 2];
+                sl.push(cs);
+              }
+              else {
+                var curRightClass = iBST[curRight]["vertexClassNumber"];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                inorderHighlightVertex(key);
+                //cs["status"] = "The right child of vertex with value " + cur + " is " + curRight + " (not null).";  //status_inorder_10
+                cs["status"] = '具有值{cur}的节点的右子节点是{curRight}（非空）。<br>'.replace("{cur}", cur).replace("{curRight}", curRight);
+                cs["lineNo"] = 1;
+                sl.push(cs);
+                edgeTraversed[curRightClass] = true;
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["el"][curRightClass]["animateHighlighted"] = true;
+                inorderHighlightVertex(key);
+                cs["status"] = '使用值{curRight}递归并检查节点的右子节点。'.replace("{curRight}", curRight);
+                cs["lineNo"] = 3;
+                sl.push(cs);
+                inorderTraversalRecursion(curRight);
+              }
+        
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              if (cur != iBST["root"])
+                cs["el"][key]["state"] = EDGE_HIGHLIGHTED;
+              inorderHighlightVertex(key);
+        
+              //cs["status"] = "In-order traversal of " + cur + " is complete.";  //status_inorder_12
+              cs["status"] = '{cur}的中序遍历已完成。'.replace("{cur}", cur);
+              cs["lineNo"] = 0;
+              sl.push(cs);
+            }
+        
+            function inorderHighlightVertex(curkey) {
+              for (var key in vertexHighlighted) cs["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+              for (var key in vertexHighlighted) cs["vl"][key]["extratext"] = "";
+              cs["vl"][curkey]["extratext"] = "^";
+            }
+            populatePseudocode(3);
+            return true;
+          }
+        
+          this.insertArr = function(vertexTextArr, callback) {
+            var sl = [], vertexTraversed = {}, edgeTraversed = {}, cur = iBST["root"], cs, key, currentVertexClass, i;
+        
+            cs = createState(iBST);
+            //cs["status"] = "The current BST.";  //status_insert_0
+            cs["status"] = '现在的搜索树';
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            // Check whether input is array
+            if (Object.prototype.toString.call(vertexTextArr) != '[object Array]') {
+               toastr.error('请填写数字或用逗号分隔的数组！');
+              return false;
+            }
+        
+            // Loop through all array values and...
+            var tempiBST = deepCopy(iBST); // Use this to simulate internal insertion
+        
+            for (i = 0; i < vertexTextArr.length; i++) {
+              var vt = parseInt(vertexTextArr[i]);
+        
+              // 1. Check whether value is number
+              if (isNaN(vt)) {
+                 toastr.error('请填写数字或用逗号分隔的数组！');
+                return false;
+              }
+        
+              // 2. No duplicates allowed. Also works if more than one similar value are inserted
+              if (tempiBST[vt] != null) {
+                 toastr.error('不接受重复节点！');
+                if (typeof callback == 'function') callback();
+                return false;
+              }
+        
+              // 3. Check range
+              if (parseInt(vt) < valueRange[0] || parseInt(vt) > valueRange[1]) {
+                 toastr.error('<span style="white-space: normal;">抱歉，只有在 {range1} 到 {range2} 的值可被插入</span><br>'.replace("{range1}", valueRange[0]).replace("{range2}", valueRange[1]));
+                return false;
+              }
+        
+              // 4. Insert the node into temporary internal structure and check for height
+              var parentVertex = tempiBST["root"];
+              var heightCounter = 0;
+        
+              if (parentVertex == null) {
+                tempiBST["root"] = parseInt(vt);
+                tempiBST[vt] = {
+                  "parent": null,
+                  "leftChild": null,
+                  "rightChild": null
+                };
+              }
+              else {
+                while (true) {
+                  heightCounter++;
+                  if (parentVertex < vt) {
+                    if (tempiBST[parentVertex]["rightChild"] == null)
+                      break;
+                    parentVertex = tempiBST[parentVertex]["rightChild"];
+                  }
+                  else {
+                    if (tempiBST[parentVertex]["leftChild"] == null)
+                      break;
+                    parentVertex = tempiBST[parentVertex]["leftChild"];
+                  }
+                }
+        
+                if (parentVertex < vt)
+                  tempiBST[parentVertex]["rightChild"] = vt;
+                else
+                  tempiBST[parentVertex]["leftChild"] = vt;
+        
+                tempiBST[vt] = {
+                  "parent": parentVertex,
+                  "leftChild": null,
+                  "rightChild": null
+                }
+              }
+        
+              heightCounter++; // New vertex added will add new height
+        
+              if (heightCounter > maxHeightAllowed+1) {
+                 toastr.error('抱歉，此可视化只能支持最大高度为{maxHeight} 的树'.replace("{maxHeight}", maxHeightAllowed));
+                if (typeof callback == 'function') callback();
+                return false;
+              }
+            }
+        
+            function checkNewHeight() {
+              var parentVertex = tempiBST["root"];
+              var heightCounter = 0;
+        
+              while (parentVertex != null) {
+                if (parentVertex < parseInt(val))
+                  parentVertex = tempiBST[parentVertex]["rightChild"];
+                else
+                  parentVertex = tempiBST[parentVertex]["leftChild"];
+                heightCounter++;
+              }
+        
+              heightCounter++; // New vertex added will add new height
+        
+              if (heightCounter > maxHeightAllowed+1)
+                return false;
+              return true;
+            }
+        
+            for (i = 0; i < vertexTextArr.length; i++) {
+              var val = parseInt(vertexTextArr[i]);
+        
+              // Re-initialization
+              vertexTraversed = {};
+              edgeTraversed = {};
+              cur = iBST["root"];
+              cs = createState(iBST);
+        
+              // Find parent
+              while (cur != val && cur != null) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                vertexTraversed[cur] = true;
+        
+                //cs["status"] = "Comparing " + val + " with " + cur; //status_insert_1
+                cs["status"] = '将{val}与{cur}进行比较'.replace("{val}", val).replace("{cur}", cur);
+                if (!isAVL) cs["lineNo"] = 3;
+                else        cs["lineNo"] = 1;
+        
+                sl.push(cs);
+        
+                var nextVertex;
+                if (parseInt(val) > parseInt(cur))
+                  nextVertex = iBST[cur]["rightChild"];
+                else
+                  nextVertex = iBST[cur]["leftChild"];
+        
+                if (nextVertex == null)
+                  break;
+                else
+                  cur = nextVertex;
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                var edgeHighlighted = iBST[cur]["vertexClassNumber"];
+                edgeTraversed[edgeHighlighted] = true;
+        
+                cs["el"][edgeHighlighted]["animateHighlighted"] = true;
+                cs["el"][edgeHighlighted]["state"] = EDGE_TRAVERSED;
+        
+                if (parseInt(val) > parseInt(iBST[cur]["parent"])) {
+                  //cs["status"] = val + " is larger than " + iBST[cur]["parent"] + ", so go right."; //status_insert_2
+                  cs["status"] = '{val}大于{parent}，所以向右搜索。<br>'.replace("{val}", val).replace("{parent}", iBST[cur]["parent"]);
+                  if (!isAVL) cs["lineNo"] = 5;
+                  else        cs["lineNo"] = 1;
+                }
+                else {
+                  //cs["status"] = val + " is smaller than " + iBST[cur]["parent"] + ", so go left."; //status_insert_3
+                  cs["status"] = '{val}小于{parent}，所以向左搜索。<br>'.replace("{val}", val).replace("{parent}", iBST[cur]["parent"]);
+                  if (!isAVL) cs["lineNo"] = 4;
+                  else        cs["lineNo"] = 1;
+                }
+        
+                sl.push(cs);
+              }
+        
+              // Begin insertion
+              // First, update internal representation
+              iBST[parseInt(val)] = {
+                "leftChild": null,
+                "rightChild": null,
+                "vertexClassNumber": amountVertex
+              };
+        
+              if (cur != null) {
+                iBST[parseInt(val)]["parent"] = cur;
+                if (cur < parseInt(val))
+                  iBST[cur]["rightChild"] = parseInt(val);
+                else
+                  iBST[cur]["leftChild"] = parseInt(val);
+              }
+        
+              else {
+                iBST[parseInt(val)]["parent"] = null;
+                iBST["root"] = parseInt(val);
+              }
+        
+              amountVertex++;
+              recalculatePosition();
+        
+              // Then, draw edge
+              var newNodeVertexClass = iBST[parseInt(val)]["vertexClassNumber"];
+        
+              if (cur != null) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                cs["vl"][newNodeVertexClass]["state"] = OBJ_HIDDEN;
+        
+                cs["el"][newNodeVertexClass]["state"] = EDGE_TRAVERSED;
+                cs["el"][newNodeVertexClass]["animateHighlighted"] = true;
+        
+                //cs["status"] = "Location found!<br>Inserting " + val + "."; //status_insert_4
+                cs["status"] = '找到目标位置！<br>插入{val}。'.replace("{val}", val);
+                cs["lineNo"] = 1;
+        
+                sl.push(cs);
+        
+                edgeTraversed[newNodeVertexClass] = true;
+              }
+        
+              // Lastly, draw vertex
+              cs = createState(iBST, vertexTraversed, edgeTraversed);
+              cs["vl"][newNodeVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+              //cs["status"] = val + " has been inserted!"  //status_insert_5
+              cs["status"] = '已插入 {val} ！'.replace("{val}", val);
+              if (!isAVL) cs["lineNo"] = 2;
+              else        cs["lineNo"] = 1;
+              sl.push(cs);
+        
+              // End State
+              cs = createState(iBST);
+              //cs["status"] = "Insert " + val + " has been completed." //status_insert_6
+              cs["status"] = '插入{val}的操作已完成'.replace("{val}", val);
+              if (isAVL) cs["lineNo"] = 1;
+              sl.push(cs);
+        
+              if (isAVL) {
+                recalculateBalanceFactor();
+        
+                var vertexCheckBf = iBST[val]["parent"];
+                while (vertexCheckBf != null) {
+                  var vertexCheckBfClass = iBST[vertexCheckBf]["vertexClassNumber"];
+                  var bf = iBST[vertexCheckBf]["balanceFactor"];
+        
+                  cs = createState(iBST);
+                  cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                  //cs["status"] = "Balance factor of " + vertexCheckBf + " is " + bf + ".";  //status_insert_7
+                  cs["status"] = '{vertexCheckBf} 的平衡因子是 {bf}.'.replace("{vertexCheckBf}", vertexCheckBf).replace("{bf}", bf);
+                  cs["lineNo"] = 2;
+                  sl.push(cs);
+        
+                  if (bf == 2) {
+                    var vertexCheckBfLeft = iBST[vertexCheckBf]["leftChild"];
+                    var vertexCheckBfLeftClass = iBST[vertexCheckBfLeft]["vertexClassNumber"];
+                    var bfLeft = iBST[vertexCheckBfLeft]["balanceFactor"];
+        
+                    cs = createState(iBST);
+                    cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                    //cs["status"] = "And balance factor of " + vertexCheckBfLeft + " is " + bfLeft + ".";  //status_insert_8
+                    cs["status"] = '{vertexCheckBf} 的平衡因子是 {bf}.'.replace("{vertexCheckBf}", vertexCheckBfLeft).replace("{bf}", bfLeft);
+                    cs["lineNo"] = 2;
+                    sl.push(cs);
+        
+                    if (bfLeft == 1 || bfLeft == 0) {
+                      rotateRight(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeft)
+                        cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate right " + vertexCheckBf + "."; //status_insert_9
+                      cs["status"] = '向右旋转 {vertexCheckBf}.'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 3;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeft)
+                        cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_insert_10
+                      cs["status"] = '重新布局搜索树';
+                      cs["lineNo"] = 3;
+                      sl.push(cs);
+                    }
+                    else if (bfLeft == -1) {
+                      var vertexCheckBfLeftRight = iBST[vertexCheckBfLeft]["rightChild"];
+                      var vertexCheckBfLeftRightClass = iBST[vertexCheckBfLeftRight]["vertexClassNumber"];
+        
+                      rotateLeft(vertexCheckBfLeft);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate left " + vertexCheckBfLeft + ".";  //status_insert_11
+                      cs["status"] = '向左旋转{vertexCheckBf}。'.replace("{vertexCheckBf}", vertexCheckBfLeft);
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_insert_10
+                      cs["status"] = '重新布局搜索树';
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+        
+                      rotateRight(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeftRight)
+                        cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate right " + vertexCheckBf + "."; //status_insert_9
+                      cs["status"] = '向右旋转 {vertexCheckBf}.'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeftRight)
+                        cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_insert_10
+                      cs["status"] = '重新布局搜索树';
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+                    }
+                  }
+                  else if (bf == -2) {
+                    var vertexCheckBfRight = iBST[vertexCheckBf]["rightChild"];
+                    var vertexCheckBfRightClass = iBST[vertexCheckBfRight]["vertexClassNumber"];
+                    var bfRight = iBST[vertexCheckBfRight]["balanceFactor"];
+        
+                    cs = createState(iBST);
+                    cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                    //cs["status"] = "And balance factor of " + vertexCheckBfRight + " is " + bfRight + ".";  //status_insert_8
+                    cs["status"] = '{vertexCheckBf} 的平衡因子是 {bf}.'.replace("{vertexCheckBf}", vertexCheckBfRight).replace("{bf}", bfRight);
+                    cs["lineNo"] = 2;
+                    sl.push(cs);
+        
+                    if (bfRight == 1) {
+                      var vertexCheckBfRightLeft = iBST[vertexCheckBfRight]["leftChild"];
+                      var vertexCheckBfRightLeftClass = iBST[vertexCheckBfRightLeft]["vertexClassNumber"];
+        
+                      rotateRight(vertexCheckBfRight);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate right " + vertexCheckBfRight + ".";  //status_insert_9
+                      cs["status"] = '向右旋转 {vertexCheckBf}.'.replace("{vertexCheckBf}", vertexCheckBfRight);
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_insert_10
+                      cs["status"] = '重新布局搜索树';
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+        
+                      rotateLeft(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRightLeft)
+                        cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate left " + vertexCheckBf + ".";  //status_insert_11
+                      cs["status"] = '向左旋转{vertexCheckBf}。'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRightLeft)
+                        cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_insert_10
+                      cs["status"] = '重新布局搜索树';
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+                    }
+                    else if (bfRight == -1 || bfRight == 0) {
+                      rotateLeft(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRight)
+                        cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate left " + vertexCheckBf + ".";  //status_insert_11
+                      cs["status"] = '向左旋转{vertexCheckBf}。'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 5;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+        
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRight)
+                        cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["status"] = "Relayout the tree.";  //status_insert_10
+                      cs["status"] = '重新布局搜索树';
+                      cs["lineNo"] = 5;
+                      sl.push(cs);
+                    }
+                  }
+        
+                  if (vertexCheckBf != iBST["root"]) {
+                    cs = createState(iBST);
+                    cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                    //cs["status"] = "Check the parent vertex.";  //status_insert_12
+                    cs["status"] = '检查父节点';
+                    cs["lineNo"] = 2;
+                    sl.push(cs);
+                  }
+        
+                  vertexCheckBf = iBST[vertexCheckBf]["parent"];
+                }
+        
+                cs = createState(iBST);
+                //cs["status"] = "The tree is now balanced."; //status_insert_13
+                cs["status"] = '搜索树现在是平衡的了';
+                cs["lineNo"] = 7;
+                sl.push(cs);
+              }
+            }
+        
+            gw.startAnimation(sl, callback);
+            if (isAVL) populatePseudocode(6);
+            else       populatePseudocode(0);
+            return true;
+          }
+        
+          this.removeArr = function(vertexTextArr, callback) {
+            var sl = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cur = iBST["root"];
+            var cs = createState(iBST);
+            var currentVertexClass;
+            var key;
+            var i;
+        
+            //cs["status"] = "The current BST"; //status_remove_0
+            cs["status"] = '现在的搜索树';
+            cs["lineNo"] = 0;
+            sl.push(cs);
+        
+            if (Object.prototype.toString.call(vertexTextArr) != '[object Array]') {
+              $('#remove-err').html('请填写数字或用逗号分隔的数组！');
+              return false;
+            }
+        
+            // Loop through all array values and...
+            for (i = 0; i < vertexTextArr.length; i++) {
+              var vt = parseInt(vertexTextArr[i]);
+        
+              // Check whether value is number
+              if (isNaN(vt)) {
+                $('#remove-err').html('请填写数字或用逗号分隔的数组！');
+                return false;
+              }
+              // Other checks not required
+            }
+        
+            for (i = 0; i < vertexTextArr.length; i++) {
+              var val = parseInt(vertexTextArr[i]);
+              var vertexCheckBf;
+        
+              // Re-initialization
+              vertexTraversed = {};
+              edgeTraversed = {};
+              cur = iBST["root"];
+              cs = createState(iBST);
+        
+              // Find vertex
+              while (cur != val && cur != null) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                vertexTraversed[cur] = true;
+        
+                //cs["status"] = "Searching for node " + val + " to remove";  //status_remove_1
+                cs["status"] = '搜索并删除节点{val}<br>'.replace("{val}", val);
+                cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                if (parseInt(val) > parseInt(cur))
+                  cur = iBST[cur]["rightChild"];
+                else
+                  cur = iBST[cur]["leftChild"];
+        
+                if (cur == null) break;
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                var edgeHighlighted = iBST[cur]["vertexClassNumber"];
+                edgeTraversed[edgeHighlighted] = true;
+        
+                cs["el"][edgeHighlighted]["animateHighlighted"] = true;
+                cs["el"][edgeHighlighted]["state"] = EDGE_TRAVERSED;
+        
+                //cs["status"] = "Searching for node " + val + " to remove";  //status_remove_1
+                cs["status"] = '搜索并删除节点{val}<br>'.replace("{val}", val);
+                cs["lineNo"] = 1;
+                sl.push(cs);
+              }
+        
+              if (cur != null) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+        
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                //cs["status"] = "Searching for node " + val + " to remove";  //status_remove_1
+                cs["status"] = '搜索并删除节点{val}<br>'.replace("{val}", val);
+                cs["lineNo"] = 1;
+                sl.push(cs);
+              }
+              // Vertex is not inside the tree
+              else {
+                cs = createState(iBST);
+                //cs["status"] = "Node " + val + " is not in the BST";  //status_remove_2
+                cs["status"] = '节点{val}不在搜索树中<br>'.replace("{val}", val);
+                cs["lineNo"] = 0; //Node {val} is not in the BST
+                sl.push(cs);
+                continue;
+              }
+        
+              // Vertex found; begin deletion
+              // Case 1: no child
+              if (iBST[cur]["leftChild"] == null && iBST[cur]["rightChild"] == null) {
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                //cs["status"] = "Node " + val + " has no children. It is a leaf."; //status_remove_3
+                cs["status"] = '节点{val}没有子节点。 它是叶节点。'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 2;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                var parentVertex = iBST[cur]["parent"];
+        
+                if (parentVertex != null) {
+                  if (parseInt(parentVertex) < parseInt(cur))
+                    iBST[parentVertex]["rightChild"] = null;
+                  else
+                    iBST[parentVertex]["leftChild"] = null;
+                }
+                else
+                  iBST["root"] = null;
+        
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+                delete iBST[cur];
+                delete vertexTraversed[cur];
+                delete edgeTraversed[currentVertexClass];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                //cs["status"] = "Remove leaf " + val;  //status_remove_4
+                cs["status"] = '删除叶节点{val}'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 3;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                vertexCheckBf = parentVertex;
+              }
+              // Case 2: One child
+              else if (iBST[cur]["leftChild"] == null) { // Only right child
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                //cs["status"] = "Node " + val + " has a right child only"; //status_remove_5
+                cs["status"] = '节点{val}只有一个右子节点'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 4;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                var parentVertex = iBST[cur]["parent"];
+                var rightChildVertex = iBST[cur]["rightChild"];
+        
+                if (parentVertex != null) {
+                  if (parseInt(parentVertex) < parseInt(cur))
+                    iBST[parentVertex]["rightChild"] = rightChildVertex;
+                  else
+                    iBST[parentVertex]["leftChild"] = rightChildVertex;
+                }
+                else
+                  iBST["root"] = rightChildVertex;
+        
+                iBST[rightChildVertex]["parent"] = parentVertex;
+        
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+                rightChildVertexClass = iBST[rightChildVertex]["vertexClassNumber"];
+                delete iBST[cur];
+                delete vertexTraversed[cur];
+                delete edgeTraversed[currentVertexClass];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                cs["vl"][rightChildVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                if (parentVertex != null)
+                  cs["el"][rightChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                //cs["status"] = "Delete node " + val + " and connect its parent to its right child"; //status_remove_6
+                cs["status"] = '删除节点{val}并将其父节点连接到其右子节点'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 5;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                recalculatePosition();
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                cs["vl"][rightChildVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                if (parentVertex != null)
+                  cs["el"][rightChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                //cs["status"] = "Re-layout the tree";  //status_remove_7
+                cs["status"] = '重新布局搜索树<br>';
+                if (!isAVL) cs["lineNo"] = 5;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                vertexCheckBf = rightChildVertex;
+              }
+              else if (iBST[cur]["rightChild"] == null) { // Only left child
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+                //cs["status"] = "Node " + val + " has a left child only";  //status_remove_8
+                cs["status"] = '节点{val}只有一个左子节点'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 4;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                var parentVertex = iBST[cur]["parent"];
+                var leftChildVertex = iBST[cur]["leftChild"];
+        
+                if (parentVertex != null) {
+                  if (parseInt(parentVertex) < parseInt(cur))
+                    iBST[parentVertex]["rightChild"] = leftChildVertex;
+                  else
+                    iBST[parentVertex]["leftChild"] = leftChildVertex;
+                }
+                else
+                  iBST["root"] = leftChildVertex;
+        
+                iBST[leftChildVertex]["parent"] = parentVertex;
+        
+                currentVertexClass = iBST[cur]["vertexClassNumber"];
+                leftChildVertexClass = iBST[leftChildVertex]["vertexClassNumber"];
+                delete iBST[cur];
+                delete vertexTraversed[cur];
+                delete edgeTraversed[currentVertexClass];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                cs["vl"][leftChildVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                if (parentVertex != null)
+                  cs["el"][leftChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                //cs["status"] = "Delete node " + val + " and connect its parent to its left child";  //status_remove_9
+                cs["status"] = '删除节点{val}并将其父节点连接到其左子节点'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 5;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                recalculatePosition();
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                cs["vl"][leftChildVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                if (parentVertex != null)
+                  cs["el"][leftChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                //cs["status"] = "Re-layout the tree";  //status_remove_7
+                cs["status"] = '重新布局搜索树<br>';
+                if (!isAVL) cs["lineNo"] = 5;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                vertexCheckBf = leftChildVertex;
+              }
+              else { // Case 3: two children
+                var parentVertex = iBST[cur]["parent"];
+                var leftChildVertex = iBST[cur]["leftChild"];
+                var rightChildVertex = iBST[cur]["rightChild"];
+                var successorVertex = iBST[cur]["rightChild"];
+                var successorVertexClass = iBST[successorVertex]["vertexClassNumber"];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                cs["el"][successorVertexClass]["state"] = EDGE_TRAVERSED;
+                cs["el"][successorVertexClass]["animateHighlighted"] = true;
+        
+                //cs["status"] = "Finding successor of " + val; //status_remove_10
+                cs["status"] = '寻找 {val} 的后继'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 6;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                edgeTraversed[successorVertexClass] = true;
+                vertexTraversed[successorVertex] = true;
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                cs["vl"][successorVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                //cs["status"] = "Finding successor of " + val; //status_remove_10
+                cs["status"] = '寻找 {val} 的后继'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 6;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                while (iBST[successorVertex]["leftChild"] != null) {
+                  successorVertex = iBST[successorVertex]["leftChild"];
+                  successorVertexClass = iBST[successorVertex]["vertexClassNumber"];
+        
+                  cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                  cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                  cs["el"][successorVertexClass]["state"] = EDGE_TRAVERSED;
+                  cs["el"][successorVertexClass]["animateHighlighted"] = true;
+        
+                  //cs["status"] = "Finding successor of " + val; //status_remove_10
+                  cs["status"] = '寻找 {val} 的后继'.replace("{val}", val);
+                  if (!isAVL) cs["lineNo"] = 6;
+                  else        cs["lineNo"] = 1;
+                  sl.push(cs);
+        
+                  edgeTraversed[successorVertexClass] = true;
+                  vertexTraversed[successorVertex] = true;
+        
+                  cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                  cs["vl"][currentVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["vl"][successorVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+        
+                  //cs["status"] = "Finding successor of " + val; //status_remove_10
+                  cs["status"] = '寻找 {val} 的后继'.replace("{val}", val);
+                  if (!isAVL) cs["lineNo"] = 6;
+                  else        cs["lineNo"] = 1;
+                  sl.push(cs);
+                }
+        
+                var successorParentVertex = iBST[successorVertex]["parent"]
+                var successorRightChildVertex = iBST[successorVertex]["rightChild"];
+        
+                // Update internal representation
+                if (parentVertex != null) {
+                  if (parseInt(parentVertex) < parseInt(cur))
+                    iBST[parentVertex]["rightChild"] = successorVertex;
+                  else
+                    iBST[parentVertex]["leftChild"] = successorVertex;
+                }
+                else
+                  iBST["root"] = successorVertex;
+        
+                iBST[successorVertex]["parent"] = parentVertex;
+                iBST[successorVertex]["leftChild"] = leftChildVertex;
+        
+                iBST[leftChildVertex]["parent"] = successorVertex;
+        
+                if (successorVertex != rightChildVertex) {
+                  iBST[successorVertex]["rightChild"] = rightChildVertex;
+                  iBST[rightChildVertex]["parent"] = successorVertex;
+        
+                  if (successorRightChildVertex != null) {
+                    if (parseInt(successorParentVertex) < parseInt(successorVertex))
+                      iBST[successorParentVertex]["rightChild"] = successorRightChildVertex;
+                    else
+                      iBST[successorParentVertex]["leftChild"] = successorRightChildVertex;
+                    iBST[successorRightChildVertex]["parent"] = successorParentVertex;
+                  }
+                  else {
+                    if (parseInt(successorParentVertex) < parseInt(successorVertex))
+                      iBST[successorParentVertex]["rightChild"] = null;
+                    else
+                      iBST[successorParentVertex]["leftChild"] = null;
+                  }
+                }
+        
+                delete iBST[cur];
+                delete vertexTraversed[cur];
+                delete edgeTraversed[currentVertexClass];
+        
+                if (parentVertex == null)
+                  delete edgeTraversed[successorVertexClass];
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                var leftChildVertexClass = iBST[leftChildVertex]["vertexClassNumber"];
+        
+                cs["vl"][successorVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                cs["el"][leftChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                if (parentVertex != null) {
+                  var parentVertexClass = iBST[parentVertex]["vertexClassNumber"];
+                  cs["el"][successorVertexClass]["state"] = EDGE_HIGHLIGHTED;
+                }
+        
+                if (successorVertex != rightChildVertex) {
+                  var rightChildVertexClass = iBST[rightChildVertex]["vertexClassNumber"];
+                  cs["el"][rightChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                  if (successorRightChildVertex != null) {
+                    var successorRightChildVertexClass = iBST[successorRightChildVertex]["vertexClassNumber"];
+                    cs["el"][successorRightChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+                  }
+                }
+        
+                //cs["status"] = "Replace node " + val + " with its successor"; //status_remove_11
+                cs["status"] = '将节点{val}替换为其后继节点'.replace("{val}", val);
+                if (!isAVL) cs["lineNo"] = 6;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                recalculatePosition();
+        
+                cs = createState(iBST, vertexTraversed, edgeTraversed);
+        
+                leftChildVertexClass = iBST[leftChildVertex]["vertexClassNumber"];
+        
+                cs["vl"][successorVertexClass]["state"] = VERTEX_HIGHLIGHTED;
+                cs["el"][leftChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                if (parentVertex != null) {
+                  var parentVertexClass = iBST[parentVertex]["vertexClassNumber"];
+                  cs["el"][successorVertexClass]["state"] = EDGE_HIGHLIGHTED;
+                }
+        
+                if (successorVertex != rightChildVertex) {
+                  var rightChildVertexClass = iBST[rightChildVertex]["vertexClassNumber"];
+                  cs["el"][rightChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+        
+                  if (successorRightChildVertex != null) {
+                    var successorRightChildVertexClass = iBST[successorRightChildVertex]["vertexClassNumber"];
+                    cs["el"][successorRightChildVertexClass]["state"] = EDGE_HIGHLIGHTED;
+                  }
+                }
+        
+                //cs["status"] = "Re-layout the tree";  //status_remove_7
+                cs["status"] = '重新布局搜索树<br>';
+                if (!isAVL) cs["lineNo"] = 6;
+                else        cs["lineNo"] = 1;
+                sl.push(cs);
+        
+                vertexCheckBf = successorVertex;
+                if (successorVertex != rightChildVertex)
+                  vertexCheckBf = successorParentVertex;
+              }
+        
+              cs = createState(iBST);
+              //cs["status"] = "Removal of " + val + " completed";  //status_remove_12
+              cs["status"] = '移除{val}的操作完成'.replace("{val}", val);
+              if (!isAVL) cs["lineNo"] = 0;
+              else        cs["lineNo"] = 1;
+              sl.push(cs);
+        
+              if (isAVL) {
+                recalculateBalanceFactor();
+                // console.log(iBST);
+        
+                while (vertexCheckBf != null) {
+                  var vertexCheckBfClass = iBST[vertexCheckBf]["vertexClassNumber"];
+        
+                  var bf = iBST[vertexCheckBf]["balanceFactor"];
+        
+                  cs = createState(iBST);
+                  cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                  //cs["status"] = "Balance factor of " + vertexCheckBf + " is " + bf + ".";  //status_remove_13
+                  cs["status"] = '{vertexCheckBf}的平衡因子是{bf}。<br>'.replace("{vertexCheckBf}", vertexCheckBf).replace("{bf}", bf);
+                  cs["lineNo"] = 2;
+                  sl.push(cs);
+        
+                  if (bf == 2) {
+                    var vertexCheckBfLeft = iBST[vertexCheckBf]["leftChild"];
+                    var vertexCheckBfLeftClass = iBST[vertexCheckBfLeft]["vertexClassNumber"];
+                    var bfLeft = iBST[vertexCheckBfLeft]["balanceFactor"];
+        
+                    cs = createState(iBST);
+                    cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                    //cs["status"] = "And balance factor of " + vertexCheckBfLeft + " is " + bfLeft + ".";  //status_remove_14
+                    cs["status"] = '{vertexCheckBf}的平衡因子是{bf}。'.replace("{vertexCheckBfLeft}", vertexCheckBf).replace("{bfLeft}", bf);
+                    cs["lineNo"] = 2;
+                    sl.push(cs);
+        
+                    if (bfLeft == 1 || bfLeft == 0) {
+                      rotateRight(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeft)
+                        cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate right " + vertexCheckBf + "."; //status_remove_15
+                      cs["status"] = '向右旋转{vertexCheckBf}。<br>'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 3;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeft)
+                        cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_remove_7
+                      cs["status"] = '重新布局搜索树<br>';
+                      cs["lineNo"] = 3;
+                      sl.push(cs);
+                    }
+                    else if (bfLeft == -1) {
+                      var vertexCheckBfLeftRight = iBST[vertexCheckBfLeft]["rightChild"];
+                      var vertexCheckBfLeftRightClass = iBST[vertexCheckBfLeftRight]["vertexClassNumber"];
+        
+                      rotateLeft(vertexCheckBfLeft);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate left " + vertexCheckBfLeft + ".";  //status_remove_16
+                      cs["status"] = '向左旋转{vertexCheckBf}。'.replace("{vertexCheckBf}", vertexCheckBfLeft);
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_remove_7
+                      cs["status"] = '重新布局搜索树<br>';
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+        
+                      rotateRight(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeftRight)
+                        cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate right " + vertexCheckBf + "."; //status_remove_15
+                      cs["status"] = '向右旋转{vertexCheckBf}。<br>'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfLeftRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfLeftRight)
+                        cs["el"][vertexCheckBfLeftRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_remove_7
+                      cs["status"] = '重新布局搜索树<br>';
+                      cs["lineNo"] = 4;
+                      sl.push(cs);
+                    }
+                  }
+                  else if (bf == -2) {
+                    var vertexCheckBfRight = iBST[vertexCheckBf]["rightChild"];
+                    var vertexCheckBfRightClass = iBST[vertexCheckBfRight]["vertexClassNumber"];
+                    var bfRight = iBST[vertexCheckBfRight]["balanceFactor"];
+        
+                    cs = createState(iBST);
+                    cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                    //cs["status"] = "And balance factor of " + vertexCheckBfRight + " is " + bfRight + ".";  //status_remove_14
+                    cs["status"] = '{vertexCheckBf}的平衡因子是{bf}。'.replace("{vertexCheckBf}", vertexCheckBfRight).replace("{bf}", bfRight);
+                    cs["lineNo"] = 2;
+                    sl.push(cs);
+        
+                    if (bfRight == 1) {
+                      var vertexCheckBfRightLeft = iBST[vertexCheckBfRight]["leftChild"];
+                      var vertexCheckBfRightLeftClass = iBST[vertexCheckBfRightLeft]["vertexClassNumber"];
+        
+                      rotateRight(vertexCheckBfRight);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate right " + vertexCheckBfRight + ".";  //status_remove_15
+                      cs["status"] = '向右旋转{vertexCheckBf}。<br>'.replace("{vertexCheckBf}", vertexCheckBfRight);
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_remove_7
+                      cs["status"] = '重新布局搜索树<br>';
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+        
+                      rotateLeft(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRightLeft)
+                        cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate left " + vertexCheckBf + ".";  //status_remove_16
+                      cs["status"] = '向左旋转{vertexCheckBf}。'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightLeftClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRightLeft)
+                        cs["el"][vertexCheckBfRightLeftClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_remove_7
+                      cs["status"] = '重新布局搜索树<br>';
+                      cs["lineNo"] = 6;
+                      sl.push(cs);
+                    }
+                    else if (bfRight == -1 || bfRight == 0) {
+                      rotateLeft(vertexCheckBf);
+        
+                      cs = createState(iBST);
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRight)
+                        cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Rotate left " + vertexCheckBf + ".";  //status_remove_16
+                      cs["status"] = '向左旋转{vertexCheckBf}。'.replace("{vertexCheckBf}", vertexCheckBf);
+                      cs["lineNo"] = 5;
+                      sl.push(cs);
+        
+                      recalculatePosition();
+        
+                      cs = createState(iBST);
+        
+                      cs["vl"][vertexCheckBfClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["vl"][vertexCheckBfRightClass]["state"] = VERTEX_HIGHLIGHTED;
+                      cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                      if (iBST["root"] != vertexCheckBfRight)
+                        cs["el"][vertexCheckBfRightClass]["state"] = EDGE_HIGHLIGHTED;
+                      //cs["status"] = "Relayout the tree.";  //status_remove_7
+                      cs["status"] = '重新布局搜索树<br>';
+                      cs["lineNo"] = 5;
+                      sl.push(cs);
+                    }
+                  }
+        
+                  if (vertexCheckBf != iBST["root"]) {
+                    cs = createState(iBST);
+                    cs["el"][vertexCheckBfClass]["state"] = EDGE_HIGHLIGHTED;
+                    //cs["status"] = "Check the parent vertex...";  //status_remove_17
+                    cs["status"] = '检查父节点...';
+                    cs["lineNo"] = 2;
+                    sl.push(cs);
+                  }
+        
+                  vertexCheckBf = iBST[vertexCheckBf]["parent"];
+                }
+        
+                cs = createState(iBST);
+                cs["status"] = '搜索树现在是平衡的了。';
+                cs["lineNo"] = 7;
+                sl.push(cs);
+              }
+            }
+        
+            gw.startAnimation(sl, callback);
+            if (isAVL) populatePseudocode(7);
+            else       populatePseudocode(5);
+            return true;
+          };
+        
+          function init(initArr) {
+            var i;
+        
+            clearScreen();
+        
+            for (i = 0; i < initArr.length; i++) {
+              var parentVertex = iBST["root"];
+              var newVertex = parseInt(initArr[i]);
+        
+              if (parentVertex == null) {
+                iBST["root"] = parseInt(newVertex);
+                iBST[newVertex] = {
+                  "parent": null,
+                  "leftChild": null,
+                  "rightChild": null,
+                  "vertexClassNumber": amountVertex
+                };
+              }
+              else {
+                while (true) {
+                  if (parentVertex < newVertex) {
+                    if (iBST[parentVertex]["rightChild"] == null) break;
+                    parentVertex = iBST[parentVertex]["rightChild"];
+                  }
+                  else {
+                    if (iBST[parentVertex]["leftChild"] == null) break;
+                    parentVertex = iBST[parentVertex]["leftChild"];
+                  }
+                }
+        
+                if (parentVertex < newVertex)
+                  iBST[parentVertex]["rightChild"] = newVertex;
+                else
+                  iBST[parentVertex]["leftChild"] = newVertex;
+        
+                iBST[newVertex] = {
+                  "parent": parentVertex,
+                  "leftChild": null,
+                  "rightChild": null,
+                  "vertexClassNumber": amountVertex
+                }
+              }
+        
+              amountVertex++;
+            }
+        
+            recalculatePosition();
+        
+            for (key in iBST) {
+              if (key == "root") continue;
+              gw.addVertex(iBST[key]["cx"], iBST[key]["cy"], key, iBST[key]["vertexClassNumber"], true);
+            }
+        
+            for (key in iBST) {
+              if (key == "root") continue;
+              if (key == iBST["root"]) continue;
+              var parentVertex = iBST[key]["parent"];
+              gw.addEdge(iBST[parentVertex]["vertexClassNumber"], iBST[key]["vertexClassNumber"], iBST[key]["vertexClassNumber"], EDGE_TYPE_UDE, 1, true);
+            }
+          }
+        
+          function clearScreen() {
+            var key;
+        
+            for (key in iBST) {
+              if (key == "root") continue;
+              gw.removeEdge(iBST[key]["vertexClassNumber"]);
+            }
+        
+            for (key in iBST) {
+              if (key == "root") continue;
+              gw.removeVertex(iBST[key]["vertexClassNumber"]);
+            }
+        
+            iBST = {};
+            iBST["root"] = null;
+            amountVertex = 0;
+          }
+        
+          // Pseudocode for rotateLeft:
+          /*
+           * BSTVertex rotateLeft(BSTVertex T) // pre-req: T.right != null
+           * BSTVertex w = T.right
+           * w.parent = T.parent
+           * T.parent = w
+           * T.right = w.left
+           * if (w.left != null) w.left.parent = T
+           * w.left = T
+           * // Update the height of T and then w
+           * return w
+           */
+        
+          function rotateLeft(val) {
+            // Refer to pseudocode
+        
+            var t = parseInt(val);
+            var w = iBST[t]["rightChild"];
+        
+            iBST[w]["parent"] = iBST[t]["parent"];
+            if (iBST[t]["parent"] != null) {
+              if (iBST[t]["parent"] < t) {
+                var tParent = iBST[t]["parent"];
+                iBST[tParent]["rightChild"] = w;
+              }
+              else {
+                var tParent = iBST[t]["parent"];
+                iBST[tParent]["leftChild"] = w;
+              }
+            }
+        
+            iBST[t]["parent"] = w;
+            iBST[t]["rightChild"] = iBST[w]["leftChild"];
+            if (iBST[w]["leftChild"] != null)
+              iBST[iBST[w]["leftChild"]]["parent"] = t;
+            iBST[w]["leftChild"] = t;
+        
+            if (t == iBST["root"])
+              iBST["root"] = w;
+        
+            recalculateBalanceFactor();
+          }
+        
+          function rotateRight(val) {
+            // Refer to pseudocode
+        
+            var t = parseInt(val);
+            var w = iBST[t]["leftChild"];
+        
+            iBST[w]["parent"] = iBST[t]["parent"];
+            if (iBST[t]["parent"] != null) {
+              if (iBST[t]["parent"] < t) {
+                var tParent = iBST[t]["parent"];
+                iBST[tParent]["rightChild"] = w;
+              }
+              else {
+                var tParent = iBST[t]["parent"];
+                iBST[tParent]["leftChild"] = w;
+              }
+            }
+        
+            iBST[t]["parent"] = w;
+            iBST[t]["leftChild"] = iBST[w]["rightChild"];
+            if (iBST[w]["rightChild"] != null)
+              iBST[iBST[w]["rightChild"]]["parent"] = t;
+            iBST[w]["rightChild"] = t;
+        
+            if (t == iBST["root"])
+              iBST["root"] = w;
+        
+            recalculateBalanceFactor();
+          }
+        
+          /*
+           * iBSTObject: a JS object with the same structure of iBST. This means the BST doen't have to be the BST stored in this class
+           * vertexTraversed: JS object with the vertexes of the BST which are to be marked as traversed as the key
+           * edgeTraversed: JS object with the edges of the BST which are to be marked as traversed as the key
+           */
+        
+          function createState(iBSTObject, vertexTraversed, edgeTraversed) {
+            if (vertexTraversed == null || vertexTraversed == undefined || !(vertexTraversed instanceof Object))
+              vertexTraversed = {};
+            if (edgeTraversed == null || edgeTraversed == undefined || !(edgeTraversed instanceof Object))
+              edgeTraversed = {};
+        
+            var state = {
+              "vl": {},
+              "el": {}
+            };
+        
+            var key;
+            var vertexClass;
+        
+            // something may be inconsistent during remove (AVL?), generates mini D3 error..., hunt for that bug
+            for (key in iBSTObject) {
+              if (key == "root") continue;
+        
+              vertexClass = iBSTObject[key]["vertexClassNumber"]
+        
+              state["vl"][vertexClass] = {};
+              state["vl"][vertexClass]["cx"] = iBSTObject[key]["cx"];
+              state["vl"][vertexClass]["cy"] = iBSTObject[key]["cy"];
+              state["vl"][vertexClass]["text"] = key;
+              state["vl"][vertexClass]["state"] = VERTEX_DEFAULT;
+        
+              if (iBSTObject[key]["parent"] == null) continue;
+        
+              parentChildEdgeId = iBSTObject[key]["vertexClassNumber"];
+        
+              state["el"][parentChildEdgeId] = {};
+              state["el"][parentChildEdgeId]["vertexA"] = iBSTObject[iBSTObject[key]["parent"]]["vertexClassNumber"];
+              state["el"][parentChildEdgeId]["vertexB"] = iBSTObject[key]["vertexClassNumber"];
+              state["el"][parentChildEdgeId]["type"] = EDGE_TYPE_UDE;
+              state["el"][parentChildEdgeId]["weight"] = 1;
+              state["el"][parentChildEdgeId]["state"] = EDGE_DEFAULT;
+              state["el"][parentChildEdgeId]["animateHighlighted"] = false;
+            }
+        
+            for (key in vertexTraversed) {
+              vertexClass = iBSTObject[key]["vertexClassNumber"];
+              state["vl"][vertexClass]["state"] = VERTEX_TRAVERSED;
+            }
+        
+            for (key in edgeTraversed) {
+              state["el"][key]["state"] = EDGE_TRAVERSED;
+            }
+        
+            return state;
+          }
+        
+          function recalculatePosition() {
+            calcHeight(iBST["root"], 0);
+            updatePosition(iBST["root"]);
+        
+            function calcHeight(cur, currentHeight) {
+              if (cur == null) return;
+              iBST[cur]["height"] = currentHeight;
+              calcHeight(iBST[cur]["leftChild"], currentHeight+1);
+              calcHeight(iBST[cur]["rightChild"], currentHeight+1);
+            }
+        
+            function updatePosition(cur) {
+              if (cur == null) return;
+        
+              if (cur == iBST["root"])
+                iBST[cur]["cx"] = MAIN_SVG_WIDTH/2;
+              else {
+                var i;
+                var xAxisOffset = MAIN_SVG_WIDTH/2-16;
+                var parentVertex = iBST[cur]["parent"]
+                for (i = 0; i < iBST[cur]["height"]; i++) xAxisOffset /= 2;
+        
+                if (parseInt(cur) > parseInt(parentVertex))
+                  iBST[cur]["cx"] = iBST[parentVertex]["cx"]+xAxisOffset;
+                else
+                  iBST[cur]["cx"] = iBST[parentVertex]["cx"]-xAxisOffset;
+              }
+        
+              iBST[cur]["cy"] = 50 + 50*iBST[cur]["height"];
+              updatePosition(iBST[cur]["leftChild"]);
+              updatePosition(iBST[cur]["rightChild"]);
+            }
+          }
+        
+          function recalculateBalanceFactor() {
+            balanceFactorRecursion(iBST["root"]);
+        
+            function balanceFactorRecursion(val) {
+              if (val == null) return -1;
+        
+              var balanceFactorHeightLeft = balanceFactorRecursion(iBST[val]["leftChild"]);
+              var balanceFactorHeightRight = balanceFactorRecursion(iBST[val]["rightChild"]);
+        
+              iBST[val]["balanceFactorHeight"] = Math.max(balanceFactorHeightLeft, balanceFactorHeightRight) + 1;
+              iBST[val]["balanceFactor"] = balanceFactorHeightLeft - balanceFactorHeightRight;
+        
+              return iBST[val]["balanceFactorHeight"];
+            }
+          }
+        
+          // 1: Max
+          // 2: Min
+          function populatePseudocode(act) {
+            switch (act) {
+              case 1: // findMinMax
+              case 2:
+                //$('#code1').html('if this is null return empty'); // code_minmax_1
+                $('#code1').html('if this is null return empty');
+                if (act == 1) {
+                  //$('#code2').html('if right != null'); // code_max_2
+                  //$('#code3').html('&nbsp&nbspgo right'); // code_max_3
+                  $('#code2').html('if right != null');
+                  $('#code3').html('&nbsp&nbspgo right');
+                }
+                else {
+                  //$('#code2').html('if left != null');  // code_min_2
+                  //$('#code3').html('&nbsp;&nbsp;go left');  // code_min_3
+                  $('#code2').html('if left != null');
+                  $('#code3').html('&nbsp;&nbsp;go left');
+                }
+                //$('#code4').html('else return this key'); // code_minmax_4
+                $('#code4').html('else return this key');
+                $('#code5').html('');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+              case 4: // search
+                //$('#code1').html('if this == null');  //code_search_1
+                $('#code1').html('if this == null');
+                //$('#code2').html('&nbsp;&nbsp;return null');  //code_search_2
+                $('#code2').html('&nbsp;&nbsp;return null');
+                //$('#code3').html('else if this key == search value'); //code_search_3
+                $('#code3').html('else if this key == search value');
+                //$('#code4').html('&nbsp;&nbsp;return this');  //code_search_4
+                $('#code4').html('&nbsp;&nbsp;return this');
+                //$('#code5').html('else if this key < search value');  //code_search_5
+                $('#code5').html('else if this key < search value');
+                //$('#code6').html('&nbsp;&nbsp;search right'); //code_search_6
+                $('#code6').html('&nbsp;&nbsp;search right');
+                //$('#code7').html('else search left'); //code_search_7
+                $('#code7').html('else search left');
+                break;
+              case 0: // Insert
+                //$('#code1').html('if insertion point is found');  //code_insert_1
+                $('#code1').html('if insertion point is found');
+                //$('#code2').html('&nbsp;&nbsp;create new vertex');  //code_insert_2
+                $('#code2').html('create new vertext');
+                //$('#code3').html('if value to be inserted < this key'); //code_insert_3
+                $('#code3').html('if value to be inserted < this key');
+                //$('#code4').html('&nbsp;&nbsp;go left');  //code_insert_4
+                $('#code4').html('&nbsp;&nbsp;go left');
+                //$('#code5').html('else go right');  //code_insert_5
+                $('#code5').html('else go right');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+              case 5: // remove
+                //$('#code1').html('search for v'); //code_remove_1
+                $('#code1').html('search V');
+                //$('#code2').html('if v is a leaf'); //code_remove_2
+                $('#code2').html('if (v is a leaf)');
+                //$('#code3').html('&nbsp;&nbsp;delete leaf v');  //code_remove_3
+                $('#code3').html('&nbsp;&nbsp;delete leaf v');
+                //$('#code4').html('else if v has 1 child');  //code_remove_4
+                $('#code4').html('else if (v has 1 child)');
+                //$('#code5').html('&nbsp;&nbsp;bypass v'); //code_remove_5
+                $('#code5').html('&nbsp;&nbsp;bypass v');
+                //$('#code6').html('else replace v with successor');  //code_remove_6
+                $('#code6').html('else replace v with successor');
+                $('#code7').html('');
+                break;
+              case 6: // insert with rotations
+              case 7: // remove with rotations
+                if (act == 6) {
+                  //$('#code1').html('insert v'); //code_insert_avl_1
+                  $('#code1').html('insert v');
+                } else {
+                  //$('#code1').html('remove v'); //code_remove_avl_1
+                  $('#code1').html('remove v');
+                }
+                //$('#code2').html('check balance factor of this and its children');  //code_avl_2
+                $('#code2').html('check balance factor of this and its children');
+                //$('#code3').html('&nbsp;&nbsp;case1: this.rotateRight');  //code_avl_3
+                $('#code3').html('&nbsp;&nbsp;case1: this.rotateRight');
+                //$('#code4').html('&nbsp;&nbsp;case2: this.left.rotateLeft, this.rotateRight');  //code_avl_4
+                $('#code4').html('&nbsp;&nbsp;case2: this.left.rotateLeft, this.rotateRight');
+                //$('#code5').html('&nbsp;&nbsp;case3: this.rotateLeft'); //code_avl_5
+                $('#code5').html('&nbsp;&nbsp;case3: this.rotateLeft ');
+                //$('#code6').html('&nbsp;&nbsp;case4: this.right.rotateRight, this.rotateLeft'); //code_avl_6
+                $('#code6').html('&nbsp;&nbsp;case4: this.right.rotateRight, this.rotateLeft ');
+                //$('#code7').html('&nbsp;&nbsp;this is balanced'); //code_avl_7
+                $('#code7').html('this.isBalance = true');
+                break;
+              case 8: // successor
+              case 9: // predecessor
+                if (act == 8) {
+                  //$('#code1').html('if this.right != null return findMin(this.right)'); //code_successor_1
+                  //$('#code4').html('&nbsp;&nbsp;while(p != null && T == p.right)'); //code_successor_4
+                  $('#code1').html('if this.right != null return findMin(this.right) ');
+                  $('#code4').html('&nbsp;&nbsp;while(p != null &amp;&amp; T == p.right) ');
+                }
+                else {
+                  //$('#code1').html('if this.left != null return findMax(this.left)'); //code_predecessor_1
+                  //$('#code4').html('&nbsp;&nbsp;while(p != null && T == p.left)');  //code_predecessor_4
+                  $('#code1').html('if this.left != null return findMax(this.left) ');
+                  $('#code4').html('&nbsp;&nbsp;while(p != null &amp;&amp; T == p.left) ');
+                }
+                //$('#code2').html('else'); //code_predsucc_2
+                $('#code2').html('else ');
+                //$('#code3').html('&nbsp;&nbsp;p = this.parent, T = this');  //code_predsucc_3
+                $('#code3').html('&nbsp;&nbsp;p = this.parent, T = this');
+                //$('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;T = p, p = T.parent');  //code_predsucc_5
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;T = p, p = T.parent');
+                $('#code6').html('&nbsp;&nbsp;if p is null return -1'); //code_predsucc_6
+                
+                $('#code7').html('&nbsp;&nbsp;else return p');  //code_predsucc_7
+                
+                break;
+              case 3: // inorder traversal
+                $('#code1').html('if this is null');  //code_inorder_1
+                
+                $('#code2').html('&nbsp;&nbsp;return'); //code_inorder_2
+                
+                //$('#code3').html('inOrder(left)');  //code_inorder_3
+                $('#code3').html('inOrder(left)');
+                $('#code4').html('visit this, then inOrder(right)');  //code_inorder_4                
+                $('#code5').html('');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+            }
+          }
+        }
+        
+        
+        
+        // BSTaction.js
+        var actionsWidth = 150;
+        var statusCodetraceWidth = 420;
+        
+        var isCreateOpen = false, isSearchOpen = false, isInsertOpen = false, isRemoveOpen = false, isPredSuccOpen = false, isInorderOpen = false;
+        
+  
+        
+        // local
+        var bw, gw;
+        
+        $(function() {
+          $('#play').hide();
+          bw = new BST();
+          gw = bw.getGraphWidget();
+          bw.generateRandom();
+        
+          var bstMode = getQueryVariable("mode");
+          if (bstMode.length > 0)
+            $('#title-' + bstMode).click();
+          var createBST = getQueryVariable("create");
+          if (createBST.length > 0) {
+            var newBST = createBST.split(",");
+            bw.generate(newBST);
+          }
+        
+       
+        });
+        
+        // title changing
+        $('#title-BST').click(function() {
+          if (isPlaying) stop();
+          showActionsPanel();
+          hideStatusPanel();
+          hideCodetracePanel();
+          bw.isAVL(false);
+        });
+        
+        $('#title-AVL').click(function() {
+          if (isPlaying) stop();
+          showActionsPanel();
+          hideStatusPanel();
+          hideCodetracePanel();
+          bw.isAVL(true);
+        });
+        
+        function empty() {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if (bw.generateEmpty()) { // (mode == "exploration") && 
+              $('#progress-bar').slider("option", "max", 0);
+              closeCreate();
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function example(id) {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if (bw.generateExample(id)) { // (mode == "exploration") && 
+              $('#progress-bar').slider("option", "max", 0);
+              closeCreate();
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function random() {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if (bw.generateRandom()) { // (mode == "exploration") &&  
+              $('#progress-bar').slider("option", "max", 0);
+              closeCreate();
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function skewed(side) {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if (bw.generateSkewed(side)) { // (mode == "exploration") && 
+              $('#progress-bar').slider("option", "max", 0);
+              closeCreate();
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function findMinMax(isMin, callback) {
+          if (isPlaying) stop();
+          commonAction(bw.findMinMax(isMin, callback), (isMin ? "找到最小值" : "找到最大值"));
+        }
+        
+        function searchVertex(callback) {
+          if (isPlaying) stop();
+          var input = $('#v-search').val();
+          commonAction(bw.search(input, callback), "搜索 " + input);
+          setTimeout(function() {
+            if (Math.random() >= 0.5) $("#v-search").val(bw.getRandomInBST()); // 50% an existing value
+            else                      $("#v-search").val(bw.getRandomNotInBST()); // 50% a NON existing value
+          }, 500);
+        }
+        
+        function insertVertex(callback) {
+          if (isPlaying) stop();
+          var input = $('#v-insert').val();
+          commonAction(bw.insertArr(input.split(","), callback), "插入 " + input);
+          setTimeout(function() { $("#v-insert").val(bw.getRandomNotInBST()); }, 500); // randomized for next click, a NON existing value in BST
+        }
+        
+        function removeVertex(callback) {
+          if (isPlaying) stop();
+          var input = $('#v-remove').val();
+          commonAction(bw.removeArr(input.split(","), callback), "移除 " + input);
+          setTimeout(function() { $("#v-remove").val(bw.getRandomInBST()); }, 500); // randomized for next click, an existing value in BST
+        }
+        
+        function predsucc(isPred, callback) {
+          if (isPlaying) stop();
+          var input = $('#v-predsucc').val();
+          commonAction(bw.findPredSucc(input.split(","), isPred, callback), (isPred ? "前驱(" : "后继者(") + input + ")");
+          setTimeout(function() { $("#v-predsucc").val(bw.getRandomInBST()); }, 500);
+        }
+        
+        function inorderTraversal(callback) {
+          // if (mode != "exploration") return;
+          if (isPlaying) stop();
+          commonAction(bw.inorderTraversal(callback), "中序遍历");
+        }
+        
+        // Implement these functions in each visualisation
+        var userGraph = {
+          'vl': {},
+          'el': {},
+        };
+        
+        // This function will be called before entering E-Lecture Mode
+        function ENTER_LECTURE_MODE() {
+          //if (bw) userGraph = bw.getGraph();
+        }
+        
+        // This function will be called before returning to Explore Mode
+        function ENTER_EXPLORE_MODE() {
+          //loadGraph(userGraph);
+        }
+        
+        // Lecture action functions
+        function CUSTOM_ACTION(action, data, mode) {
+          if (action == 'search') {
+            hideSlide(function() {
+              $('#v-search').val(data); // force
+              searchVertex(showSlide);
+            });
+          }
+          else if (action == 'findmin') {
+            hideSlide(function() {
+              findMinMax(true, showSlide);
+            });
+          }
+          else if (action == 'findmax') {
+            hideSlide(function() {
+              findMinMax(false, showSlide);
+            });
+          }
+          else if (action == 'successor') {
+            hideSlide(function() {
+              $('#v-predsucc').val(data); // force
+              predsucc(false, showSlide);
+            });
+          }
+          else if (action == 'successor_max') {
+            hideSlide(function() {
+              $('#v-predsucc').val(bw.findMax()); // force the max
+              predsucc(false, showSlide);
+            });
+          }
+          else if (action == 'predecessor') {
+            hideSlide(function() {
+              $('#v-predsucc').val(data); // force
+              predsucc(true, showSlide);
+            });
+          }
+          else if (action == 'inorder') {
+            hideSlide(function() {
+              inorderTraversal(showSlide);
+            });
+          }
+          else if (action == 'insert') {
+            hideSlide(function() {
+              $('#v-insert').val(data); // force
+              insertVertex(showSlide);
+            });
+          }
+          else if (action == 'insert_max_plus_1') {
+            hideSlide(function() {
+              $('#v-insert').val(bw.findMax()+1); // force the max plus 1
+              insertVertex(showSlide);
+            });
+          }
+          else if (action == 'remove') {
+            hideSlide(function() {
+              $('#v-remove').val(data); // force
+              removeVertex(showSlide);
+            });
+          }
+          else if (action == 'remove_max') {
+            hideSlide(function() {
+              $('#v-remove').val(bw.findMax()); // force the max
+              removeVertex(showSlide);
+            });
+          }
+        }
+        </script>
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {     
+                // Charts
+                var xenonPalette = ['#68b828', '#7c38bc', '#0e62c7', '#fcd036', '#4fcdfc', '#00b19d', '#ff6264', '#f7aa47'];
+                // Pageviews Visitors Chart
+                
+                if (isPlaying) stop();
+                hideCodetracePanel();
+                bw.isAVL(false);
+                $("#page-title").text('二叉搜索树');
+            });
+            $('#title-BST').click(function() {
+                if (isPlaying) stop();
+              
+               
+                hideCodetracePanel();
+                bw.isAVL(false);
+                });
+
+            $('#title-AVL').click(function() {
+                if (isPlaying) stop();
+               
+              
+                hideCodetracePanel();
+                bw.isAVL(true);
+                });
+            function between(randNumMin, randNumMax) {
+                var randInt = Math.floor((Math.random() * ((randNumMax + 1) - randNumMin)) + randNumMin);
+
+                return randInt;
+            }
+        </script>
+
+</body>
+
+</html>

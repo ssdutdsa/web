@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ssdut dsa web" />
+    <meta name="author" content="" />
+
+    <title>ssdut.DSA/线性表/双向链表</title>
+    <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/xenon-core.css">
+    <link rel="stylesheet" href="../assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="../assets/css/xenon-components.css">
+    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/viz-1.0.1.css">
+    <link rel="stylesheet" href="../assets/css/visual.css">
+    <link rel="stylesheet" href="../assets/css/drawgraph.css">
+    <style>
+        @charset  "utf-8";
+        
+        h1 {
+          text-align: center; 
+          font-family: 'SilkscreenNormal';
+          font-size: 36px;
+          margin-top: 50px;
+        }
+        
+        h2 {
+          text-align: left;
+          font-weight: bold;
+          margin-bottom: 30px;
+          font-size: 25px;
+        }
+        
+        #searchbar { text-align: center; }
+        #search {
+          width: 250px;
+          padding: 7px 10px;
+          box-shadow: 0px 0px 3px #929292 inset;
+          background: white;
+          color: #888888;
+          font-size: 14px;
+        }
+        
+        #show-filters {
+          cursor: pointer;
+          color: white;
+          padding: 7px 11px 6px;
+          margin-left: -1px;
+          display: inline-block;
+        }
+        #show-filters img { display: inline-block; vertical-align: 2px; }
+        
+        #active-tags { text-align: center; margin-left: -10px; }
+        .active-tag {
+          display: inline-block;
+          position: relative;
+          background: #aaaaaa;
+          color: white;
+          padding: 4px 34px 4px 8px;
+          margin-top: 20px;
+          margin-left: 10px;
+          font-size: 14px;
+        }
+        .active-tag span { /*the cross*/
+          background: #444444;
+          display: inline-block;
+          padding: 3px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          cursor: pointer;
+        }
+        .rotateRight {
+          transform: rotate(180deg);
+          -ms-transform: rotate(180deg); /* IE 9 */
+          -webkit-transform: rotate(180deg); /* Safari and Chrome */
+          -o-transform: rotate(180deg); /* Opera */
+          -moz-transform: rotate(180deg); /* Firefox */
+          
+          /* if you want to do this move with animate use transition */
+          transition: .5s;
+          -moz-transition: .5s; /* Firefox 4 */
+          -webkit-transition: .5s; /* Safari and Chrome */
+          -o-transition: .5s; /* Opera */ 
+        }
+          
+        .line { height: 1px; background: #cccccc; margin: 0px 30px;}
+        #emptySearchMsg { text-align: center; font-size: 15px; margin-top: 20px; }
+        #filters { padding: 20px 60px 12px 22px; overflow: auto; }
+          .filter {
+            color: white;
+            padding: 3px 8px;
+            margin: 0px 0px 8px 8px;
+            cursor: pointer;
+            border-radius: 2px;
+            float: left;
+          }
+        
+        .list { width: 100%; clear: both;}
+        .list li {
+          display: block;
+          float: left;
+          width: 100%;
+        }
+        .list li .li-wrapper {
+          background: white;
+          padding-top: 10px;
+          padding-right: 10px;
+          padding-bottom: 10px;
+          margin-left: 20px;  
+          margin-bottom: 20px;
+          box-shadow: 0px 0px 3px #dddddd;
+        }
+        .list li .li-wrapper:hover {
+          box-shadow: 0px 0px 3px #aaaaaa;
+        }
+        .list li a.thumbnail {
+          display: block;
+          position: relative;
+          margin: 0px 0px 10px 10px;
+          cursor: pointer;
+        }
+        .list li a.thumbnail .overlay {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          background: rgba(0, 0, 0, 0.7);
+          color: white;
+          text-align: center;
+        }
+        .list li a.thumbnail img { width: 100%; }
+        .list li a.thumbnail img.static { width: 100%; position: absolute; top: 0px; }
+        .list li a.thumbnail div { width: 100%; }
+        .list li a.thumbnail div.static { width: 100%; position: absolute; top: 0px; }
+            
+        .list li .info { margin: 0px 0px 0px 10px; }
+        .list li .info h3 {
+          font-size: 13px;
+          font-weight: bold;
+          color: #000000;
+          margin-bottom: 8px;
+        }
+        .list li .info h3:hover { color: #999999; }
+        .list li .info .indv-viz-filters { margin-left: -8px; height: 23px; float: none; overflow: hidden; }
+            
+        #noexist {
+          display: block;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 20px;
+        }
+        
+        #topleft {
+          border: 1px solid grey;
+          border-radius: 5px;
+          margin: 10px;
+          padding: 2px;
+          max-height: 200px;
+        }
+        
+        #topright {
+          position: absolute;
+          top: 60px;
+          left: 1000px;
+          width: 90px;
+          height: 175px;
+          display: none;
+        }
+        
+        @media (min-width: 320px) { /* 320-480px */
+          #topleft {
+            top: 20px;
+            width: 100%-; /* the - is to take into account the potential vertical scroll bar? */
+            position: relative;
+          }
+        }
+        
+        @media (min-width: 480px) { /* 480-768px */
+          h1 { font-size: 50px; }
+          .line { margin: 0px 50px; }
+          #filters { padding: 20px 60px 12px 42px; }
+          .list li { width: 50%; }
+        }
+        
+        @media (min-width: 768px) { /* 768-1024px */
+          .line { margin: 0px 60px; }
+          #filters { padding: 20px 60px 12px 52px; }
+          .list li { width: 33.33%; }
+        }
+        
+        @media (min-width: 1024px) { /* more than 1024px */
+          .list li { width: 25%; }
+          #topleft {
+            top: 40px; 
+            width: 25%;
+            position: absolute;
+          }
+        }
+        
+        @media (min-width: 1400px) { /* more than 1400px */
+          .list li { width: 20%; }
+        }
+        
+        .static {
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          display: inline-block;
+          height: 100%;
+          width: 300px;
+          opacity: 1;
+          backface-visibility: hidden;
+        }
+        
+        /*.container {
+          position: relative;
+          width: 50%;
+        }
+        */
+        /*.image {
+          opacity: 1;
+          display: block;
+          width: 100%;
+          height: auto;
+          transition: .5s ease;
+          backface-visibility: hidden;
+        }
+        */
+        .middle {
+          transition: .5s ease;
+          opacity: 0;
+          position: absolute;
+          top: 7%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%)
+        }
+        
+        .li-wrapper:hover .static {
+          opacity: 0.3;
+        }
+        
+        .li-wrapper:hover .middle {
+          opacity: 1;
+        }
+        
+        .message {
+          font-size: 150%;
+          text-align: center;
+        }
+        
+        
+        
+        #notloggedin {
+          background-color: black;
+          color: white;
+          border: 1px solid;
+          border-radius: 5px;
+          position: absolute;
+          width: 280px;
+          top: 50px;
+          right: 10px;
+          padding: 7px;
+          z-index: 1;
+        }
+        
+        #notloggedin::after {
+          content: "";
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          margin-left: 110px;
+          border-width: 10px;
+          border-style: solid;
+          border-color: transparent transparent black transparent;
+        }
+        </style>
+
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body class="page-body">
+    <div class="page-container">
+        <!-- add class"sidebar-collapsed" to close sidebar by default,"chat-visible" to make chat appear always -->
+
+        <!-- Add"fixed" class to make the sidebar fixed always to the browser viewport. -->
+        <!-- Adding class"toggle-others" will keep only one menu item open at a time. -->
+        <!-- Adding class"collapsed" collapse sidebar root elements and show only icons. -->
+        <div class="sidebar-menu toggle-others fixed">
+
+            <div class="sidebar-menu-inner">
+
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="/" class="logo-expanded">
+                            <img src="../assets/images/logo@2x.png" width="80" alt="" />
+                        </a>
+
+                        <a href="/" class="logo-collapsed">
+                            <img src="../assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+                   
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class"multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class"auto-inherit-active-class" will automatically add"active" class for parent elements who are marked already with class"active" -->
+                    <li  class="opened active">
+                        <a href="/index.html">
+                            <i class="fa-home"></i>
+                            <span class="title">首页</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/list/ll.html">
+                            <i class="fa-chain"></i>
+                            <span class="title">线性表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/list/ll.html">
+                                    <span class="title">单链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/stack.html">
+                                    <span class="title">栈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/queue.html">
+                                    <span class="title">队列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/dll.html">
+                                    <span class="title">双向链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/deque.html">
+                                    <span class="title">双端队列</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/tree/bst.html">
+                            <i class="fa-sitemap"></i>
+                            <span class="title">二叉树</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/tree/bst.html">
+                                    <span class="title">二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/avl.html">
+                                    <span class="title">平衡二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/heap.html">
+                                    <span class="title">堆</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/graph/graphds.html">
+                            <i class="fa-share-alt"></i>
+                            <span class="title">图</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/graph/graphds.html">
+                                    <span class="title">图的数据结构</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/dfsbfs.html">
+                                    <span class="title">图的遍历</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/mst.html">
+                                    <span class="title">最小生成树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/sssp.html">
+                                    <span class="title">最短路径</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/maxflow.html">
+                                    <span class="title">网络最大流</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/hashtable/lp.html">
+                            <i class="fa-random"></i>
+                            <span class="title">散列表</span>                          
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/hashtable/lp.html">
+                                    <span class="title">线性探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/qp.html">
+                                    <span class="title">二次探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/dh.html">
+                                    <span class="title">双散列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/sc.html">
+                                    <span class="title">分离链接</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="/sorting/bubble.html" >
+                            <i class="fa-sort-amount-asc"></i>
+                            <span class="title">排序</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/sorting/bubble.html">
+                                    <span class="title">冒泡排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/selection.html">
+                                    <span class="title">选择排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/insertion.html">
+                                    <span class="title">插入排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/merge.html">
+                                    <span class="title">归并排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/quick.html">
+                                    <span class="title">快速排序</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/sorting/radix.html" >
+                                    <span class="title">基数排序</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>             
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <!-- User Info, Notifications and Menu Bar -->
+          
+                <div class="row" style="margin:-30px -30px 0 -30px; background-color: #FFF; padding:15px 10px 10px; ">
+                    <div class="col-auto">
+                        <ul class="user-info-menu left-links list-inline list-unstyled">
+                            <li class="hidden-sm hidden-xs">
+                                <a href="#" data-toggle="sidebar">
+                                    <i class="fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>        
+                    </div>
+                    <!-- Left links for user info navbar -->
+                    <div class="col-auto">
+                        <h4 id="page-title" >主页</h4>
+                    </div>
+                    <div class="col-auto me-auto">
+                       
+                    </div>               
+                   
+                </div>
+            
+
+            <script type="text/javascript">
+                jQuery(document).ready(function($) {     
+                    // Charts
+                    var xenonPalette = ['#68b828', '#7c38bc', '#0e62c7', '#fcd036', '#4fcdfc', '#00b19d', '#ff6264', '#f7aa47'];
+                    // Pageviews Visitors Chart
+                   
+                });
+            </script>
+
+            <div class="row" style="padding: 40px 100px 100px 0;">
+
+                <ul class="list" >
+                    
+                    <li class="viz" id="sorting">
+                        <div class="li-wrapper" style="background-color: #faf4c8;">
+                            <a class="thumbnail" href="./list/ll.html" data-anim="sorting">
+                                <img src="./assets/images/list.gif" alt="please wait" width="269.188px" height="201.891px">                        
+                                <div class="middle">                  
+                                </div>
+                            </a>
+                            <div class="info">
+                                <h2>
+                                    <a id="sortingtext" href="./list/ll.html">线性表</a>
+                                </h2>                   
+                            </div>
+                        </div>
+                    </li>
+                    <li class="viz" id="sorting">
+                        <div class="li-wrapper" style="background-color: #faf4c8;">
+                            <a class="thumbnail" href="./tree/bst.html" data-anim="sorting">
+                                <img src="./assets/images/bst.gif" alt="please wait" width="269.188px" height="201.891px">                        
+                                <div class="middle">                  
+                                </div>
+                            </a>
+                            <div class="info">
+                                <h2>
+                                    <a id="sortingtext" href="./tree/bst.html">树</a>
+                                </h2>                   
+                            </div>
+                        </div>
+                    </li>
+                    <li class="viz" id="sorting">
+                        <div class="li-wrapper" style="background-color: #faf4c8;">
+                            <a class="thumbnail" href="./graph/mst.html" data-anim="sorting">
+                                <img src="./assets/images/mst.gif" alt="please wait" width="269.188px" height="201.891px">                        
+                                <div class="middle">                  
+                                </div>
+                            </a>
+                            <div class="info">
+                                <h2>
+                                    <a id="sortingtext" href="./graph/mst.html">图</a>
+                                </h2>                   
+                            </div>
+                        </div>
+                    </li>
+                    <li class="viz" id="sorting">
+                        <div class="li-wrapper" style="background-color: #faf4c8;">
+                            <a class="thumbnail" href="./hashtable/lp.html" data-anim="sorting">
+                                <img src="./assets/images/hashtable.gif" alt="please wait" width="269.188px" height="201.891px">                        
+                                <div class="middle">                  
+                                </div>
+                            </a>
+                            <div class="info">
+                                <h2>
+                                    <a id="sortingtext" href="/hashtable/lp.html">散列表</a>
+                                </h2>                   
+                            </div>
+                        </div>
+                    </li>
+                    <li class="viz" id="sorting">
+                        <div class="li-wrapper" style="background-color: #faf4c8;">
+                            <a class="thumbnail" href="./sorting/bubble.html" data-anim="sorting">
+                                <img src="./assets/images/sorting.gif" alt="please wait" width="269.188px" height="201.891px">                        
+                                <div class="middle">                  
+                                </div>
+                            </a>
+                            <div class="info">
+                                <h2>
+                                    <a id="sortingtext" href="./sorting/bubble.html">排序</a>
+                                </h2>                   
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div id="overlay" hidden="" style="opacity: 0; display: none;"></div>
+
+
+                <div id="popup" hidden="">
+                    <div id="popup-content"></div>
+                    <span id="hide-popup" hidden="" style="background-color: rgb(255, 138, 39);">X <u>关闭</u></span>
+                </div>
+         
+
+                <script>
+                    var PHP_DOMAIN ="";
+
+                    // surprise colour!
+                    // Referenced to in  home.js and viz.js also
+                    var colourArray = ["#52bc69","#d65775" /*"#ed5a7d"*/ ,"#2ebbd1","#d9513c","#fec515","#4b65ba","#ff8a27","#a7d41e"]; // green, pink, blue, red, yellow, indigo, orange, lime
+
+                    function disableScroll() {
+                        $('html').css('overflow', 'hidden');
+                    }
+
+                    function enableScroll() {
+                        $('html').css('overflow', 'visible');
+                    }
+
+                    function replaceAll(find, replace, str) {
+                        return str.replace(new RegExp(find, 'g'), replace);
+                    }
+
+                    function getColours() {
+                        var generatedColours = new Array();
+                        while (generatedColours.length < 4) {
+                            var n = (Math.floor(Math.random() * colourArray.length));
+                            if ($.inArray(n, generatedColours) == -1)
+                                generatedColours.push(n);
+                        }
+                        return generatedColours;
+                    }
+
+                    function isOn(value, position) {
+                        return (value >> position) & 1 === 1;
+                    }
+
+                    function customAlert(msg) {
+                        $('#custom-alert p').html(msg);
+                        var m = -1 * ($('#custom-alert').outerHeight() / 2);
+                        $('#custom-alert').css('margin-top', m + 'px');
+                        $('#dark-overlay').fadeIn(function() {
+                            $('#custom-alert').fadeIn(function() {
+                                setTimeout(function() {
+                                    $('#custom-alert').fadeOut(function() {
+                                        $('#dark-overlay').fadeOut();
+                                    });
+                                }, 1000);
+                            });
+                        });
+                    }
+
+                    function showLoadingScreen() {
+                        $('#loading-overlay').show();
+                        $('#loading-message').show();
+                    }
+
+                    function hideLoadingScreen() {
+                        $('#loading-overlay').hide();
+                    }
+
+                    function commonAction(retval, msg) {
+                        //setTimeout(function() {
+                        if (retval) { // mode =="exploration" && // now not only for exploration mode, but check if this opens other problems
+                         
+                            $('#current-action').html(mode =="exploration" ? msg : ("e-Lecture Example (auto play until done)<br>" + msg));
+                            $('#progress-bar').slider("option","max", gw.getTotalIteration() - 1);
+                            triggerRightPanels();
+                            isPlaying = true;
+                        }
+                        //}, 500);
+                    }
+
+                    function getQueryVariable(variable) {
+                        var query = window.location.search.substring(1);
+                        var vars = query.split('&');
+                        for (var i = 0; i < vars.length; i++) {
+                            var pair = vars[i].split('=');
+                            if (decodeURIComponent(pair[0]) == variable)
+                                return decodeURIComponent(pair[1]);
+                        }
+                        return"";
+                    }
+
+                    var generatedColours = getColours();
+                    var surpriseColour = colourArray[generatedColours[0]];
+                    var colourTheSecond = colourArray[generatedColours[1]];
+                    var colourTheThird = colourArray[generatedColours[2]];
+                    var colourTheFourth = colourArray[generatedColours[3]];
+
+                    $(function() {
+                       
+
+                        // title
+                        $('#title a').click(function() {
+                            $('#title a').removeClass('selected-viz');
+                            $(this).addClass('selected-viz');
+                            // temporary quick fix for Google Chrome Aug 2016 issue...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100.1%";
+                            }, 100); // force resize/redraw...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100%";
+                            }, 600);
+                        });
+
+                        // overlays stuffs
+                        $('#trigger-about').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#about').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-team').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#team').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-terms').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#termsofuse').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('.close-overlay').click(function() {
+                            $('.overlays').fadeOut(function() {
+                                $('#dark-overlay').fadeOut();
+                            });
+                        });
+
+                        $('#dark-overlay').click(function() {
+                            $('.overlays').fadeOut();
+                            $('#dark-overlay').fadeOut();
+                        });
+                    });
+                </script>
+
+
+
+
+                <script>
+                    window.onpopstate = function(event) {
+                        var slide = event.state['slide'];
+                        openSlide(slide, function() {
+                            runSlide(slide);
+                        });
+                    };
+
+                    function getUrlParameter(sParam) {
+                        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                            sURLVariables = sPageURL.split('&'),
+                            sParameterName, i;
+
+                        for (i = 0; i < sURLVariables.length; i++) {
+                            sParameterName = sURLVariables[i].split('=');
+                            if (sParameterName[0] === sParam) return sParameterName[1] === undefined ? true : sParameterName[1];
+                        }
+                    };
+
+                    function pushState(slideValue) {
+                        var url = '/zh/list';
+                        if (typeof slideValue != 'undefined' && slideValue != null) url += '?slide=' + slideValue;
+                        window.history.pushState({
+                            slide: slideValue
+                        },"slide" + slideValue, url);
+                    }
+
+                    function showPopup(callback) {
+                        $('#popup').fadeIn(100, callback);
+                    }
+
+                    function hidePopup(callback) {
+                        $('#popup').fadeOut(100, callback);
+                    }
+
+                    function adjustPopupToImageSize() {
+                        var width = $('#popup-image').prop('width');
+                        var height = $('#popup-image').prop('height');
+                        $('#popup').width(width + 20);
+                        $('#popup').height(height + 20);
+                        if (width == 0 && height == 0) {
+                            setTimeout(adjustPopupToImageSize, 200);
+                        } else {
+                            showPopup();
+                        }
+                    }
+
+                    function POPUP_IMAGE(url) {
+                        $('#popup-content').html('<img id="popup-image" src="' + url + '">');
+                        adjustPopupToImageSize();
+                    }
+
+                    function URL(url) {
+                        window.open(url, '_blank');
+                    }
+
+                </script>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Main Footer -->
+            <!-- Choose between footer styles:"footer-type-1" or"footer-type-2" -->
+            <!-- Add class"sticky" to  always stick the footer to the end of page (if page contents is small) -->
+            <!-- Or class"fixed" to  always fix the footer to the end of page -->
+            <footer class="main-footer sticky footer-type-2 sticky fixed">
+                <div class="footer-inner">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>    
+
+    <div class="page-loading-overlay">
+        <div class="loader-2"></div>
+    </div>
+
+  
+
+
+    <!-- Bottom Scripts -->
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/bootstrap5.dropdown.ml.hack.js"></script>
+    <script src="../assets/js/TweenMax.min.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/xenon-api.js"></script>
+    <script src="../assets/js/xenon-toggles.js"></script>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="../assets/js/xenon-widgets.js"></script>
+    <script src="../assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+    <!--   <script src="../assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>-->
+    <script src="../assets/js/toastr/toastr.min.js"></script>
+
+
+    
+    <script src="../assets/js/jquery-ui/jquery-ui.js"></script>
+    <script src="../assets/js/knob/jquery.knob.min.js"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="../assets/js/xenon-custom.js"></script>
+    
+    <script src="../assets/js/d3.min.js"></script>
+    <script src="../assets/js/viz-1.0.3.js"></script>
+    <script src="../assets/js/visualgo_print.js"></script>
+    <script src="../assets/js/graph_library.js"></script>
+
+
+</body>
+
+</html>

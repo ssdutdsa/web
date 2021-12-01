@@ -1,0 +1,3336 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ssdut dsa web" />
+    <meta name="author" content="" />
+
+    <title>ssdut.DSA/线性表/队列</title>
+    <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/xenon-core.css">
+    <link rel="stylesheet" href="../assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="../assets/css/xenon-components.css">
+    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/viz-1.0.1.css">
+    <link rel="stylesheet" href="../assets/css/visual.css">
+    <link rel="stylesheet" href="../assets/css/drawgraph.css">
+
+
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body class="page-body">
+    <div class="page-container">
+        <!-- add class"sidebar-collapsed" to close sidebar by default,"chat-visible" to make chat appear always -->
+
+        <!-- Add"fixed" class to make the sidebar fixed always to the browser viewport. -->
+        <!-- Adding class"toggle-others" will keep only one menu item open at a time. -->
+        <!-- Adding class"collapsed" collapse sidebar root elements and show only icons. -->
+        <div class="sidebar-menu toggle-others fixed">
+
+            <div class="sidebar-menu-inner">
+
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="/" class="logo-expanded">
+                            <img src="../assets/images/logo@2x.png" width="80" alt="" />
+                        </a>
+
+                        <a href="/" class="logo-collapsed">
+                            <img src="../assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+                 
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class"multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class"auto-inherit-active-class" will automatically add"active" class for parent elements who are marked already with class"active" -->
+                    <li >
+                        <a href="/index.html">
+                            <i class="fa-home"></i>
+                            <span class="title">首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/list/ll.html">
+                            <i class="fa-chain"></i>
+                            <span class="title">线性表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/list/ll.html">
+                                    <span class="title">单链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/stack.html">
+                                    <span class="title">栈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/queue.html">
+                                    <span class="title">队列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/dll.html">
+                                    <span class="title">双向链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/deque.html">
+                                    <span class="title">双端队列</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/tree/bst.html">
+                            <i class="fa-sitemap"></i>
+                            <span class="title">二叉树</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/tree/bst.html">
+                                    <span class="title">二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/avl.html">
+                                    <span class="title">平衡二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/heap.html">
+                                    <span class="title">堆</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="opened active">
+                        <a href="/graph/graphds.html">
+                            <i class="fa-share-alt"></i>
+                            <span class="title">图</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/graph/graphds.html">
+                                    <span class="title">图的数据结构</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="/graph/dfsbfs.html">
+                                    <span class="title">图的遍历</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/mst.html">
+                                    <span class="title">最小生成树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/sssp.html">
+                                    <span class="title">最短路径</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/maxflow.html">
+                                    <span class="title">网络最大流</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/hashtable/lp.html">
+                            <i class="fa-random"></i>
+                            <span class="title">散列表</span>                          
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/hashtable/lp.html">
+                                    <span class="title">线性探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/qp.html">
+                                    <span class="title">二次探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/dh.html">
+                                    <span class="title">双散列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/sc.html">
+                                    <span class="title">分离链接</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="/sorting/bubble.html" >
+                            <i class="fa-sort-amount-asc"></i>
+                            <span class="title">排序</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/sorting/bubble.html">
+                                    <span class="title">冒泡排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/selection.html">
+                                    <span class="title">选择排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/insertion.html">
+                                    <span class="title">插入排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/merge.html">
+                                    <span class="title">归并排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/quick.html">
+                                    <span class="title">快速排序</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/sorting/radix.html" >
+                                    <span class="title">基数排序</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>             
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <!-- User Info, Notifications and Menu Bar -->
+          
+                <div class="row" style="margin:-30px -30px 0 -30px; background-color: #FFF; padding:15px 10px 10px; ">
+                    <div class="col-auto">
+                        <ul class="user-info-menu left-links list-inline list-unstyled">
+                            <li class="hidden-sm hidden-xs">
+                                <a href="#" data-toggle="sidebar">
+                                    <i class="fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>        
+                    </div>
+                    <!-- Left links for user info navbar -->
+                    <div class="col-auto">
+                        <h4 id="page-title" >链表</h4>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <div id="current-action" ></div>
+                    </div>               
+                    <div class="col-auto" >
+                                    <!-- Right links for user info navbar -->              
+                        <div id="speed-control">
+                            减速
+                            <div id="speed-input" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 72.2222%;"></span>
+                            </div>
+                            加速
+                        </div>              
+                    </div>
+                </div>
+            
+
+            <script type="text/javascript">
+                jQuery(document).ready(function($) {     
+                    // Charts
+                    var xenonPalette = ['#68b828', '#7c38bc', '#0e62c7', '#fcd036', '#4fcdfc', '#00b19d', '#ff6264', '#f7aa47'];
+                    // Pageviews Visitors Chart
+                  
+                      
+                     
+                    $("#page-title").text('图遍历');
+                });             
+                
+            </script>
+
+            <div class="row">
+
+              
+                <div id="dark-overlay"></div>
+
+
+                <div id="viz">
+
+                </div>
+                
+
+                <div id="overlay" hidden="" style="opacity: 0; display: none;"></div>
+
+
+                <div id="popup" hidden="">
+                    <div id="popup-content"></div>
+                    <span id="hide-popup" hidden="" style="background-color: rgb(255, 138, 39);">X <u>关闭</u></span>
+                </div>
+         
+
+                <script>
+                    var PHP_DOMAIN ="";
+
+                    // surprise colour!
+                    // Referenced to in  home.js and viz.js also
+                    var colourArray = ["#52bc69","#d65775" /*"#ed5a7d"*/ ,"#2ebbd1","#d9513c","#fec515","#4b65ba","#ff8a27","#a7d41e"]; // green, pink, blue, red, yellow, indigo, orange, lime
+
+                    function disableScroll() {
+                        $('html').css('overflow', 'hidden');
+                    }
+
+                    function enableScroll() {
+                        $('html').css('overflow', 'visible');
+                    }
+
+                    function replaceAll(find, replace, str) {
+                        return str.replace(new RegExp(find, 'g'), replace);
+                    }
+
+                    function getColours() {
+                        var generatedColours = new Array();
+                        while (generatedColours.length < 4) {
+                            var n = (Math.floor(Math.random() * colourArray.length));
+                            if ($.inArray(n, generatedColours) == -1)
+                                generatedColours.push(n);
+                        }
+                        return generatedColours;
+                    }
+
+                    function isOn(value, position) {
+                        return (value >> position) & 1 === 1;
+                    }
+
+                    function customAlert(msg) {
+                        $('#custom-alert p').html(msg);
+                        var m = -1 * ($('#custom-alert').outerHeight() / 2);
+                        $('#custom-alert').css('margin-top', m + 'px');
+                        $('#dark-overlay').fadeIn(function() {
+                            $('#custom-alert').fadeIn(function() {
+                                setTimeout(function() {
+                                    $('#custom-alert').fadeOut(function() {
+                                        $('#dark-overlay').fadeOut();
+                                    });
+                                }, 1000);
+                            });
+                        });
+                    }
+
+                    function showLoadingScreen() {
+                        $('#loading-overlay').show();
+                        $('#loading-message').show();
+                    }
+
+                    function hideLoadingScreen() {
+                        $('#loading-overlay').hide();
+                    }
+
+                    function commonAction(retval, msg) {
+                        //setTimeout(function() {
+                        if (retval) { // mode =="exploration" && // now not only for exploration mode, but check if this opens other problems
+                         
+                            $('#current-action').html(mode =="exploration" ? msg : ("e-Lecture Example (auto play until done)<br>" + msg));
+                            $('#progress-bar').slider("option","max", gw.getTotalIteration() - 1);
+                            triggerRightPanels();
+                            isPlaying = true;
+                        }
+                        //}, 500);
+                    }
+
+                    function getQueryVariable(variable) {
+                        var query = window.location.search.substring(1);
+                        var vars = query.split('&');
+                        for (var i = 0; i < vars.length; i++) {
+                            var pair = vars[i].split('=');
+                            if (decodeURIComponent(pair[0]) == variable)
+                                return decodeURIComponent(pair[1]);
+                        }
+                        return"";
+                    }
+
+                    var generatedColours = getColours();
+                    var surpriseColour = colourArray[generatedColours[0]];
+                    var colourTheSecond = colourArray[generatedColours[1]];
+                    var colourTheThird = colourArray[generatedColours[2]];
+                    var colourTheFourth = colourArray[generatedColours[3]];
+
+                    $(function() {
+                       
+
+                        // title
+                        $('#title a').click(function() {
+                            $('#title a').removeClass('selected-viz');
+                            $(this).addClass('selected-viz');
+                            // temporary quick fix for Google Chrome Aug 2016 issue...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100.1%";
+                            }, 100); // force resize/redraw...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100%";
+                            }, 600);
+                        });
+
+                        // overlays stuffs
+                        $('#trigger-about').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#about').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-team').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#team').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-terms').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#termsofuse').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('.close-overlay').click(function() {
+                            $('.overlays').fadeOut(function() {
+                                $('#dark-overlay').fadeOut();
+                            });
+                        });
+
+                        $('#dark-overlay').click(function() {
+                            $('.overlays').fadeOut();
+                            $('#dark-overlay').fadeOut();
+                        });
+                    });
+                </script>
+
+
+
+
+                <script>
+                    window.onpopstate = function(event) {
+                        var slide = event.state['slide'];
+                        openSlide(slide, function() {
+                            runSlide(slide);
+                        });
+                    };
+
+                    function getUrlParameter(sParam) {
+                        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                            sURLVariables = sPageURL.split('&'),
+                            sParameterName, i;
+
+                        for (i = 0; i < sURLVariables.length; i++) {
+                            sParameterName = sURLVariables[i].split('=');
+                            if (sParameterName[0] === sParam) return sParameterName[1] === undefined ? true : sParameterName[1];
+                        }
+                    };
+
+                    function pushState(slideValue) {
+                        var url = '/zh/list';
+                        if (typeof slideValue != 'undefined' && slideValue != null) url += '?slide=' + slideValue;
+                        window.history.pushState({
+                            slide: slideValue
+                        },"slide" + slideValue, url);
+                    }
+
+                    function showPopup(callback) {
+                        $('#popup').fadeIn(100, callback);
+                    }
+
+                    function hidePopup(callback) {
+                        $('#popup').fadeOut(100, callback);
+                    }
+
+                    $(function() {
+                        var slide = getUrlParameter('slide');
+
+          
+
+                        $('.mcq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#mcq-answer-' + questionId).val();
+                            var userAnswer = $('input[type=radio][name=mcq-' + questionId + '-choice]:checked').val();
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green"><b>Correct!</b></font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red"><b>Wrong Answer! Try again...</b></font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                        $('.msq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#msq-answer-' + questionId).val();
+
+                            var answers = [];
+                            $('input[type=checkbox][class=msq-choice]:checked').each(function() {
+                                answers.push($(this).attr('id').split('-')[3]);
+                            });
+                            answers.sort();
+                            var userAnswer = answers.join(',');
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green">Correct!</font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red">Wrong Answer! Try again...</font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                      
+
+                        $('#hide-popup').click(function() {
+                            hidePopup();
+                        });
+
+                        $('#popup').hover(function() {
+                            $('#hide-popup').show();
+                        }, function() {
+                            $('#hide-popup').hide();
+                        });
+
+
+
+
+                        // temporary quick fix for Google Chrome Aug 2016 issue..., put at last part so that everything else has been loaded
+                        // setTimeout(function(){ document.body.style.zoom ="100.1%"; }, 500);
+                        // setTimeout(function(){ document.body.style.zoom ="100%"; }, 600);
+                        // I turn it off on 14 June 2018, seems 'ok'?
+                    });
+
+               
+
+                    function adjustPopupToImageSize() {
+                        var width = $('#popup-image').prop('width');
+                        var height = $('#popup-image').prop('height');
+                        $('#popup').width(width + 20);
+                        $('#popup').height(height + 20);
+                        if (width == 0 && height == 0) {
+                            setTimeout(adjustPopupToImageSize, 200);
+                        } else {
+                            showPopup();
+                        }
+                    }
+
+                    function POPUP_IMAGE(url) {
+                        $('#popup-content').html('<img id="popup-image" src="' + url + '">');
+                        adjustPopupToImageSize();
+                    }
+
+                    function URL(url) {
+                        window.open(url, '_blank');
+                    }
+
+                </script>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Main Footer -->
+            <!-- Choose between footer styles:"footer-type-1" or"footer-type-2" -->
+            <!-- Add class"sticky" to  always stick the footer to the end of page (if page contents is small) -->
+            <!-- Or class"fixed" to  always fix the footer to the end of page -->
+            <footer class="main-footer sticky footer-type-2 sticky fixed">
+
+                <div class="footer-inner">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">                               
+                                <a id="actions-toggle" class="btn btn-sm btn-info dropdown-toggle " data-bs-toggle="dropdown"  data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">                            
+                                    操作                                                      
+                                </a>                                    
+                                <div id="actions" class="dropdown-menu">
+                                    <div class="dropdown dropend">
+                                        <a id="search" class="dropdown-item " onclick="drawGraph()" >
+                                            绘制图</a>                                        
+                                    </div>
+                                    <div class="dropdown dropend">                                        
+                                        <a id="create" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-create" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">创建</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown-create">
+                                            <div class="dropdown-item" onclick="example(CP3_4_1);" >
+                                                <a>非全连通无向图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_3);">
+                                                <a>连通无向图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_4);">
+                                                <a>非全连通有向无环图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_9);" >
+                                                <a>有环图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_17);" >
+                                                <a>全连通有向无环图</a>
+                                            </div>
+                                            <div class="dropdown-item" onclick="example(CP3_4_18);">
+                                                <a>有向无环二分图</a>
+                                            </div> 
+                                            <div class="dropdown-item" onclick="example(CP3_4_19);">
+                                                <a>二分图</a>
+                                            </div>                        
+                                        </div>
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="insert" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-insert" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            深度优先搜索</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-insert" style="min-width: 200px;">
+                                            <div  class="dropdown-item-text" >
+                                                起始结点
+                                            </div>   
+                                            <div id="insert-head" class="dropdown-item-text" >
+                                                <input type="number" id="dfs-v" title="Enter an Integer" autocomplete="off" min="0" max="99" value="0">
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="dfs()" >
+                                                    执行
+                                                </div>                                          
+                                            </div>                                           
+                                        </div>  
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="insert" class="dropdown-item dropdown-toggle" href="#"_id="dropdown-insert" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            广度优先搜索</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-insert" style="min-width: 200px;">
+                                            <div  class="dropdown-item-text" >
+                                                起始结点
+                                            </div>   
+                                            <div id="insert-head" class="dropdown-item-text" >
+                                                <input type="number" id="bfs-v" title="Enter an Integer" autocomplete="off" min="0" max="99" value="0">
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="bfs()" >
+                                                    执行
+                                                </div>                                          
+                                            </div>
+                                           
+                                        </div>  
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a  class="dropdown-item dropdown-toggle" href="#"_id="dropdown-insert" data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            拓扑排序</a>
+                                        <div class="dropdown-menu " aria-labelledby="dropdown-insert" >
+                                            <div  class="dropdown-item" onclick="toposortDfs()">
+                                                深度优先
+                                            </div>   
+                                            <div  class="dropdown-item" onclick="toposortBfs()" >
+                                                广度优先
+                                            </div>  
+                                        </div>  
+                                    </div>
+                                    <!-- <div class="dropdown dropend">
+                                        <a  class="dropdown-item dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            二分图检查</a>
+                                        <div class="dropdown-menu " >
+                                            <div  class="dropdown-item" onclick="bipartiteDfs();">
+                                                深度优先
+                                            </div>   
+                                            <div  class="dropdown-item" onclick="bipartiteBfs();" >
+                                                广度优先
+                                            </div>  
+                                        </div>  
+                                    </div> -->
+                                 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-auto">
+                            <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick="goToBeginning()"><img
+                                src="../assets/images/goToBeginning.png" alt="go to beginning"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="previous" class="media-control-button" title="step backward" onclick="stepBackward()"><img
+                                src="../assets/images/prevFrame.png" alt="previous frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="pause" class="media-control-button" title="pause" onclick="pause()" ><img
+                                src="../assets/images/pause.png" alt="pause"></span>
+                            <span id="play" class="media-control-button" title="play" onclick="play()" style="display: none;">
+                                <img src="../assets/images/play.png" alt="play"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="next" class="media-control-button" title="step forward" onclick="stepForward()"><img
+                                src="../assets/images/nextFrame.png" alt="next frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="go-to-end" class="media-control-button" title="go to end" onclick="goToEnd()"><img
+                                src="../assets/images/goToEnd.png" alt="go to end"></span>
+                        </div>
+
+
+                        <div class="col-5 me-auto">
+                            <div id="progress-bar" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="1800" data-value="223">
+                            </div>
+
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">
+                                <a id="codetrace-toggle" class="btn btn-sm btn-warning dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" data-bs-offset="0,20">                            
+                                    代码跟踪
+                                                  
+                                </a>
+                                <div id="codetrace-panel" class="dropdown-menu dropdown-menu-end">
+                                    <div class="row" style="width: 600px;">
+                                        <div class="col-sm-12">
+                                            <div id="status" class=" col-sm-12" >
+                                                <p></p>
+                                            </div>
+                                            <div id="codetrace" class=" col-sm-12">
+                                                <p id="code1" style="padding-top: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code2" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code3" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code4" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code5" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code6" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code7" style="padding-bottom: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                     </div>  
+            </footer>
+        </div>
+    </div>    
+
+    <div class="page-loading-overlay">
+        <div class="loader-2"></div>
+    </div>
+
+    <div id="drawgraph" class="overlays" style="display: none;">  
+        <script>var JSONresult;</script>    
+        <div id="main">      
+            <div id="draw-status">
+                <p>绘制具有不同属性的图，然后尝试在其图上运行各种图的遍历算法。
+                    <div>默认绘图模式是有向图（每个边有一个或最多两个箭头）。
+                </div>
+            </p>
+        </div>      
+        <div id="draw-warn"><p>没有警告</p></div>      
+        <div id="draw-err"><p>没有错误</p></div>      
+        <div id="viz">        
+            <svg onclick="GraphVisu(false,true,null,null,null,true); " width="640" height="360">
+                <defs><marker id="end-arrow" viewBox="0 -5 10 10" refX="6" markerWidth="3" markerHeight="3" orient="auto">
+                    <path d="M0,-5L10,0L0,5" fill="#000"></path></marker></defs><path class="link dragline hidden" d="M0,0L0,0"></path>
+                    <g><path class="link" d="M108.48528137423857,108.48528137423857L191.51471862576142,191.51471862576142"></path>
+                        <path class="link" d="M208.48528137423858,208.48528137423858L291.5147186257614,291.5147186257614"></path>
+                    </g>
+                    <g>
+                        <g><circle class="node" r="16" cx="100" cy="100" style="fill: rgb(238, 238, 238);"></circle>
+                            <text x="100" y="105.33333333333333" class="id">0</text>
+                        </g>
+                        <g><circle class="node" r="16" cx="200" cy="200" style="fill: rgb(238, 238, 238);"></circle>
+                                <text x="200" y="205.33333333333334" class="id">1</text>
+                        </g>
+                        <g><circle class="node" r="16" cx="300" cy="300" style="fill: rgb(238, 238, 238);"></circle>
+                                    <text x="300" y="305.3333333333333" class="id">2</text>
+                        </g>
+                    </g>
+                    <g></g>        
+                    <text x="250" y="100"> • 单击空白处增加新结点</text>        
+                    <text x="250" y="125"> • 在两个结点之间按住左键拖动连线以增加新的边</text>        
+                    <text x="250" y="150"> • 选中结点按Delete键删除结点</text>        
+                    <text x="250" y="175"> • 选中边按 Enter 更改边的权重</text>      
+                </svg>    
+            </div>    
+            <div id="drawgraph-actions">      
+                <p onclick="drawCancel()">取消绘制</p>      
+                <p onclick="GraphVisu(false,true,true)">消除</p>      
+                <p onclick="drawDone()">绘制完成</p>      
+                <form id="drawgraph-form">        
+                    <!--<input type="checkbox" id="submit" name="submit" value="submit" checked="checked">Submit drawn graph to database for random graph and online quiz purposes        <br>-->
+                    <input type="checkbox" id="copy" name="submit" value="submit">导出到剪贴板      
+                </form>    
+            </div>  
+        </div>
+    </div>
+
+
+    <!-- Bottom Scripts -->
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/bootstrap5.dropdown.ml.hack.js"></script>
+    <script src="../assets/js/TweenMax.min.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/xenon-api.js"></script>
+    <script src="../assets/js/xenon-toggles.js"></script>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="../assets/js/xenon-widgets.js"></script>
+    <script src="../assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+    <!--   <script src="../assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>-->
+    <script src="../assets/js/toastr/toastr.min.js"></script>
+
+
+    
+    <script src="../assets/js/jquery-ui/jquery-ui.js"></script>
+    <script src="../assets/js/knob/jquery.knob.min.js"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="../assets/js/xenon-custom.js"></script>
+    
+    <script src="../assets/js/d3.min.js"></script>
+    <script src="../assets/js/viz-1.0.3.js"></script>
+    <script src="../assets/js/visualgo_print.js"></script>
+    <script src="../assets/js/graph_library.js"></script>
+    <script type="text/javascript">
+        // Graph Traversal Widget
+        // original author: Koh Zi Chun, improved by Nguyen Viet Dung, then maintained by Steven Halim
+        
+        var GraphTraversal = function() {
+          var self = this;
+          var gw = new GraphWidget();
+        
+          var iVL = {};
+          var iEL = {};
+          var amountVertex = 0;
+          var amountEdge = 0;
+        
+          this.getGraphWidget = function() { return gw; }
+        
+          fixJSON = function() {
+            amountVertex = 0;
+            amountEdge = 0;
+            for (var key in iVL) amountVertex++;
+            for (var key in iEL) amountEdge++;
+        
+            // for (var key in iEL) {
+            //   delete iEL[key]["type"];
+            //   delete iEL[key]["displayWeight"];
+            // }
+            // for (var key in iVL) {
+            //   iVL[key]["x"] = iVL[key]["cx"];
+            //   delete iVL[key]["cx"];
+            //   iVL[key]["y"] = iVL[key]["cy"];
+            //   delete iVL[key]["cy"];
+            //   delete iVL[key]["text"];
+            //   delete iVL[key]["state"];
+            // }
+            // for (var key in iEL) {
+            //   iEL[key]["u"] = +iEL[key]["vertexA"];
+            //   delete iEL[key]["vertexA"];
+            //   iEL[key]["v"] = +iEL[key]["vertexB"];
+            //   delete iEL[key]["vertexB"];
+            //   iEL[key]["w"] = +iEL[key]["weight"];
+            //   delete iEL[key]["weight"];
+            // }
+          }
+        
+          takeJSON = function(graph) {
+            if (graph == null) return;
+            graph = JSON.parse(graph);
+            iVL = graph["vl"];
+            iEL = graph["el"];
+            fixJSON();
+          }
+        
+          statusChecking = function() {
+            $("#draw-status p").html('绘制具有不同属性的图，然后尝试在其图上运行各种图的遍历算法。<div>默认绘图模式是有向图（每个边有一个或最多两个箭头）。</div>');
+          }
+        
+          warnChecking = function() {
+            var warn = "";
+            if (amountVertex >= 10) warn += '屏幕上的顶点过多，请考虑绘制小的图';
+            if (warn == "") $("#draw-warn p").html('没有警告');
+            else            $("#draw-warn p").html(warn);
+          }
+        
+          errorChecking = function() {
+            var error = "";
+            if (amountVertex == 0) {
+              $("#draw-err p").html('图不能为空。');
+              return;
+            }
+        
+            if (error == "") $("#draw-err p").html('没有错误');
+            else             $("#draw-err p").html(error);
+          }
+        
+          var intervalID;
+        
+          this.startLoop = function() {
+            intervalID = setInterval(function() {
+              takeJSON(JSONresult);
+              warnChecking();
+              errorChecking();
+              statusChecking();
+            }, 100);
+          }
+        
+          this.stopLoop = function() {
+            clearInterval(intervalID);
+          }
+        
+          this.draw = function() {
+            if ($("#draw-err p").html() != '没有错误')
+              return false;
+            if ($("#submit").is(':checked'))
+              this.submit(JSONresult);
+            if ($("#copy").is(':checked'))
+              window.prompt('复制到剪贴板：', JSONresult);
+        
+            DIRECTED_GR = true;
+            OLD_POSITION = amountEdge;
+        
+            graph = createState(iVL, iEL);
+            gw.updateGraph(graph, 500);
+            return true;
+          }
+        
+          // this.submit = function(graph) {
+          //   $.ajax({
+          //     url: PHP_DOMAIN + "php/Graph.php?mode=" + MODE_SUBMIT_GRAPH,
+          //     type: "POST",
+          //     data: {canvasWidth: 1000, canvasHeight: 500, graphTopics: 'Graph Traversal', graphState: graph, fbAccessToken: fbAccessToken},
+          //     error: function(xhr, errorType, exception) { //Triggered if an error communicating with server
+          //         var errorMessage = exception || xhr.statusText; //If exception null, then default to xhr.statusText
+          //         alert("There was an error submitting your graph " + errorMessage);
+          //     }
+          //   }).done(function(data) {
+          //     console.log(data);
+          //   });
+          // }
+        
+          this.importjson = function(text) {
+            takeJSON(text);
+            statusChecking();
+        
+            DIRECTED_GR = true;
+            OLD_POSITION = amountEdge;
+        
+            graph = createState(iVL, iEL);
+            gw.updateGraph(graph, 500);
+          }
+        
+          // this.initRandom = function(graph) {
+          //   iVL = graph.iVL;
+          //   iEL = graph.iEL;
+          //   amountVertex = iVL.length;
+          //   amountEdge = iEL.length;
+          //   fixJSON();
+          //   statusChecking();
+        
+          //   DIRECTED_GR = true;
+          //   OLD_POSITION = amountEdge;
+        
+          //   var newState = createState(iVL, iEL);
+          //   gw.updateGraph(newState, 500);
+          // }
+        
+          var DIRECTED_GR;
+          var OLD_POSITION;
+        
+          this.directedChange = function() {
+            for (var key in iVL) iVL[key]["extratext"] = "";
+            if (DIRECTED_GR == true) {
+              DIRECTED_GR = false;
+              for (var i = 0; i < OLD_POSITION; i++) {
+                var ok = false;
+                for (var j = 0; j < amountEdge; j ++)
+                  if (iEL[i]["u"] == iEL[j]["v"] && iEL[i]["v"] == iEL[j]["u"]) {
+                    ok = true;
+                    break;
+                  }
+                if (ok == false)
+                  iEL[amountEdge++] = {
+                    "u": iEL[i]["v"],
+                    "v": iEL[i]["u"]
+                  }
+              }
+            }
+            else {
+              DIRECTED_GR = true;
+              for (var i = OLD_POSITION; i < amountEdge; i ++)
+                delete iEL[i];
+              amountEdge = OLD_POSITION;
+            }
+        
+            var newState = createState(iVL, iEL);
+            gw.updateGraph(newState, 500);
+            // $('#directedChange-err').html("Successful")
+            //   .delay(1000)
+            //   .queue(function(n) {
+            //     $(this).html("");
+            //   });
+            return true;
+          }
+        
+          this.getGraph = function() {
+            return {
+              'vl': iVL,
+              'el': iEL
+            };
+          }
+        
+          this.getV = function() {
+            return amountVertex;
+          }
+        
+          this.dfs = function(sourceVertex, callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, treeEdge = {}, backEdge = {}, forwardEdge = {}, crossEdge = {};
+            var stateList = [];
+            var cs;
+        
+            // error checks   
+            if (amountVertex == 0) { // no graph
+              toastr.error('没有图运行此项。请首先选择图。');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+              toastr.error('图中不存在此顶点。请选择另一个源点');
+              return false;
+            }
+        
+            var UNVISITED = 0, EXPLORED = 1, VISITED = 2;
+            var p = {}, num = {}, Count = 0; // low = {}, 
+            for (var i = 0; i < amountVertex; i++) {
+              p[i] = -1;
+              num[i] = UNVISITED;
+            }
+            p[sourceVertex] = -2;
+            for (var key in iVL) iVL[key]["extratext"] = "";
+            iVL[sourceVertex]["extratext"] = "source";
+        
+            function dfsRecur(u) {
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+              cs["status"] = "DFS(" + u + ")";
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+        
+              delete vertexHighlighted[u];
+              vertexTraversing[u] = true;
+              num[u] = EXPLORED; // low[u] = ++Count;
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var u = iEL[j]["u"], v = iEL[j]["v"];
+                edgeHighlighted[j] = true;
+                for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                cs["status"] = '尝试边 {u} → {v}'.replace("{u}", u).replace("{v}", v);
+                cs["lineNo"] = 2;
+                cs["el"][j]["animateHighlighted"] = true;
+                stateList.push(cs);
+        
+                for (var key in iVL) delete vertexHighlighted[key];
+                for (var key in iEL) delete edgeHighlighted[key];
+        
+                if (num[v] == UNVISITED) {
+                  vertexTraversing[v] = true;
+                  treeEdge[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) treeEdge[key] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                  cs["lineNo"] = [3];
+                  cs["status"] = '尝试路径 {u} → {v}<br>顶点 {v} 还没有被访问过，我们有了 <font color="red">树路径</font>.'.replace("{u}", u).replace("{v}", v).replace("{v}", v);
+                  stateList.push(cs);
+        
+                  p[v] = u;
+                  dfsRecur(v);
+        
+                  vertexHighlighted[u] = true;
+                  delete vertexHighlighted[v];
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                  cs["status"] = '完成 DFS({v})，原路返回到 DFS({u}).'.replace("{u}", u).replace("{v}", v);
+                  cs["lineNo"] = 1;
+                  stateList.push(cs);
+                }
+                else if (num[v] == EXPLORED) {
+                  if (p[u] != v) {
+                    backEdge[j] = true;
+                    for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) backEdge[key] = true;
+                  }
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                  var thisStatus = '尝试边 {u} → {v}<br>顶点 {v} 已经被探索,，我们有一个 '.replace("{u}", u).replace("{v}", v).replace("{v}", v);
+                  if (p[u] == v)
+                    thisStatus = thisStatus + '<font color="blue">双向边</font> (一个微不足道的循环）。';
+                  else
+                    thisStatus = thisStatus + '<font color="blue">返回路径</font> （一个真的圈）.';
+                  cs["status"] = thisStatus;
+                  cs["lineNo"] = 4;
+                  stateList.push(cs);
+                }
+                else if (num[v] == VISITED) {
+                  forwardEdge[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) forwardEdge[key] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                  cs["status"] = '尝试边 {u} → {v}<br>顶点 {v} 已访问,，我们有一个 <font color="grey">前向/交叉 边</font>。'.replace("{u}", u).replace("{v}", v).replace("{v}", v);
+                  cs["lineNo"] = 5;
+                  stateList.push(cs);
+                }
+              }
+              num[u] = VISITED;
+              vertexTraversed[u] = true;
+              delete vertexTraversing[u];
+            }
+            dfsRecur(sourceVertex);
+        
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+            cs["status"] = 'DFS({sourceVertex}) 已经完成. <font color="red">红</font>/<font color="grey">灰</font>/<font color="blue">蓝</font> 边 分别是DFS生成树的 <font color="red">树</font>/<font color="grey">交叉/前</font>/<font color="blue">后</font> 边。'.replace("{sourceVertex}", sourceVertex);
+            cs["lineNo"] = 0;
+            stateList.push(cs);
+        
+            populatePseudocode(0);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.bfs = function(sourceVertex, callback) {
+            var notVisited = {}, vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, treeEdge = {}, backEdge = {}, forwardEdge = {}, crossEdge = {};
+            var stateList = [];
+            var key, i, cs;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+               toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (sourceVertex >= amountVertex || sourceVertex < 0) { // source vertex not in range
+               toastr.error('图中不存在此顶点。请选择另一个源点');
+              return false;
+            }
+        
+            var p = {}, d = {};
+            for (var i = 0; i < amountVertex; i++) {
+              p[i] = -1;
+              d[i] = 999;
+            }
+            d[sourceVertex] = 0;
+            for (var key in iVL) iVL[key]["extratext"] = "";
+            iVL[sourceVertex]["extratext"] = "source";
+        
+            var q = []; //, EdgeProcessed = 0;
+            q.push(sourceVertex);
+            p[sourceVertex] = -2;
+            vertexHighlighted[sourceVertex] = true;
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+            cs["status"] = '从源点 s = {sourceVertex} 开始。<br>设置 Q = {{sourceVertex}} 。'.replace("{sourceVertex}", sourceVertex).replace("{sourceVertex}", sourceVertex); // d[" + sourceVertex + "] = 0, 
+            cs["lineNo"] = 1;
+            stateList.push(cs);
+            delete vertexHighlighted[sourceVertex];
+        
+            while (q.length > 0) {
+              delete vertexTraversing[q[0]];
+              vertexHighlighted[q[0]] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+              cs["status"] = '队列现在是 {{queue}}.<br>正在探索 u 的邻居 = {Lis}.'.replace("{queue}", q).replace("{Lis}", q[0]);
+              cs["lineNo"] = [2, 3];
+              stateList.push(cs);
+        
+              var f = q.shift();
+              vertexTraversed[f] = true;
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == f) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var u = iEL[j]["u"], v = iEL[j]["v"];
+                for (var key in iVL) delete vertexHighlighted[key];
+                for (var key in iEL) delete edgeHighlighted[key];
+                if (u == f) { // outgoing edge from vertex u
+                  //EdgeProcessed++;
+                  //var thisStatus = 'relax(' + u + ', ' + v + ', 1), #edge_processed = ' + EdgeProcessed + '.';
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) edgeHighlighted[key] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                  cs["status"] = '尝试边 {u} → {v}'.replace("{u}", u).replace("{v}", v).replace("{v}", v);
+                  cs["lineNo"] = 3;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+        
+                  if (d[v] == 999) {
+                    d[v] = d[u]+1;
+                    p[v] = u;
+                    treeEdge[j] = true;
+                    for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) treeEdge[key] = true;
+                    q.push(v);
+                    vertexTraversing[v] = true;
+                    iVL[v]["extratext"] = d[v];
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                    cs["status"] = '尝试路径 {u} → {v}<br>顶点 {v} 还没有被访问过，我们有了 <font color="red">树路径</font>.'.replace("{u}", u).replace("{v}", v).replace("{v}", v);
+                    cs["lineNo"] = 4;
+                  }
+                  else {
+                    var grey_it = true;
+                    for (var key in iEL) if ((iEL[key]["u"] == v && iEL[key]["v"] == u) && treeEdge[key]) grey_it = false;
+                    if (grey_it) {
+                      forwardEdge[j] = true; // use grey to signify non-tree edge
+                      for (var key in iEL) if (iEL[key]["u"] == v && iEL[key]["v"] == u) forwardEdge[key] = true;
+                    }
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+                    cs["status"] = '尝试边 {u} → {v}<br>节点 {v} 已探索，我们忽略这个<font color="grey">非树边</font>。'.replace("{u}", u).replace("{v}", v).replace("{v}", v);
+                    cs["lineNo"] = 5;
+                  }
+                  stateList.push(cs);
+                }
+              }
+              // delete vertexHighlighted[u];
+              for (var key in iVL) delete vertexHighlighted[key];
+              for (var key in iEL) delete edgeHighlighted[key];
+            }
+        
+            for (var key in iVL) delete vertexHighlighted[key];
+            for (var key in iEL) delete edgeHighlighted[key];
+            vertexHighlighted[sourceVertex] = true;
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+            cs["status"] = 'BFS({sourceVertex}) 已经完成。 <font color="red">红</font>/<font color="grey">灰</font> 边是BFS &amp; SSSP 生成树的 <font color="red">树</font>/<font color="grey">非树 </font>边 （对于未加权图）。'.replace("{sourceVertex}", sourceVertex);
+            stateList.push(cs);
+        
+            populatePseudocode(1);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.toposortDfs = function(callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, treeEdge = {}, backEdge = {}, forwardEdge = {}, crossEdge = {}, hiddenEdge = {};
+            var stateList = [];
+            var cs, flag = true;
+        
+            // check error
+            if (!DIRECTED_GR) {
+              // cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              // cs["status"] = "The input graph is not set as 'directed' graph yet.<br>This algorithm only works with directed graphs.";
+              // cs["lineNo"] = 0;
+              // stateList.push(cs);
+        
+              this.directedChange(); // force change
+        
+              // cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              // cs["status"] = "We turn on the directed graph mode.<br>This action is irreversible.";
+              // cs["lineNo"] = 0;
+              // stateList.push(cs);
+        
+              //  toastr.error("Undirected graph clearly has no topological sort. Give a directed input graph.");
+              // return false;
+            }
+        
+            if (amountVertex == 0) { // no graph
+               toastr.error('没有图运行此项。请首先选择图。');
+              return false;
+            }
+        
+            // main code
+            var p = {}, stack = [], stackNum = -1;
+            for (var i = 0; i < amountVertex; i ++) p[i] = -1
+            for (var key in iVL) iVL[key]["extratext"] = "";
+        
+            for (var i = 0; i < amountVertex; i ++)
+            if (p[i] == -1) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+              cs["status"] = '顶点 {i} 还没被访问。'.replace("{i}", i);
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+              p[i]--;
+              Tdfs(i);
+            }
+        
+            function Tdfs(u) {
+              if (flag == false) return;
+              vertexTraversing[u] = true;
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+              cs["status"] = "DFS(" + u + ").";
+              cs["lineNo"] = 2;
+              stateList.push(cs);
+              delete vertexHighlighted[u];
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                if (u == vertexA) {
+                  edgeHighlighted[j] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+                  cs["status"] = '尝试边 {vertexA} → {vertexB}。<br>List = [{stack}]。'.replace("{vertexA}", vertexA).replace("{vertexB}", vertexB).replace("{stack}", stack);
+                  cs["lineNo"] = 3;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+        
+                  if (p[vertexB] == -1) {
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+                    cs["status"] = '节点 {vertexB} 还没被访问，继续。<br>List = [{stack}].'.replace("{vertexB}", vertexB).replace("{stack}", stack);
+                    cs["lineNo"] = 4;
+                    stateList.push(cs);
+        
+                    p[vertexB] = u;
+                    Tdfs(vertexB);
+                  }
+                  else {
+                    var k = u;
+                    while (k != -2) {
+                      k = p[k];
+                      if (k == vertexB) flag = false;
+                    }
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+                    cs["status"] = '节点 {vertexB} 已经被访问，忽略这条边。<br>List = [{stack}].'.replace("{vertexB}", vertexB).replace("{stack}", stack);
+                    cs["lineNo"] = 5;
+                    stateList.push(cs);
+                  }
+                }
+              }
+              stack.push(u);
+              delete vertexTraversing[u];
+              vertexTraversed[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+              cs["status"] = 'DFS({u}) 已完成，将 {u} 添加到列表的后面。<br>List = [{stack}].'.replace("{u}", u).replace("{stack}", stack);
+              cs["lineNo"] = 7;
+              stateList.push(cs);
+            }
+            if (flag == false) { // not DAG
+               toastr.error('此图不是DAG，无法执行拓扑排序。');
+              return false;
+            }
+            vertexHighlighted = {}, edgeHighlighted = {};
+            vertexTraversed = {}, vertexTraversing = {}, treeEdge = {}, backEdge = {}, forwardEdge = {}, crossEdge = {}, hiddenEdge = {};
+            stack.reverse();
+            for (var key in stack) iVL[stack[key]]["extratext"] = key;
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+            cs["status"] = '在倒转列表后，拓扑排序就完成了。<br>List = [{stack}]，也可以参见上面的 <font color="red">红色 </font>索引。'.replace("{stack}", stack);
+            cs["lineNo"] = 0;
+            stateList.push(cs);
+        
+            populatePseudocode(2);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.toposortBfs = function(callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, treeEdge = {}, backEdge = {}, forwardEdge = {}, crossEdge = {}, hiddenEdge = {};
+            var stateList = [];
+            var cs, key;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+               toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (!DIRECTED_GR) {
+              this.directedChange(); // force change
+              //  toastr.error("Undirected graph clearly has no topological sort. Give a directed input graph.");
+              // return false;
+            }
+        
+            var fr = {}, cc = {};
+            for (var i = 0; i < amountVertex; i++)
+              fr[i] = true, cc[i] = 0;
+            for (var j = 0; j < amountEdge; j ++)
+              cc[iEL[j]["v"]]++;
+        
+            for (key in iVL)
+              iVL[key]["state"] = VERTEX_DEFAULT, iVL[key]["extratext"] = "";
+        
+            var q = [], EdgeProcessed = 0, Lis = [];
+            for (var i = 0; i < amountVertex; i ++)
+              if (cc[i] == 0)
+                q.push(i), vertexHighlighted[i] = vertexTraversing[i] = true;
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge);
+            cs["status"] = 'Queue = [{queue}].'.replace("{queue}", q);
+            cs["lineNo"] = 1;
+            stateList.push(cs);
+            for (var i = 0; i < amountVertex; i ++)
+              if (cc[i] == 0)
+                delete vertexHighlighted[i];
+        
+            while (q.length > 0) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+              cs["status"] = 'Queue = [{queue}].'.replace("{queue}", q);
+              cs["lineNo"] = 2;
+              stateList.push(cs);
+        
+              var u = q.shift(); // front most item
+              Lis.push(u);
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+              cs["status"] = '从队列中弹出节点 {u} 并将其添加到列表的后面。<br>List = [{Lis}].'.replace("{u}", u).replace("{Lis}", Lis);
+              cs["lineNo"] = 3;
+              stateList.push(cs);
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                cc[vertexB]--;
+        
+                hiddenEdge[j] = true;
+                var thisStatus = 'Queue = [{queue}].<br>删除边 {vertexA} → {vertexB}.'.replace("{queue}", q).replace("{vertexA}", vertexA).replace("{vertexB}", vertexB);
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+                cs["status"] = thisStatus;
+                cs["lineNo"] = [4, 5];
+                cs["el"][j]["animateHighlighted"] = true;
+                stateList.push(cs);
+        
+                if (cc[vertexB] == 0) {
+                  q.push(vertexB);
+                  vertexTraversing[vertexB] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+                  cs["status"] = 'Queue = [{queue}]。<br>顶点{vertexB}现在没有传入边缘，将其添加到队列。'.replace("{queue}", q).replace("vertexB", vertexB);
+                  cs["lineNo"] = 6;
+                  stateList.push(cs);
+                }
+                else {
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+                  cs["status"] ='Queue = [{queue}]<br>顶点{vertexB}仍然有传入边缘，忽略它。<br>'.replace("{queue}", q).replace("vertexB", vertexB);
+                  cs["lineNo"] = 6;
+                  stateList.push(cs);
+                }
+              }
+              delete vertexHighlighted[u];
+              delete vertexTraversing[u];
+              vertexTraversed[u] = true;
+            }
+        
+            var thisStatus = 'Kahn 算法已完成。<br>';
+            var flag = true;
+            for (var j = 0; j < amountEdge; j ++)
+              if (hiddenEdge[j] == null) {
+                flag = false;
+                 toastr.error('此图不是DAG，无法执行拓扑排序。');
+                return false;
+                // thisStatus += "Edge " + iEL[j]["u"] + "->" + iEL[j]["v"] + " has not been visited, the graph has cycle."
+                // break;
+              }
+            if (flag)
+              thisStatus += '拓扑排序 = [{Lis}]'.replace("{Lis}", Lis);
+            for (var key in Lis) iVL[Lis[key]]["extratext"] = key;
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge);
+            cs["lineNo"] = 7;
+            cs["status"] = thisStatus;
+            stateList.push(cs);
+        
+            populatePseudocode(3);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.bipartiteDfs = function(callback) {
+            var p = {}, vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {};
+            var stateList = [];
+            var key, cs, flag = false;
+        
+            // error checks   
+            if (amountVertex == 0) { // no graph
+               toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (DIRECTED_GR) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "The input graph is not set as 'undirected' graph yet.<br>Bipartite Graph is usually only defined for undirected graphs.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              this.directedChange(); // force change
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "We add bidirectional edges as necessary and hide the arrows.<br>This action is irreversible (you may have to redraw your graph again).";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              //  toastr.error("Bipartite graph is only defined for undirected graph. Please make the graph undirected.");
+              // return false;
+            }
+        
+            for (var key in iVL) {
+              p[key] = -1;
+              iVL[key]["extratext"] = "";
+            }
+            for (var i = 0; i < amountVertex; i++)
+              if (p[i] == -1) {
+                vertexTraversed[i] = true;
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                cs["status"] = "Vertex " + i + " is unvisited.";
+                cs["lineNo"] = 1;
+                if (vertexTraversed[i] != null) cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                else                            cs["vl"][i]["state"] = VERTEX_BLUE_FILL;
+                stateList.push(cs);
+                p[i] = -2;
+                dfsRecur(i);
+                if (flag) break;
+              }
+        
+            function dfsRecur(u) {
+              if (flag) return;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "DFS(" + u + ").";
+              cs["lineNo"] = 2;
+              if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+              else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+              stateList.push(cs);
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                if (edgeHighlighted[j] == null) {
+                  if (u == vertexA) {
+                    edgeHighlighted[j] = true;
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                    cs["status"] = "Try edge " + u + " &rarr; " + vertexB + ".";
+                    cs["lineNo"] = 3;
+                    if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                    else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                    cs["el"][j]["animateHighlighted"] = true;
+                    stateList.push(cs);
+        
+                    if (p[vertexB] == -1) {
+                      if (vertexTraversed[u] == null) vertexTraversed[vertexB] = true;
+                      else                            vertexTraversing[vertexB] = true;
+                      p[vertexB] = u;
+                      cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                      cs["status"] = "Try edge " + u + " &rarr; " + vertexB + ".<br>Give vertex " + vertexB + " different color from vertex " + u + ".";
+                      cs["lineNo"] = 4;
+                      if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                      else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                      stateList.push(cs);
+                      dfsRecur(vertexB);
+                    }
+                    else {
+                      var cu = 0, cv = 0;
+                      if (vertexTraversing[u] != null) cu = 1;
+                      if (vertexTraversing[vertexB] != null) cv = 1;
+                      if (cu == cv) {
+                        flag = true;
+                        cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                        cs["status"] = "Vertex " + u + " and vertex " + vertexB + " have the same color.";
+                        cs["lineNo"] = 5;
+                        if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                        else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                        if (vertexTraversed[vertexB] != null) cs["vl"][vertexB]["state"] = VERTEX_HIGHLIGHTED;
+                        else                                  cs["vl"][vertexB]["state"] = VERTEX_BLUE_FILL;
+                        stateList.push(cs);
+                        break;
+                      }
+                    }
+                    if (flag) break;
+                  }
+                  if (flag) break;
+                }
+                else {
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                  cs["status"] = "Try edge " + vertexA + " &rarr; " + vertexB + ".<br>Vertex " + vertexA + " and vertex " + vertexB + " (already visited) have different color, continue.";
+                  cs["lineNo"] = 5;
+                  stateList.push(cs);
+                }
+              }
+              if (flag) return;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "Finish DFS(" + u + ")<br>Back to the parent.";
+              cs["lineNo"] = 2;
+              if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+              else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+              stateList.push(cs);
+            }
+        
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+            if (flag == false) cs["status"] = "This is a bipartite graph!";
+            else               cs["status"] = "This is NOT a bipartite graph!";
+            cs["lineNo"] = 0;
+            if (flag == true) cs["lineNo"] = 6;
+            stateList.push(cs);
+        
+            populatePseudocode(4);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.bipartiteBfs = function(callback) {
+            var p = {}, vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {};
+            var stateList = [];
+            var key, cs, flag = true;
+        
+            // error checks
+            if (amountVertex == 0) { // no graph
+               toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (DIRECTED_GR) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "The input graph is not set as 'undirected' graph yet.<br>Bipartite Graph is usually only defined for undirected graphs.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              this.directedChange(); // force change
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "We add bidirectional edges as necessary and hide the arrows.<br>This action is irreversible (you may have to redraw your graph again).";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              //  toastr.error("Bipartite graph is only defined for undirected graph. Please make the graph undirected.");
+              // return false;
+            }
+        
+            for (key in iVL) {
+              p[key] = -1;
+              iVL[key]["state"] = VERTEX_DEFAULT;
+              iVL[key]["extratext"] = "";
+            }
+        
+            for (var s = 0; s < amountVertex; s++)
+              if (p[s] == -1) {
+                p[s] = -2;
+                vertexTraversed[s] = true;
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                cs["status"] = 'Vertex ' + s + ' is unvisited.';
+                cs["lineNo"] = 1;
+                if (vertexTraversed[s] != null) cs["vl"][s]["state"] = VERTEX_HIGHLIGHTED;
+                else                            cs["vl"][s]["state"] = VERTEX_BLUE_FILL;
+                stateList.push(cs);
+        
+                var q = [];
+                q.push(s);
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                cs["status"] = "Queue = [" + q + "].";
+                cs["lineNo"] = 2;
+                stateList.push(cs);
+        
+                while (q.length > 0) {
+                  var u = q.shift();
+        
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                  cs["status"] = "Extract " + u + " from queue.";
+                  cs["lineNo"] = 3;
+                  if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                  else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                  stateList.push(cs);
+        
+                  var neighbors = [];
+                  for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+                  neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+                  while (neighbors.length > 0) {
+                    var j = neighbors.shift();
+                    var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                    if (edgeHighlighted[j] == null) {
+                      if (u == vertexA) {
+                        edgeHighlighted[j] = true;
+                        cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                        cs["status"] = "Queue = [" + q + "].<br>Try edge " + vertexA + " &rarr; " + vertexB + ".";
+                        cs["lineNo"] = 4;
+                        if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                        else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                        cs["el"][j]["animateHighlighted"] = true;
+                        stateList.push(cs);
+        
+                        if (p[vertexB] == -1) {
+                          p[vertexB] = vertexA;
+                          q.push(vertexB);
+                          if (vertexTraversed[u] != null) vertexTraversing[vertexB] = true;
+                          else                            vertexTraversed[vertexB] = true;
+        
+                          cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                          cs["status"] = "Queue = [" + q + "].<br>Vertex " + vertexB + " is free, assign another color and push it to queue.";
+                          cs["lineNo"] = 6;
+                          if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                          else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                          stateList.push(cs);
+                        }
+                        else {
+                          var cu = 0, cv = 0;
+                          if (vertexTraversing[u] != null) cu = 1;
+                          if (vertexTraversing[vertexB] != null) cv = 1;
+                          if (cu == cv) {
+                            flag = false;
+                            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                            cs["status"] = "Vertex " + u + " and vertex " + vertexB + " have the same color.<br>This is NOT a bipartite graph!";
+                            cs["lineNo"] = 5;
+                            if (vertexTraversed[u] != null) cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+                            else                            cs["vl"][u]["state"] = VERTEX_BLUE_FILL;
+                            if (vertexTraversed[vertexB] != null) cs["vl"][vertexB]["state"] = VERTEX_HIGHLIGHTED;
+                            else                                  cs["vl"][vertexB]["state"] = VERTEX_BLUE_FILL;
+                            stateList.push(cs);
+                            break;
+                          }
+                        }
+                        if (flag == false) break;
+                      }
+                      if (flag == false) break;
+                    }
+                    else {
+                      cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+                      cs["status"] = "Try edge " + vertexA + " &rarr; " + vertexB + ".<br>Vertex " + vertexA + " and vertex " + vertexB + " (already visited) have different color, continue.";
+                      cs["lineNo"] = 5;
+                      stateList.push(cs);
+                    }
+                    if (flag == false) break;
+                  }
+                  if (flag == false) break;
+                }
+                if (flag == false) break;
+              }
+        
+            if (flag) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing);
+              cs["status"] = "This is a bipartite graph!";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+            }
+        
+            populatePseudocode(5);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.bridge = function(callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, bridge = {}, articulationPoint = {};
+            var stateList = [];
+            var cs;
+        
+            // check error
+            if (amountVertex == 0) { // no graph
+              toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (DIRECTED_GR) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+              cs["status"] = "The input graph is not set as 'undirected' graph yet.<br>This algorithm only works with undirected graphs.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              this.directedChange(); // force change
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+              cs["status"] = "We add bidirectional edges as necessary and hide the arrows.<br>This action is irreversible (you may have to redraw your graph again).";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+              // toastr.error("This algorithm can only work for undirected graph.");
+              //return false;
+            }
+        
+            // main code
+            var p = {}, stack = {}, stackNum = -1, Count = -1, low = {}, num = {}, lab = {}, labNum = 0;
+            var ROOT, chilNum = {};
+            for (var i = 0; i < amountVertex; i++) {
+              p[i] = lab[i] = -1, chilNum[i] = 0;
+              iVL[i]["extratext"] = "N/A";
+            }
+        
+            function highlightArticulationPointsAndBridges() {
+              for (var key in bridge) {
+                cs["el"][key]["state"] = EDGE_GREEN;
+                for (var z = 0; z < amountEdge; z ++)
+                  if (iEL[z]["u"] == iEL[key]["v"] && iEL[z]["v"] == iEL[key]["u"])
+                    cs["el"][z]["state"] = EDGE_GREEN;
+              }
+              for (var key in articulationPoint) cs["vl"][key]["state"] = VERTEX_GREEN_OUTLINE;
+            }
+        
+            for (var i = 0; i < amountVertex; i++)
+              if (p[i] == -1) {
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                cs["status"] = "Vertex " + i + " has not been visited.<br>DFSCount = " + Count + ".";
+                cs["lineNo"] = 1;
+                highlightArticulationPointsAndBridges();
+                stateList.push(cs);
+                p[i]--;
+                ROOT = i;
+                Tdfs(i);
+              }
+        
+            function Tdfs(u) {
+              stack[++stackNum] = u;
+              num[u] = low[u] = ++Count;
+              iVL[u]["extratext"] = "" + num[u] + "," + low[u];
+              vertexTraversing[u] = true;
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+              cs["status"] = "DFS(" + u + ").<br>DFSCount = " + Count + ".";
+              cs["lineNo"] = 2;
+              highlightArticulationPointsAndBridges();
+              stateList.push(cs);
+              delete vertexHighlighted[u];
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                if (lab[vertexB] == -1 && u == vertexA) {
+                  edgeHighlighted[j] = true;
+                  for (var z = 0; z < amountEdge; z ++)
+                    if (iEL[z]["u"] == vertexB && iEL[z]["v"] == vertexA)
+                      edgeHighlighted[z] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                  cs["status"] = "Try edge " + vertexA + " -> " + vertexB + "<br>DFSCount = " + Count + ".";
+                  cs["lineNo"] = 3;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  highlightArticulationPointsAndBridges();
+                  stateList.push(cs);
+        
+                  if (p[vertexB] == -1) {
+                    vertexTraversing[vertexB] = true;
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                    cs["status"] = "" + vertexB + " has not been visited<br>DFSCount = " + Count + ".";
+                    cs["lineNo"] = 4;
+                    highlightArticulationPointsAndBridges();
+                    stateList.push(cs);
+        
+                    p[vertexB] = u;
+                    Tdfs(vertexB);
+                    chilNum[u]++;
+                    var thisStatus = "low[" + u + "] is unchanged.";
+                    if (low[u] > low[vertexB]) {
+                      low[u] = low[vertexB];
+                      thisStatus = "update low[" + u + "] from low[" + vertexB + "].<br>There is <b>another</b> path to go from vertex " + u + " to vertex with num " + low[u] + ".";
+                    }
+                    iVL[u]["extratext"] = "" + num[u] + "," + low[u];
+        
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                    cs["status"] = thisStatus;
+                    cs["lineNo"] = 5;
+                    highlightArticulationPointsAndBridges();
+                    stateList.push(cs);
+        
+                    var thisStatus = "";
+                    if (low[vertexB] >= num[u] && u != ROOT) {
+                      thisStatus = thisStatus + "low[" + vertexB + "] >= num[" + u + "] and " + u + " is not the root, vertex " + u + " is a cut vertex.<br>";
+                      articulationPoint[u] = true;
+                    }
+                    else if (low[vertexB] >= num[u] && u == ROOT)
+                      thisStatus = thisStatus + "low[" + vertexB + "] >= num[" + u + "] but " + u + " is the root, so it is not a cut vertex.<br>";
+                    else
+                      thisStatus = thisStatus + "low[" + vertexB + "] < num[" + u + "], so " + u + " is not a cut vertex.<br>";
+        
+                    if (low[vertexB] > num[u]) {
+                      thisStatus = thisStatus + "low[" + vertexB + "] > num[" + u + "], so edge (" + u + ", " + vertexB + ") is a bridge.";
+                      bridge[j] = true;
+                    }
+                    else
+                      thisStatus = thisStatus + "low[" + vertexB + "] <= num[" + u + "], so edge (" + u + ", " + vertexB + ") is not a bridge.";
+        
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                    cs["status"] = thisStatus;
+                    cs["lineNo"] = 6;
+                    highlightArticulationPointsAndBridges();
+                    stateList.push(cs);
+                  }
+                  else if (vertexB != p[u]) {
+                    var thisStatus = "low[" + u + "] is unchanged.";
+                    if (low[u] > num[vertexB]) {
+                      low[u] = num[vertexB];
+                      thisStatus = "update low[" + u + "] from num[" + vertexB + "].<br>There is <b>another</b> path to go from vertex " + u + " to vertex with num " + low[u] + ".";
+                    }
+                    iVL[u]["extratext"] = "" + num[u] + "," + low[u];
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                    cs["status"] = "" + vertexB + " is visited, " + thisStatus; // update low[" + u + "] from num[" + vertexB + "]<br>DFSCount = " + Count + ".";
+                    cs["lineNo"] = 7;
+                    highlightArticulationPointsAndBridges();
+                    stateList.push(cs);
+                  }
+                  else {
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+                    cs["status"] = "" + vertexB + " is the parent of " + u + ", ignore!<br>DFSCount = " + Count + ".";
+                    cs["lineNo"] = 7;
+                    highlightArticulationPointsAndBridges();
+                    stateList.push(cs);
+                  }
+                }
+              }
+        
+              delete vertexTraversing[u];
+              vertexHighlighted[u] = true;
+              vertexTraversed[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+              cs["status"] = "Finish DFS(" + u + "), backtrack.<br>DFSCount = " + Count + ".";
+              if (u == ROOT && chilNum[u] >= 2) {
+                cs["status"] = "Finish DFS(" + u + "), " + u + " is the root and u has more than 1 childs<br>Hence " + u + " is an articulation point.";
+                articulationPoint[u] = true;
+              }
+              cs["lineNo"] = 0;
+              highlightArticulationPointsAndBridges();
+              cs["vl"][u]["state"] = VERTEX_HIGHLIGHTED;
+              stateList.push(cs);
+              delete vertexHighlighted[u];
+            }
+        
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, {});
+            cs["status"] = "Finished.<br>Green vertices/edges are articulation points/bridges, respectively.";
+            cs["lineNo"] = 0;
+            highlightArticulationPointsAndBridges();
+            stateList.push(cs);
+        
+            populatePseudocode(6);
+            gw.startAnimation(stateList, callback);
+            for (var key in iVL) iVL[key]["extratext"] = "";
+            return true;
+          }
+        
+          this.kosaraju = function(callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, hiddenEdge = {};
+            var stateList = [];
+            var cs;
+        
+            // check error
+            if (amountVertex == 0) { // no graph
+              toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (!DIRECTED_GR) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = "The input graph is not set as 'directed' graph yet.<br>This algorithm only works with directed graphs.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              this.directedChange(); // force change
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = "We turn on the directed graph mode.<br>This action is irreversible.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              // toastr.error("Please make the graph directed");
+              // return false;
+            }
+        
+            // main code
+            var p = {}, stack = {}, stackNum = -1, Count = 0, low = {}, num = {}, lab = {}, labNum = 0;
+            for (var i = 0; i < amountVertex; i++) {
+              p[i] = lab[i] = -1;
+              iVL[i]["extratext"] = "";
+            }
+            for (var i = 0; i < amountVertex; i++)
+              if (p[i] == -1) {
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = "Vertex " + i + " has not been visited.";
+                cs["lineNo"] = 1;
+                stateList.push(cs);
+                p[i]--;
+                Tdfs(i);
+              }
+        
+            vertexHighlighted = {}, edgeHighlighted = {};
+            vertexTraversed = {}, vertexTraversing = {};
+            for (var j = 0; j < amountEdge; j++) { // reverse edge directions
+              var vertexA = iEL[j]["u"];
+              var vertexB = iEL[j]["v"];
+              iEL[j]["u"] = vertexB;
+              iEL[j]["v"] = vertexA;
+            }
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+            cs["status"] = "Then, we transpose the directed graph.";
+            cs["lineNo"] = 4;
+            stateList.push(cs);
+        
+            while (stackNum >= 0) {
+              if (lab[stack[stackNum]] == -1) {
+                labNum++;
+                DFS2(stack[stackNum]);
+                for (var j = 0; j < amountEdge; j++) {
+                  var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                  if (lab[vertexA] != lab[vertexB]) hiddenEdge[j] = true;
+                }
+        
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = getStack() + ".<br>Finish DFS(" + stack[stackNum] + ") and we get 1 Strongly Connected Component.";
+                cs["lineNo"] = 7;
+                stateList.push(cs);
+              }
+              else {
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = getStack() + ".<br>" + stack[stackNum] + " is visited, ignore.";
+                cs["lineNo"] = 5;
+                stateList.push(cs);
+              }
+              stackNum--;
+            }
+        
+            function getStack() {
+              var status = "List = [";
+              for (var i = stackNum; i > 0; i--) status = status + stack[i] + ",";
+              if (stackNum >= 0) status += stack[0] + "]";
+              else               status += "]";
+              return status;
+            }
+        
+            function Tdfs(u) {
+              vertexTraversing[u] = true;
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = getStack() + ".<br>DFS(" + u + ").";
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+              delete vertexHighlighted[u];
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                if (lab[vertexB] == -1 && u == vertexA) {
+                  edgeHighlighted[j] = true;
+                  for (var key in iEL) if (iEL[key]["v"] == vertexA && iEL[key]["u"] == vertexB) edgeHighlighted[key] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                  cs["status"] = getStack() + ".<br>Try edge " + vertexA + " &rarr; " + vertexB + ".";
+                  cs["lineNo"] = 2;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+        
+                  if (p[vertexB] == -1) {
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                    cs["status"] = getStack() + ".<br>Vertex " + vertexB + " has not been visited.";
+                    cs["lineNo"] = 2;
+                    stateList.push(cs);
+        
+                    p[vertexB] = u;
+                    Tdfs(vertexB);
+                  }
+                }
+              }
+        
+              stack[++stackNum] = u;
+              delete vertexTraversing[u];
+              vertexTraversed[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = getStack() + ".<br>DFS(" + u + ") is completed, add " + u + " to the front of the list.";
+              cs["lineNo"] = 3;
+              stateList.push(cs);
+            }
+        
+            function DFS2(u) {
+              lab[u] = labNum;
+              vertexTraversing[u] = true;
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = getStack() + "<br>DFS(" + u + ").";
+              cs["lineNo"] = 5;
+              stateList.push(cs);
+              delete vertexHighlighted[u];
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                if (hiddenEdge[j] == null) {
+                  edgeHighlighted[j] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                  cs["status"] = getStack() + ".<br>Try edge " + vertexA + " &rarr; " + vertexB + ".";
+                  cs["lineNo"] = 6;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+        
+                  if (lab[vertexB] == -1) {
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                    cs["status"] = getStack() + "<br>Vertex " + vertexB + " has not been visited.";
+                    cs["lineNo"] = 6;
+                    stateList.push(cs);
+        
+                    DFS2(vertexB);
+                  }
+                  else {
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                    cs["status"] = getStack() + "<br>" + vertexB + " is visited";
+                    cs["lineNo"] = 6;
+                    stateList.push(cs);
+                  }
+                }
+              }
+        
+              delete vertexTraversing[u];
+              vertexTraversed[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = getStack() + "<br>DFS from " + u + " is completed, back to the parent";
+              cs["lineNo"] = 5;
+              stateList.push(cs);
+            }
+        
+            for (var i = 0; i < amountEdge; i++) {
+              var vertexA = iEL[i]["u"];
+              var vertexB = iEL[i]["v"];
+              iEL[i]["u"] = vertexB;
+              iEL[i]["v"] = vertexA;
+            }
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+            cs["status"] = "We transpose the directed graph again.<br>In total, we have " + labNum + " Strongly Connected Component(s) as seen above.";
+            cs["lineNo"] = 0;
+            stateList.push(cs);
+        
+            populatePseudocode(7);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.tarjan = function(callback) {
+            var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, hiddenEdge = {};
+            var stateList = [];
+            var cs;
+        
+            //check error
+            if (amountVertex == 0) { // no graph
+              toastr.error('没有图表运行此项。请首先选择图表。');
+              return false;
+            }
+        
+            if (!DIRECTED_GR) {
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = "The input graph is not set as 'directed' graph yet.<br>This algorithm only works with directed graphs.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              this.directedChange(); // force change
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = "We turn on the directed graph mode.<br>This action is irreversible.";
+              cs["lineNo"] = 0;
+              stateList.push(cs);
+        
+              // toastr.error("Please make the graph directed");
+              // return false;
+            }
+        
+            // main code
+            var p = {}, stack = {}, stackNum = -1, Count = -1, low = {}, num = {}, lab = {}, labNum = 0;
+            for (var i = 0; i < amountVertex; i++) {
+              p[i] = lab[i] = -1
+              iVL[i]["extratext"] = "N/A";
+            }
+            for (var i = 0; i < amountVertex; i ++)
+              if (p[i] == -1) {
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = "Vertex " + i + " has not been visited.";
+                cs["lineNo"] = 1;
+                stateList.push(cs);
+                p[i]--;
+                Tdfs(i);
+              }
+        
+            function getStack() {
+              var status = "Stack = [";
+              for (var i = 0; i < stackNum; i ++) status = status + stack[i] + ",";
+              if (stackNum >= 0) status += stack[stackNum] + "]";
+              else               status += "]";
+              return status;
+            }
+        
+            function Tdfs(u) {
+              stack[++stackNum] = u;
+              num[u] = low[u] = ++Count;
+              iVL[u]["extratext"] = "" + num[u] + "," + low[u];
+              vertexTraversing[u] = true;
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = getStack() + ".<br>DFS(" + u + ").";
+              cs["lineNo"] = 2;
+              stateList.push(cs);
+              delete vertexHighlighted[u];
+        
+              var neighbors = [];
+              for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+              neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+              while (neighbors.length > 0) {
+                var j = neighbors.shift();
+                var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                if (lab[vertexB] == -1 && u == vertexA) {
+                  edgeHighlighted[j] = true;
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                  cs["status"] = getStack() + "<br>Try edge " + vertexA + " &rarr; " + vertexB + ".";
+                  cs["lineNo"] = 3;
+                  cs["el"][j]["animateHighlighted"] = true;
+                  stateList.push(cs);
+        
+                  if (p[vertexB] == -1) {
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                    cs["status"] = getStack() + "<br>Vertex " + vertexB + " has not been visited.";
+                    cs["lineNo"] = 4;
+                    stateList.push(cs);
+        
+                    p[vertexB] = u;
+                    Tdfs(vertexB);
+                    if (low[u] > low[vertexB]) low[u] = low[vertexB];
+                  }
+                  else {
+                    if (low[u] > num[vertexB]) low[u] = num[vertexB];
+                  }
+                  iVL[u]["extratext"] = "" + num[u] + "," + low[u];
+                  cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                  cs["status"] = getStack() + "<br>Update low[" + u + "]."; // ambiguous for now " = min(num[" + vertexB + "], low[" + vertexB + "]).";
+                  cs["lineNo"] = 5;
+                  stateList.push(cs);
+                }
+              }
+        
+              delete vertexTraversing[u];
+              vertexTraversed[u] = true;
+              vertexHighlighted[u] = true;
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = getStack() + "<br>DFS(" + u + ") is completed, check if vertex " + u + " is the root of this SCC.";
+              cs["lineNo"] = 6;
+              stateList.push(cs);
+              if (low[u] == num[u]) {
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = getStack() + "<br>low[" + u + "] == num[" + u + "], that means this vertex " + u + " is the root of this SCC.";
+                cs["lineNo"] = 6;
+                stateList.push(cs);
+                var oldPos = stackNum;
+                labNum++;
+                while (stack[stackNum] != u)
+                  lab[stack[stackNum--]] = labNum;
+                lab[stack[stackNum--]] = labNum;
+        
+                for (var i = stackNum+1; i <= oldPos; i++)
+                  vertexHighlighted[stack[i]] = true;
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = getStack() + "<br>We pop the stack until we get vertex " + u + ".";
+                cs["lineNo"] = 7;
+                stateList.push(cs);
+                for (var i = stackNum+1; i <= oldPos; i++)
+                  delete vertexHighlighted[stack[i]];
+        
+                for (var j = 0; j < amountEdge; j++) {
+                  var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                  if (lab[vertexA] != lab[vertexB]) hiddenEdge[j] = true;
+                }
+                cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                cs["status"] = getStack() + "<br>We get 1 Strongly Connected Component.";
+                cs["lineNo"] = 7;
+                stateList.push(cs);
+              }
+              delete vertexHighlighted[u];
+            }
+        
+            cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+            cs["status"] = "In total, we have " + labNum + " Strongly Connected Component(s) as seen above.";
+            cs["lineNo"] = 1;
+            stateList.push(cs);
+            for (var key in iVL) iVL[key]["extratext"] = "";
+        
+            populatePseudocode(8);
+            gw.startAnimation(stateList, callback);
+            return true;
+          }
+        
+          this.twosat = function(numOfRows, numOfColumns) {
+            var vertexHighlighted = {}, edgeHighlighted = {};
+            var stateList = [];
+            var cs;
+            var currentX = 0, currentY = -170, centerX = 200, centerY = 200;
+        
+            DIRECTED_GR = true;
+            numOfColumns *= 2;
+            var blocked = new Array(numOfRows+1);
+            for (var i = 0; i <= numOfRows; i++) {
+              blocked[i] = new Array(numOfColumns+1);
+              for (var j = 0; j <= numOfColumns; j++)
+                blocked[i][j] = false;
+            }
+        
+            if (numOfRows < 1 || numOfRows > 5) {
+               toastr.error("The number of clauses must be [1..5].");
+              return false;
+            }
+        
+            if (numOfColumns < 1 || numOfColumns > 10) {
+               toastr.error("The number of variables must be [1..5].");
+              return false;
+            }
+        
+             toastr.error("");
+        
+            this.checkInputt = function(XX) {
+              var cc = 0;
+              for (var j = 1; j <= numOfColumns; j ++)
+                if (blocked[XX][j])
+                  cc++;
+              return cc;
+            }
+        
+            this.checkInput = function() { // each clause can only have two variables
+              for (var i = 1; i <= numOfRows; i++) {
+                var cc = 0;
+                for (var j = 1; j <= numOfColumns; j ++) if (blocked[i][j]) cc++;
+                if (cc != 2) return false;
+              }
+              return true;
+            }
+        
+            this.changeState = function(rowIndex, columnIndex) {
+              var temp = '#cell' + rowIndex + columnIndex;
+              if (blocked[rowIndex][columnIndex]) {
+                $(temp).attr("bgcolor", "white");
+                blocked[rowIndex][columnIndex] = false;
+              }
+              else {
+                $(temp).attr("bgcolor", "black");
+                blocked[rowIndex][columnIndex] = true;
+              }
+              if (this.checkInputt(rowIndex) > 2) {
+                 toastr.error("Row " + rowIndex + " has more than 2 black cells.")
+                  .delay(1000)
+                  .queue(function(n) {
+                    $(this).html("");
+                  });
+              }
+            }
+        
+            this.createGraph = function() {
+              iVL = {};
+              iEL = {};
+              amountEdge = 0;
+              amountVertex = numOfColumns;
+        
+              getvar = function(i) { return i%2 == 0 ? "-x" + (i/2+1) : "x" + (i+1)/2; }
+              getOpp = function(i) { return i%2 == 0 ? i+1 : i-1; }
+        
+              for (var i = 1; i <= numOfColumns; ++i) {
+                var angle = Math.acos(-1)*2/amountVertex;
+                var x1 = currentX * Math.cos(angle) - currentY*Math.sin(angle);
+                var y1 = currentX * Math.sin(angle) + currentY*Math.cos(angle);
+                currentX = x1, currentY = y1;
+                iVL[i-1] = {
+                  "x": currentX+centerX,
+                  "y": currentY+centerY,
+                  "extratext": i%2 == 0 ? "x" + i/2 : "-x" + (i+1)/2
+                }
+              }
+        
+              cs = createState(iVL, iEL);
+              cs["status"] = "Create 2 vertices for each variable.<br>One for xi, the other for -xi.";
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+        
+              for (var i = 1; i <= numOfRows; ++i) { // clauses
+                var a, b;
+                for (var j = 0; j < numOfColumns; j++) if (blocked[i][j+1]) a = j; // a
+                for (var j = numOfColumns-1; j >= 0; j--) if (blocked[i][j+1]) b = j; // b
+                // clause = (a v b)
+                var pos1 = -1, pos2 = -1;
+                var flag = true;
+                for (var j = 0; j < amountEdge; j++)
+                  if (iEL[j]["u"] == getOpp(a) && iEL[j]["v"] == b)
+                    flag = false, pos1 = j;
+                if (flag && getOpp(a) !== b) {
+                  iEL[amountEdge++] = {
+                    "u": getOpp(a),
+                    "v": b,
+                    "w": 1
+                  }
+                  pos1 = amountEdge-1;
+                }
+        
+                flag = true;
+                for (var j = 0; j < amountEdge; j++)
+                  if (iEL[j]["u"] == getOpp(b) && iEL[j]["v"] == a)
+                    flag = false, pos2 = j;
+                if (flag && getOpp(b) !== a) {
+                  iEL[amountEdge++] = {
+                    "u": getOpp(b),
+                    "v": a,
+                    "w": 1
+                  }
+                  pos2 = amountEdge-1;
+                }
+        
+                cs = createState(iVL, iEL);
+                cs["status"] = "Clause = (" + getvar(a) + " or " + getvar(b) + ").<br>" +
+                               "Create edge " + getvar(getOpp(a)) + " &rarr; " + getvar(b) + " (" + getOpp(a) + " &rarr; " + b + ") and " + getvar(getOpp(b)) + " &rarr; " + getvar(a) + " (" + getOpp(b) + " &rarr; " + a + ").";
+                cs["lineNo"] = [2, 3];
+                if (pos1 != -1) cs["el"][pos1]["animateHighlighted"] = true;
+                if (pos2 != -1) cs["el"][pos2]["animateHighlighted"] = true;
+                stateList.push(cs);
+              }
+              return true;
+            }
+        
+            this.runAlgo = function() {
+              var vertexHighlighted = {}, edgeHighlighted = {}, vertexTraversed = {}, vertexTraversing = {}, hiddenEdge = {};
+              var cs;
+        
+              cs = createState(iVL, iEL);
+              cs["status"] = "We run an SCC finding algorithm (either Kosaraju's or Tarjan's) to see if there is a conflict (a variable and its negation in the same SCC).";
+              cs["lineNo"] = 4;
+              stateList.push(cs);
+        
+              // main code
+              var p = {}, stack = {}, stackNum = -1, Count = 0, low = {}, num = {}, lab = {}, labNum = 0;
+              for (var i = 0; i < amountVertex; i ++)
+                p[i] = lab[i] = -1;
+              for (var i = 0; i < amountVertex; i ++)
+                if (p[i] == -1) {
+                  p[i]--;
+                  Tdfs(i);
+                }
+        
+              for (var j = 0; j < amountEdge; j++) {
+                var vertexA = iEL[j]["u"];
+                var vertexB = iEL[j]["v"];
+                iEL[j]["u"] = vertexB;
+                iEL[j]["v"] = vertexA;
+              }
+        
+              while (stackNum >= 0) {
+                if (lab[stack[stackNum]] == -1) {
+                  labNum++;
+                  DFS2(stack[stackNum]);
+                  var flag = -1;
+                  for (var z = 0; z < amountVertex; z += 2)
+                    if ((lab[z] == lab[z+1]) && (lab[z] == labNum))
+                      flag = z;
+        
+                  if (flag != -1) {
+                    for (var key in iVL)
+                      if (lab[key] == lab[flag])
+                        vertexTraversed[key] = true;
+                    vertexHighlighted[flag] = vertexHighlighted[flag+1] = true;
+                    cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+                    cs["status"] = "" + getvar(flag) + " (vertex " + flag + ") and " + getvar(flag+1) + " (vertex " + (flag+1) + ") are in the same SCC.<br>The 2-SAT instance is not satisfiable!";
+                    cs["lineNo"] = 7;
+                    stateList.push(cs);
+                    return true;
+                  }
+                }
+                stackNum--;
+              }
+        
+              function Tdfs(u) {
+                var neighbors = [];
+                for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+                neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+                while (neighbors.length > 0) {
+                  var j = neighbors.shift();
+                  var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                  if (lab[vertexB] == -1 && u == vertexA)
+                    if (p[vertexB] == -1) {
+                      p[vertexB] = u;
+                      Tdfs(vertexB);
+                    }
+                }
+        
+                stack[++stackNum] = u;
+              }
+        
+              function DFS2(u) {
+                lab[u] = labNum;
+        
+                var neighbors = [];
+                for (var j = 0; j < amountEdge; j++) if (iEL[j]["u"] == u) neighbors.push(j);
+                neighbors.sort(function(a, b) { return iEL[a]["v"]-iEL[b]["v"] });
+        
+                while (neighbors.length > 0) {
+                  var j = neighbors.shift();
+                  var vertexA = iEL[j]["u"], vertexB = iEL[j]["v"];
+                  if (hiddenEdge[j] == null)
+                    if (lab[vertexB] == -1)
+                      DFS2(vertexB);
+                }
+              }
+        
+              for (var i = 0; i < amountEdge; i++) {
+                var vertexA = iEL[i]["u"];
+                var vertexB = iEL[i]["v"];
+                iEL[i]["u"] = vertexB;
+                iEL[i]["v"] = vertexA;
+              }
+        
+              cs = createState(iVL, iEL, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, {}, {}, {}, {}, hiddenEdge);
+              cs["status"] = "SCC algorithm is completed without any conflict.<br>So the 2-SAT instance is satisfiable!";
+              cs["lineNo"] = 5;
+              stateList.push(cs);
+            }
+        
+            this.CloseBox = function() {
+              $('.overlays').hide("slow");
+              $('#dark-overlay').hide("slow");
+              $('#rookattack-board').hide("slow");
+            }
+        
+            this.inputExample1 = function() {
+              numOfRows = 2;
+              numOfColumns = 4;
+              blocked = new Array(numOfRows+1);
+              for (var i = 0; i <= numOfRows; i++) {
+                blocked[i] = new Array(numOfColumns+1);
+                for (var j = 0; j <= numOfColumns; j++)
+                  blocked[i][j] = false;
+              }
+              var toWrite = '<html>\n';
+              toWrite += '<br>Click on any cell to toggle between black/white cell</br>\n';
+              toWrite += '<br>Each black cell presents a clause. Each row should have exactly 2 black cells.</br>\n';
+              toWrite += '<table border="1" id="board">'
+              for (var j = 0; j <= numOfColumns; ++j)
+                toWrite += '<col width="50">';
+        
+              toWrite += '<tr><td height="50" bgcolor="white" id="cell00"></td>';
+              for (var j = 1; j <= numOfColumns; j++)
+                if (j % 2 == 1)
+                  toWrite += '<td height="50" bgcolor="white" id="cell' + 0 + j + '">-x' + (j + 1) / 2 + '</td>';
+                else
+                  toWrite += '<td height="50" bgcolor="white" id="cell' + 0 + j + '">x' + j / 2 + '</td>';
+              toWrite += "</tr>"
+        
+              for (var i = 1; i <= numOfRows; ++i) {
+                toWrite += '<tr>';
+                toWrite += '<td height="50" bgcolor="white" id="cell00">' + i + '</td>';
+                for (var j = 1; j <= numOfColumns; ++j)
+                  toWrite += '<td height="50" bgcolor="white" id="cell' + i + j + '" onclick=gtw.changeState(' + i + ',' + j + ')></td>';
+                toWrite += '</tr>';
+              }
+        
+              toWrite += '</table>\n';
+              toWrite += '<button onclick=gtw.inputRandomized()>Randomized</button>';
+              toWrite += '<button onclick=gtw.inputFinished()>Done</button>';
+              toWrite += '<button onclick=gtw.inputExample1()>Example 1</button>';
+              toWrite += '<button onclick=gtw.inputExample2()>Example 2</button>';
+              toWrite += '<button onclick=gtw.CloseBox()>Close</button>';
+              toWrite += '<div id="twosat-board-err" class="err"></div>';
+              toWrite += '</html>\n';
+              $('#twosat-board').html(toWrite);
+        
+              this.changeState(1, 1);
+              this.changeState(1, 3);
+              this.changeState(2, 2);
+              this.changeState(2, 4);
+            }
+        
+            this.inputExample2 = function() {
+              numOfRows = 4;
+              numOfColumns = 6;
+              blocked = new Array(numOfRows+1);
+              for (var i = 0; i <= numOfRows; i++) {
+                blocked[i] = new Array(numOfColumns+1);
+                for (var j = 0; j <= numOfColumns; j++)
+                  blocked[i][j] = false;
+              }
+              var toWrite = '<html>\n';
+              toWrite += '<br>Click on any cell to toggle between black/white cell</br>\n';
+              toWrite += '<br>Each black cell presents a clause. Each row should have exactly 2 black cells.</br>\n';
+              toWrite += '<table border="1" id="board">'
+              for (var j = 0; j <= numOfColumns; ++j)
+                toWrite += '<col width="50">';
+        
+              toWrite += '<tr><td height="50" bgcolor="white" id="cell00"></td>';
+              for (var j = 1; j <= numOfColumns; j++)
+                if (j % 2 == 1)
+                  toWrite += '<td height="50" bgcolor="white" id="cell' + 0 + j + '">-x' + (j + 1) / 2 + '</td>';
+                else
+                  toWrite += '<td height="50" bgcolor="white" id="cell' + 0 + j + '">x' + j / 2 + '</td>';
+              toWrite += "</tr>"
+        
+              for (var i = 1; i <= numOfRows; ++i) {
+                toWrite += '<tr>';
+                toWrite += '<td height="50" bgcolor="white" id="cell00">' + i + '</td>';
+                for (var j = 1; j <= numOfColumns; ++j)
+                  toWrite += '<td height="50" bgcolor="white" id="cell' + i + j + '" onclick=gtw.changeState(' + i + ',' + j + ')></td>';
+                toWrite += '</tr>';
+              }
+        
+              toWrite += '</table>\n';
+              toWrite += '<button onclick=gtw.inputRandomized()>Randomized</button>';
+              toWrite += '<button onclick=gtw.inputFinished()>Done</button>';
+              toWrite += '<button onclick=gtw.inputExample1()>Example 1</button>';
+              toWrite += '<button onclick=gtw.inputExample2()>Example 2</button>';
+              toWrite += '<button onclick=gtw.CloseBox()>Close</button>';
+              toWrite += '<div id="twosat-board-err" class="err"></div>';
+              toWrite += '</html>\n';
+              $('#twosat-board').html(toWrite);
+        
+              this.changeState(1, 2);
+              this.changeState(1, 4);
+              this.changeState(2, 1);
+              this.changeState(2, 4);
+              this.changeState(3, 3);
+              this.changeState(3, 6);
+              this.changeState(4, 3);
+              this.changeState(4, 5);
+            }
+        
+            this.inputFinished = function() {
+              if (!this.checkInput()) {
+                 toastr.error("Each row should have exactly 2 black cells.")
+                  .delay(1000)
+                  .queue(function(n) {
+                    $(this).html("");
+                  });
+                return false;
+              }
+        
+              $('.overlays').hide("slow");
+              $('#dark-overlay').hide("slow");
+              $('#rookattack-board').hide("slow");
+              this.createGraph();
+              this.runAlgo();
+              gw.startAnimation(stateList);
+              $('#current-action').show();
+              $('#current-action p').html("2-SAT Modeling");
+              $('#progress-bar').slider("option", "max", gw.getTotalIteration()-1);
+              triggerRightPanels();
+              populatePseudocode(9);
+              isPlaying = true;
+              return true;
+            }
+        
+            this.inputRandomized = function() {
+              var randNumMin = 1;
+              var randNumMax = numOfColumns;
+              for (var i = 1; i <= numOfRows; i++) {
+                for (var j = 1; j <= numOfColumns; j++)
+                  if (blocked[i][j])
+                    this.changeState(i, j);
+                var a = (Math.floor(Math.random() * (randNumMax-randNumMin+1)) + randNumMin);
+                var b = (Math.floor(Math.random() * (randNumMax-randNumMin+1)) + randNumMin);
+                while (a == b)
+                  b = (Math.floor(Math.random() * (randNumMax-randNumMin+1)) + randNumMin);
+                this.changeState(i, a);
+                this.changeState(i, b);
+              }
+            }
+        
+            $('#dark-overlay').show("slow");
+            var toWrite = '<html>\n';
+            toWrite += '<br>Click on any cell to toggle between black/white cell</br>\n';
+            toWrite += '<br>Each black cell presents a clause. Each row should have exactly 2 black cells.</br>\n';
+            toWrite += '<table border="1" id="board">'
+            for (var j = 0; j <= numOfColumns; ++j)
+              toWrite += '<col width="50">';
+        
+            toWrite += '<tr><td height="50" bgcolor="white" id="cell00"></td>';
+            for (var j = 1; j <= numOfColumns; j++)
+              if (j % 2 == 1)
+                toWrite += '<td height="50" bgcolor="white" id="cell' + 0 + j + '">-x' + (j+1)/2 + '</td>';
+              else
+                toWrite += '<td height="50" bgcolor="white" id="cell' + 0 + j + '">x' + j/2 + '</td>';
+            toWrite += "</tr>"
+        
+            for (var i = 1; i <= numOfRows; ++i) {
+              toWrite += '<tr>';
+              toWrite += '<td height="50" bgcolor="white" id="cell00">' + i + '</td>';
+              for (var j = 1; j <= numOfColumns; ++j)
+                toWrite += '<td height="50" bgcolor="white" id="cell' + i + j + '" onclick=gtw.changeState(' + i + ',' + j + ')></td>';
+              toWrite += '</tr>';
+            }
+        
+            toWrite += '</table>\n';
+            toWrite += '<button onclick=gtw.inputRandomized()>Randomized</button>';
+            toWrite += '<button onclick=gtw.inputFinished()>Done</button>';
+            toWrite += '<button onclick=gtw.inputExample1()>Example 1</button>';
+            toWrite += '<button onclick=gtw.inputExample2()>Example 2</button>';
+            toWrite += '<button onclick=gtw.CloseBox()>Close</button>';
+            toWrite += '<div id="twosat-board-err" class="err"></div>';
+            toWrite += '</html>\n';
+            $('#twosat-board').html(toWrite);
+            $('#twosat-board').show("slow");
+          }
+        
+          this.examples = function(id) {
+            iVL = getExampleGraph(id, VL);
+            iEL = getExampleGraph(id, EL);
+            amountVertex = 0;
+            amountEdge = 0;
+            for (var key in iVL) amountVertex++;
+            for (var key in iEL) amountEdge++;
+        
+            DIRECTED_GR = true;
+            OLD_POSITION = amountEdge;
+        
+            var newState = createState(iVL, iEL);
+            gw.updateGraph(newState, 500);
+            return true;
+          }
+        
+          this.loadGraph = function(vertexList, edgeList) {
+            iVL = vertexList;
+            iEL = edgeList;
+            fixJSON();
+            var newState = createState(iVL, iEL);
+            gw.updateGraph(newState, 500);
+          }
+        
+          function createState(iVLObject, iELObject, vertexHighlighted, edgeHighlighted, vertexTraversed, vertexTraversing, treeEdge, backEdge, crossEdge, forwardEdge, hiddenEdge) {
+            if (vertexHighlighted == null) vertexHighlighted = {};
+            if (edgeHighlighted == null) edgeHighlighted = {};
+            if (vertexTraversed == null) vertexTraversed = {};
+            if (vertexTraversing == null) vertexTraversing = {};
+            if (treeEdge == null) treeEdge = {};
+            if (backEdge == null) backEdge = {};
+            if (crossEdge == null) crossEdge = {};
+            if (forwardEdge == null) forwardEdge = {};
+            if (hiddenEdge == null) hiddenEdge = {};
+        
+            var key, state = {
+              "vl": {},
+              "el": {}
+            };
+        
+            for (key in iVLObject) {
+              state["vl"][key] = {};
+              state["vl"][key]["cx"] = iVLObject[key]["x"];
+              state["vl"][key]["cy"] = iVLObject[key]["y"];
+              state["vl"][key]["text"] = key;
+              state["vl"][key]["extratext"] = iVLObject[key]["extratext"];
+              if (iVLObject[key]["state"] == OBJ_HIDDEN)
+                state["vl"][key]["state"] = OBJ_HIDDEN;
+              else
+                state["vl"][key]["state"] = VERTEX_DEFAULT;
+            }
+        
+            for (key in iELObject) {
+              state["el"][key] = {};
+              state["el"][key]["vertexA"] = iELObject[key]["u"];
+              state["el"][key]["vertexB"] = iELObject[key]["v"];
+              if (DIRECTED_GR == false)
+                state["el"][key]["type"] = EDGE_TYPE_UDE;
+              else
+                state["el"][key]["type"] = EDGE_TYPE_DE;
+              state["el"][key]["weight"] = iELObject[key]["w"];
+              if (iELObject[key]["state"] == OBJ_HIDDEN)
+                state["el"][key]["state"] = OBJ_HIDDEN;
+              else
+                state["el"][key]["state"] = EDGE_DEFAULT;
+              state["el"][key]["displayWeight"] = false;
+              state["el"][key]["animateHighlighted"] = false;
+            }
+        
+            for (key in vertexTraversed) state["vl"][key]["state"] = VERTEX_TRAVERSED;
+            for (key in vertexTraversing) state["vl"][key]["state"] = VERTEX_BLUE_OUTLINE;
+            for (key in treeEdge) state["el"][key]["state"] = EDGE_RED;
+            for (key in backEdge) state["el"][key]["state"] = EDGE_BLUE;
+            for (key in crossEdge) state["el"][key]["state"] = EDGE_GREEN;
+            for (key in forwardEdge) state["el"][key]["state"] = EDGE_GREY;
+        
+            for (key in vertexHighlighted) state["vl"][key]["state"] = VERTEX_HIGHLIGHTED;
+            for (key in edgeHighlighted) {
+              state["el"][key]["state"] = EDGE_HIGHLIGHTED;
+              for (var keyR in iEL) if ((iEL[key]["u"] == iEL[keyR]["v"]) && (iEL[key]["v"] == iEL[keyR]["u"])) edgeHighlighted[keyR] = true;
+            }
+        
+            for (key in hiddenEdge) state["el"][key]["state"] = EDGE_GREY;
+        
+            return state;
+          }
+        
+          function populatePseudocode(act) {
+            switch (act) {
+              case 0: // DFS
+                $('#code1').html('DFS(u)');
+                $('#code2').html('for each neighbor v of u');
+                $('#code3').html('&nbsp;&nbsp;if v is unvisited, tree edge, DFS(v)');
+                $('#code4').html('&nbsp;&nbsp;else if v is explored, bidirectional/back edge');
+                $('#code5').html('&nbsp;&nbsp;else if v is visited, forward/cross edge');
+                $('#code6').html('');
+                $('#code7').html('');
+                break
+              case 1: // BFS
+                $('#code1').html('BFS(u), Q = {u}');
+                $('#code2').html('while !Q.empty // Q is a normal queue');
+                $('#code3').html('&nbsp;&nbsp;for each neighbor v of u = Q.front, Q.pop');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;if v is unvisited, tree edge, Q.push(v)');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;else if v is visited, we ignore this edge'); // bidirectional/back edge
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+              case 2: // Topological Sort using DFS
+                $('#code1').html('for each unvisited vertex u');
+                $('#code2').html('&nbsp;&nbsp;DFS(u)');
+                $('#code3').html('&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor v of u');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if v is unvisited, DFS(v)');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;else skip v;');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;finish DFS(u), add u to the back of list');
+                $('#code7').html('reverse list ');
+                break
+              case 3: // Topological Sort using BFS
+                $('#code1').html('add vertices with no incoming edge to queue Q');
+                $('#code2').html('while !Q.empty // Q is a normal queue');
+                $('#code3').html('&nbsp;&nbsp;u = Q.front, Q.pop, add u to the back of list');
+                $('#code4').html('&nbsp;&nbsp;for each neighbor v of u');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;delete edge u &rarr; v');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;if v has no incoming edge, add v to queue');
+                $('#code7').html('// done'); // not in CP3, only as exercise at the moment?
+                break;
+              case 4: // bipartite DFS
+                $('#code1').html('for each unvisited vertex u');
+                $('#code2').html('&nbsp;&nbsp;DFS(u)');
+                $('#code3').html('&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor v of u');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if v is unvisited, different color, DFS(v)');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if u and v have the same color');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not bipartite graph, exit.');
+                $('#code7').html(''); // not in CP3, only as exercise at the moment? // <b><a href="http://cpbook.net/#downloads" target="_blank">ch4_01_dfs.cpp/java, ch4, CP3</a></b>');
+                break
+              case 5: // bipartite BFS
+                $('#code1').html('for each unvisited vertex u');
+                $('#code2').html('&nbsp;&nbsp;push u to the queue');
+                $('#code3').html('&nbsp;&nbsp;while !Q.empty // Q is a normal queue');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor v of u = Q.front, Q.pop');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if u and v have the same color &rarr; exit');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assign another color to v, push v to queue');
+                $('#code7').html('');
+                break
+              case 6: // articulation points and bridges
+                $('#code1').html('try all vertex u, if u hasnt been visited, DFS(u)');
+                $('#code2').html('DFS(u), initiate num[u] = low[u] = DFSCount');
+                $('#code3').html('&nbsp;&nbsp;try all neighbor v of u');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;if v is free, DFS(v)');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low[u] = min(low[u], low[v])');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;check the condition');
+                $('#code7').html('&nbsp;&nbsp;&nbsp;&nbsp;else low[u] = min(low[u], num[v])');
+                break;
+              case 7: // Kosaraju's algorithm
+                $('#code1').html('for each unvisited vertex u, DFS(u)');
+                $('#code2').html('&nbsp;&nbsp;try all free neighbor v of u, DFS(v)');
+                $('#code3').html('&nbsp;&nbsp;finish DFS(u), add u to the front of list');
+                $('#code4').html('transpose the graph');
+                $('#code5').html('DFS in order of the list, DFS(u)');
+                $('#code6').html('&nbsp;&nbsp;try all free neighbor v of u, DFS(v)');
+                $('#code7').html('each time we complete a DFS, we get an SCC');
+                break;
+              case 8: // Tarjan's algorithm
+                $('#code1').html('for each unvisited vertex u');
+                $('#code2').html('&nbsp;&nbsp;DFS(u), s.push(u), num[u] = low[u] = DFSCount');
+                $('#code3').html('&nbsp;&nbsp;&nbsp;&nbsp;for each neighbor v of u');
+                $('#code4').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if v is unvisited, DFS(v)');
+                $('#code5').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low[u] = min(low[u], low[v])');
+                $('#code6').html('&nbsp;&nbsp;&nbsp;&nbsp;if low[u] == num[u] // root of an SCC');
+                $('#code7').html('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop from stack s until we get u');
+                break;
+              case 9: // two-sat
+                $('#code1').html('create graph, each variable creates 2 vertices');
+                $('#code2').html('for clause (a or b)');
+                $('#code3').html('&nbsp;&nbsp;create edge -a &rarr; b and -b &rarr; a');
+                $('#code4').html('run scc algorithm');
+                $('#code5').html('if no conflict, the 2-SAT instance is satisfiable');
+                $('#code6').html('if a variable and its negation are in the same SCC');
+                $('#code7').html('&nbsp;&nbsp;the 2-SAT instance is not satisfiable');
+                break;
+            }
+          }
+        }
+        
+        
+        
+        // Graph Traversal action
+        var actionsWidth = 150;
+        var statusCodetraceWidth = 410;
+        var isExamplesOpen = false, isBFSOpen = false, isDFSOpen = false, isTopoOpen = false, isBipartiteOpen = false, isBridgeOpen = false, isSCCOpen = false, is2SATOpen = false;
+        
+        function openExamples() {
+          if (!isExamplesOpen) {
+            $('.examples').fadeIn('fast');
+            isExamplesOpen = true;
+          }
+        }
+        
+        function closeExamples() {
+          if (isExamplesOpen) {
+            $('.examples').fadeOut('fast');
+            isExamplesOpen = false;
+          }
+        }
+        
+        function openDFS() {
+          if (!isDFSOpen) {
+            $('.dfs').fadeIn('fast');
+            isDFSOpen = true;
+          }
+        }
+        
+        function closeDFS() {
+          if (isDFSOpen) {
+            $('.dfs').fadeOut('fast');
+         
+            isDFSOpen = false;
+          }
+        }
+        
+        function openBFS() {
+          if (!isBFSOpen) {
+            $('.bfs').fadeIn('fast');
+            isBFSOpen = true;
+          }
+        }
+        
+        function closeBFS() {
+          if (isBFSOpen) {
+            $('.bfs').fadeOut('fast');
+         
+            isBFSOpen = false;
+          }
+        }
+        
+        function openTopo() {
+          if (!isTopoOpen) {
+            $('.topo').fadeIn('fast');
+            isTopoOpen = true;
+          }
+        }
+        
+        function closeTopo() {
+          if (isTopoOpen) {
+            $('.topo').fadeOut('fast');
+             toastr.error("");
+            isTopoOpen = false;
+          }
+        }
+        
+        function openBipartite() {
+          if (!isBipartiteOpen) {
+            $('.bipartite').fadeIn('fast');
+            isBipartiteOpen = true;
+          }
+        }
+        
+        function closeBipartite() {
+          if (isBipartiteOpen) {
+            $('.bipartite').fadeOut('fast');
+             toastr.error("");
+            isBipartiteOpen = false;
+          }
+        }
+        
+        function openBridge() {
+          if (!isBridgeOpen) {
+            $('.bridge').fadeIn('fast');
+            isBridgeOpen = true;
+          }
+        }
+        
+        function closeBridge() {
+          if (isBridgeOpen) {
+            $('.bridge').fadeOut('fast');
+            toastr.error("");
+            isBridgeOpen = false;
+          }
+        }
+        
+        function openScc() {
+          if (!isSCCOpen) {
+            $('.scc').fadeIn('fast');
+            isSCCOpen = true;
+          }
+        }
+        
+        function closeScc() {
+          if (isSCCOpen) {
+            $('.scc').fadeOut('fast');
+            toastr.error("");
+            isSCCOpen = false;
+          }
+        }
+        
+        function open2sat() {
+          $('#twosat-v1').val(3);
+          $('#twosat-v2').val(3);
+          if (!is2SATOpen) {
+            $('.twosat').fadeIn('fast');
+            is2SATOpen = true;
+          }
+        }
+        
+        function close2sat() {
+          if (is2SATOpen) {
+            $('.twosat').fadeOut('fast');
+             toastr.error("");
+            is2SATOpen = false;
+          }
+        }
+        
+        function hideEntireActionsPanel() {
+          closeExamples();
+          closeDFS();
+          closeBFS();
+          closeTopo();
+          closeBipartite();
+          closeBridge();
+          closeScc();
+          close2sat();
+          hideActionsPanel();
+        }
+        
+        
+        
+        // local
+        write(false, true);
+        var gtw, gw, randomGraphID;
+        
+        $(function() {
+          $('#play').hide();
+          gtw = new GraphTraversal();
+          gw = gtw.getGraphWidget();
+          var options = [CP3_4_1, CP3_4_3, CP3_4_4, CP3_4_9, CP3_4_17, CP3_4_18, CP3_4_19];
+          gtw.examples(options[Math.floor(Math.random()*7)]);
+          randomGraphID = -1;
+          var graphJSON = getQueryVariable("create");
+          if (graphJSON.length > 0) {
+            importjson(graphJSON);
+            window.history.pushState("object or string", "Title", window.location.href.split('?')[0]);
+          }
+          // var directed = getQueryVariable("directed");
+          // if (directed.length > 0) {
+          //   directed = parseInt(directed);
+          //   if (directed === 0)
+          //     directedChange();
+          // }
+        
+          $('#examples').click(function() {
+            openExamples();
+            closeDFS();
+            closeBFS();
+            closeTopo();
+            closeBipartite();
+            closeBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#directedChange').click(function() {
+            closeExamples();
+            closeDFS();
+            closeBFS();
+            closeTopo();
+            closeBipartite();
+            closeBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#dfs').click(function() {
+            closeExamples();
+            openDFS();
+            closeBFS();
+            closeTopo();
+            closeBipartite();
+            closeBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#bfs').click(function() {
+            closeExamples();
+            closeDFS();
+            openBFS();
+            closeTopo();
+            closeBipartite();
+            closeBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#topo').click(function() {
+            closeExamples();
+            closeDFS();
+            closeBFS();
+            openTopo();
+            closeBipartite();
+            closeBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#bipartite').click(function() {
+            closeExamples();
+            closeDFS();
+            closeBFS();
+            closeTopo();
+            openBipartite();
+            closeBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#bridge').click(function() {
+            closeExamples();
+            closeDFS();
+            closeBFS();
+            closeTopo();
+            closeBipartite();
+            openBridge();
+            closeScc();
+            close2sat();
+          });
+        
+          $('#scc').click(function() {
+            closeExamples();
+            closeDFS();
+            closeBFS();
+            closeTopo();
+            closeBipartite();
+            closeBridge();
+            openScc();
+            close2sat();
+          });
+        
+          $('#twosat').click(function() {
+            closeExamples();
+            closeDFS();
+            closeBFS();
+            closeTopo();
+            closeBipartite();
+            closeBridge();
+            closeScc();
+            open2sat();
+          });
+        });
+        
+        function importjson(text) {
+          if (isPlaying) stop();
+          if (mode == "exploration") {
+            gtw.importjson(text);
+            closeExamples();
+            isPlaying = false;
+          }
+        }
+        
+        function drawGraph() {
+          if (isPlaying) stop();
+          if (mode == "exploration") {
+            $('#dark-overlay').fadeIn(function() {
+              $('#drawgraph').fadeIn();
+            });
+            gtw.startLoop();
+            isPlaying = false;
+          }
+        }
+        
+        function drawDone() {
+          if (!gtw.draw()) return false;
+          gtw.stopLoop();
+          $('#drawgraph').fadeOut();
+          $('#dark-overlay').fadeOut();
+        }
+        
+        function drawCancel() {
+          gtw.stopLoop();
+          $('#drawgraph').fadeOut();
+          $('#dark-overlay').fadeOut();
+        }
+        
+        // function createRandom() {
+        //   if (isPlaying) stop();
+        //   if (mode == "exploration") {
+        //     var n = Math.floor(Math.random()*6 + 5);
+        //     $.ajax({
+        //       url: PHP_DOMAIN + "/php/Graph.php?mode=" + MODE_GET_RANDOM_SUBMITTED_GRAPH + "&directed=" + 1 + "&connected=" + 1
+        //     }).done(function(data) {
+        //       data = JSON.parse(data);
+        //       var graph = extractQnGraph(data.graph);
+        //       if (data.graphID == randomGraphID) // to ensure we get different graph per click (make sure #graph > 1 in the database)
+        //         createRandom();
+        //       randomGraphID = data.graphID;
+        //       gtw.initRandom(graph);
+        //       $('#rate-sample-graph').show();
+        //     })
+        //     $('#progress-bar').slider("option", "max", 0);
+        //     closeExamples();
+        //     isPlaying = false;
+        //   }
+        // }
+        
+        function example(id) {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if (gtw.examples(id)) { // (mode == "exploration") && 
+              $('#progress-bar').slider("option", "max", 0);
+              closeExamples();
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function directedChange() {
+          if (isPlaying) stop();
+          setTimeout(function() {
+            if ((mode == "exploration") && gtw.directedChange()) {
+              $('#progress-bar').slider("option", "max", 0);
+              isPlaying = false;
+            }
+          }, 500);
+        }
+        
+        function dfs(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#dfs-v').val());
+          commonAction(gtw.dfs(input, callback), "DFS(" + input + ")");
+          setTimeout(function() { $("#dfs-v").val(1 + Math.floor(Math.random()*gtw.getV())); }, 500); // randomized for next click between [0..V-1]
+        }
+        
+        function bfs(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#bfs-v').val());
+          commonAction(gtw.bfs(input, callback), "BFS(" + input + ")");
+          setTimeout(function() { $("#bfs-v").val(1 + Math.floor(Math.random()*gtw.getV())); }, 500);
+        }
+        
+        function toposortDfs(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.toposortDfs(callback), "Topological Sort (DFS)");
+        }
+        
+        function toposortBfs(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.toposortBfs(callback), "Topological Sort (BFS)");
+        }
+        
+        function bipartiteDfs(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.bipartiteDfs(callback), "Bipartite Graph Checker (DFS)");
+        }
+        
+        function bipartiteBfs(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.bipartiteBfs(callback), "Bipartite Graph Checker (BFS)");
+        }
+        
+        function bridge(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.bridge(callback), "Articulation Points and Bridges Checker");
+        }
+        
+        function kosaraju(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.kosaraju(callback), "Kosaraju's Algorithm");
+        }
+        
+        function tarjan(callback) {
+          if (isPlaying) stop();
+          commonAction(gtw.tarjan(callback), "Tarjan's Algorithm");
+        }
+        
+        function twosat() {
+          if (isPlaying) stop();
+          var input1 = parseInt($('#twosat-v1').val()), input2 = parseInt($('#twosat-v2').val());
+          commonAction(gtw.twosat(input1, input2), "2-SAT Checker");
+        }
+        
+        function loadGraph(graph) {
+          if (gtw) {
+            gtw.loadGraph(graph['vl'], graph['el']);
+          }
+        }
+        
+        // Implement these functions in each visualisation
+        var userGraph = {
+          'vl': {},
+          'el': {},
+        };
+        
+        // This function will be called before entering E-Lecture Mode
+        function ENTER_LECTURE_MODE() {
+          if (gtw) userGraph = gtw.getGraph();
+        }
+        
+        // This function will be called before returning to Explore Mode
+        function ENTER_EXPLORE_MODE() {
+          loadGraph(userGraph);
+        }
+        
+        // Lecture action functions
+        function CUSTOM_ACTION(action, data, mode) {
+          if (action == 'dfs') {
+            hideSlide(function() {
+              $('#dfs-v').val(0); // force
+              dfs(showSlide);
+            });
+          }
+          else if (action == 'bfs') {
+            hideSlide(function() {
+              $('#bfs-v').val(5); // force
+              bfs(showSlide);
+            });
+          }
+          else if (action == 'toposort_dfs') {
+            hideSlide(function() {
+              toposortDfs(showSlide);
+            });
+          }
+          else if (action == 'toposort_bfs') {
+            hideSlide(function() {
+              toposortBfs(showSlide);
+            });
+          }
+          else if (action == 'bipartite_dfs') {
+            hideSlide(function() {
+              bipartiteDfs(showSlide);
+            });
+          }
+          else if (action == 'bipartite_bfs') {
+            hideSlide(function() {
+              bipartiteBfs(showSlide);
+            });
+          }
+          else if (action == 'bridge') {
+            hideSlide(function() {
+              bridge(showSlide);
+            });
+          }
+          else if (action == 'kosaraju') {
+            hideSlide(function() {
+              kosaraju(showSlide);
+            });
+          }
+          else if (action == 'tarjan') {
+            hideSlide(function() {
+              tarjan(showSlide);
+            });
+          }
+        }
+        </script>
+         
+</body>
+
+</html>

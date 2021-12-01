@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ssdut dsa web" />
+    <meta name="author" content="" />
+
+    <title>ssdut.DSA/哈希表/线性探查</title>
+    <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/xenon-core.css">
+    <link rel="stylesheet" href="../assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="../assets/css/xenon-components.css">
+    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/viz-1.0.1.css">
+    <link rel="stylesheet" href="../assets/css/visual.css">
+    <link rel="stylesheet" href="../assets/css/drawgraph.css">
+
+
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body class="page-body">
+    <div class="page-container">
+        <!-- add class"sidebar-collapsed" to close sidebar by default,"chat-visible" to make chat appear always -->
+
+        <!-- Add"fixed" class to make the sidebar fixed always to the browser viewport. -->
+        <!-- Adding class"toggle-others" will keep only one menu item open at a time. -->
+        <!-- Adding class"collapsed" collapse sidebar root elements and show only icons. -->
+        <div class="sidebar-menu toggle-others fixed">
+
+            <div class="sidebar-menu-inner">
+
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="/" class="logo-expanded">
+                            <img src="../assets/images/logo@2x.png" width="80" alt="" />
+                        </a>
+
+                        <a href="/" class="logo-collapsed">
+                            <img src="../assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                        </a>
+                    </div>
+                  
+                </header>
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class"multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class"auto-inherit-active-class" will automatically add"active" class for parent elements who are marked already with class"active" -->
+                    <li >
+                        <a href="/index.html">
+                            <i class="fa-home"></i>
+                            <span class="title">首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/list/ll.html">
+                            <i class="fa-chain"></i>
+                            <span class="title">线性表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/list/ll.html">
+                                    <span class="title">单链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/stack.html">
+                                    <span class="title">栈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/queue.html">
+                                    <span class="title">队列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/dll.html">
+                                    <span class="title">双向链表</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/list/deque.html">
+                                    <span class="title">双端队列</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/tree/bst.html">
+                            <i class="fa-sitemap"></i>
+                            <span class="title">二叉树</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/tree/bst.html">
+                                    <span class="title">二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/avl.html">
+                                    <span class="title">平衡二叉搜索树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/tree/heap.html">
+                                    <span class="title">堆</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/graph/graphds.html">
+                            <i class="fa-share-alt"></i>
+                            <span class="title">图</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/graph/graphds.html">
+                                    <span class="title">图的数据结构</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/dfsbfs.html">
+                                    <span class="title">图的遍历</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/mst.html">
+                                    <span class="title">最小生成树</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/sssp.html">
+                                    <span class="title">最短路径</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/graph/maxflow.html">
+                                    <span class="title">网络最大流</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="opened active">
+                        <a href="/hashtable/lp.html">
+                            <i class="fa-random"></i>
+                            <span class="title">散列表</span>                          
+                        </a>
+                        <ul>
+                            <li class="active">
+                                <a href="/hashtable/lp.html">
+                                    <span class="title">线性探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/qp.html">
+                                    <span class="title">二次探查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/dh.html">
+                                    <span class="title">双散列</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hashtable/sc.html">
+                                    <span class="title">分离链接</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="/sorting/bubble.html" >
+                            <i class="fa-sort-amount-asc"></i>
+                            <span class="title">排序</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/sorting/bubble.html">
+                                    <span class="title">冒泡排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/selection.html">
+                                    <span class="title">选择排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/insertion.html">
+                                    <span class="title">插入排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/merge.html">
+                                    <span class="title">归并排序</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sorting/quick.html">
+                                    <span class="title">快速排序</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/sorting/radix.html" >
+                                    <span class="title">基数排序</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>             
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <!-- User Info, Notifications and Menu Bar -->
+          
+                <div class="row" style="margin:-30px -30px 0 -30px; background-color: #FFF; padding:15px 10px 10px; ">
+                    <div class="col-auto">
+                        <ul class="user-info-menu left-links list-inline list-unstyled">
+                            <li class="hidden-sm hidden-xs">
+                                <a href="#" data-toggle="sidebar">
+                                    <i class="fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>        
+                    </div>
+                    <!-- Left links for user info navbar -->
+                    <div class="col-auto">
+                        <h4 id="page-title" >链表</h4>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <div id="current-action" ></div>
+                    </div>               
+                    <div class="col-auto" >
+                                    <!-- Right links for user info navbar -->              
+                        <div id="speed-control">
+                            减速
+                            <div id="speed-input" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 72.2222%;"></span>
+                            </div>
+                            加速
+                        </div>              
+                    </div>
+                </div>
+            
+
+          
+
+            <div class="row">
+
+             
+                <div id="dark-overlay"></div>
+
+
+                <div id="viz">
+
+                </div>
+                
+
+                <div id="overlay" hidden="" style="opacity: 0; display: none;"></div>
+
+
+                <div id="popup" hidden="">
+                    <div id="popup-content"></div>
+                    <span id="hide-popup" hidden="" style="background-color: rgb(255, 138, 39);">X <u>关闭</u></span>
+                </div>
+         
+
+                <script>
+                    var PHP_DOMAIN ="";
+
+                    // surprise colour!
+                    // Referenced to in  home.js and viz.js also
+                    var colourArray = ["#52bc69","#d65775" /*"#ed5a7d"*/ ,"#2ebbd1","#d9513c","#fec515","#4b65ba","#ff8a27","#a7d41e"]; // green, pink, blue, red, yellow, indigo, orange, lime
+
+                    function disableScroll() {
+                        $('html').css('overflow', 'hidden');
+                    }
+
+                    function enableScroll() {
+                        $('html').css('overflow', 'visible');
+                    }
+
+                    function replaceAll(find, replace, str) {
+                        return str.replace(new RegExp(find, 'g'), replace);
+                    }
+
+                    function getColours() {
+                        var generatedColours = new Array();
+                        while (generatedColours.length < 4) {
+                            var n = (Math.floor(Math.random() * colourArray.length));
+                            if ($.inArray(n, generatedColours) == -1)
+                                generatedColours.push(n);
+                        }
+                        return generatedColours;
+                    }
+
+                    function isOn(value, position) {
+                        return (value >> position) & 1 === 1;
+                    }
+
+                    function customAlert(msg) {
+                        $('#custom-alert p').html(msg);
+                        var m = -1 * ($('#custom-alert').outerHeight() / 2);
+                        $('#custom-alert').css('margin-top', m + 'px');
+                        $('#dark-overlay').fadeIn(function() {
+                            $('#custom-alert').fadeIn(function() {
+                                setTimeout(function() {
+                                    $('#custom-alert').fadeOut(function() {
+                                        $('#dark-overlay').fadeOut();
+                                    });
+                                }, 1000);
+                            });
+                        });
+                    }
+
+                    function showLoadingScreen() {
+                        $('#loading-overlay').show();
+                        $('#loading-message').show();
+                    }
+
+                    function hideLoadingScreen() {
+                        $('#loading-overlay').hide();
+                    }
+
+                    function commonAction(retval, msg) {
+                        //setTimeout(function() {
+                        if (retval) { // mode =="exploration" && // now not only for exploration mode, but check if this opens other problems
+                         
+                            $('#current-action').html(mode =="exploration" ? msg : ("e-Lecture Example (auto play until done)<br>" + msg));
+                            $('#progress-bar').slider("option","max", gw.getTotalIteration() - 1);
+                            triggerRightPanels();
+                            isPlaying = true;
+                        }
+                        //}, 500);
+                    }
+
+                    function getQueryVariable(variable) {
+                        var query = window.location.search.substring(1);
+                        var vars = query.split('&');
+                        for (var i = 0; i < vars.length; i++) {
+                            var pair = vars[i].split('=');
+                            if (decodeURIComponent(pair[0]) == variable)
+                                return decodeURIComponent(pair[1]);
+                        }
+                        return"";
+                    }
+
+                    var generatedColours = getColours();
+                    var surpriseColour = colourArray[generatedColours[0]];
+                    var colourTheSecond = colourArray[generatedColours[1]];
+                    var colourTheThird = colourArray[generatedColours[2]];
+                    var colourTheFourth = colourArray[generatedColours[3]];
+
+                    $(function() {
+                       
+
+                        // title
+                        $('#title a').click(function() {
+                            $('#title a').removeClass('selected-viz');
+                            $(this).addClass('selected-viz');
+                            // temporary quick fix for Google Chrome Aug 2016 issue...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100.1%";
+                            }, 100); // force resize/redraw...
+                            setTimeout(function() {
+                                document.body.style.zoom ="100%";
+                            }, 600);
+                        });
+
+                        // overlays stuffs
+                        $('#trigger-about').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#about').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-team').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#team').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('#trigger-terms').click(function() {
+                            if ($(window).width() > 600) {
+                                $('#dark-overlay').fadeIn(function() {
+                                    $('#termsofuse').fadeIn();
+                                });
+                            } else
+                                alert('Sorry, this dialog is too big. Please load it on bigger screen');
+                        });
+
+                        $('.close-overlay').click(function() {
+                            $('.overlays').fadeOut(function() {
+                                $('#dark-overlay').fadeOut();
+                            });
+                        });
+
+                        $('#dark-overlay').click(function() {
+                            $('.overlays').fadeOut();
+                            $('#dark-overlay').fadeOut();
+                        });
+                    });
+                </script>
+
+
+
+
+                <script>
+                    window.onpopstate = function(event) {
+                        var slide = event.state['slide'];
+                        openSlide(slide, function() {
+                            runSlide(slide);
+                        });
+                    };
+
+                    function getUrlParameter(sParam) {
+                        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                            sURLVariables = sPageURL.split('&'),
+                            sParameterName, i;
+
+                        for (i = 0; i < sURLVariables.length; i++) {
+                            sParameterName = sURLVariables[i].split('=');
+                            if (sParameterName[0] === sParam) return sParameterName[1] === undefined ? true : sParameterName[1];
+                        }
+                    };
+
+                    function pushState(slideValue) {
+                        var url = '/zh/list';
+                        if (typeof slideValue != 'undefined' && slideValue != null) url += '?slide=' + slideValue;
+                        window.history.pushState({
+                            slide: slideValue
+                        },"slide" + slideValue, url);
+                    }
+
+                    function showPopup(callback) {
+                        $('#popup').fadeIn(100, callback);
+                    }
+
+                    function hidePopup(callback) {
+                        $('#popup').fadeOut(100, callback);
+                    }
+
+                    $(function() {
+                        var slide = getUrlParameter('slide');
+
+          
+
+                        $('.mcq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#mcq-answer-' + questionId).val();
+                            var userAnswer = $('input[type=radio][name=mcq-' + questionId + '-choice]:checked').val();
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green"><b>Correct!</b></font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red"><b>Wrong Answer! Try again...</b></font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                        $('.msq-submit').click(function() {
+                            var questionId = parseInt($(this).attr('id').split('-')[1]);
+                            var answer = $('#msq-answer-' + questionId).val();
+
+                            var answers = [];
+                            $('input[type=checkbox][class=msq-choice]:checked').each(function() {
+                                answers.push($(this).attr('id').split('-')[3]);
+                            });
+                            answers.sort();
+                            var userAnswer = answers.join(',');
+
+                            if (answer === userAnswer) {
+                                $('#answer-status-' + questionId).html('<font color="green">Correct!</font>');
+                            } else {
+                                $('#answer-status-' + questionId).html('<font color="red">Wrong Answer! Try again...</font>');
+                            }
+                            $('#answer-status-' + questionId).show();
+                            setTimeout(function() {
+                                $('#answer-status-' + questionId).fadeOut(1000);
+                            }, 1000);
+                        });
+
+                      
+
+                        $('#hide-popup').click(function() {
+                            hidePopup();
+                        });
+
+                        $('#popup').hover(function() {
+                            $('#hide-popup').show();
+                        }, function() {
+                            $('#hide-popup').hide();
+                        });
+
+
+
+
+                        // temporary quick fix for Google Chrome Aug 2016 issue..., put at last part so that everything else has been loaded
+                        // setTimeout(function(){ document.body.style.zoom ="100.1%"; }, 500);
+                        // setTimeout(function(){ document.body.style.zoom ="100%"; }, 600);
+                        // I turn it off on 14 June 2018, seems 'ok'?
+                    });
+
+               
+
+                    function adjustPopupToImageSize() {
+                        var width = $('#popup-image').prop('width');
+                        var height = $('#popup-image').prop('height');
+                        $('#popup').width(width + 20);
+                        $('#popup').height(height + 20);
+                        if (width == 0 && height == 0) {
+                            setTimeout(adjustPopupToImageSize, 200);
+                        } else {
+                            showPopup();
+                        }
+                    }
+
+                    function POPUP_IMAGE(url) {
+                        $('#popup-content').html('<img id="popup-image" src="' + url + '">');
+                        adjustPopupToImageSize();
+                    }
+
+                    function URL(url) {
+                        window.open(url, '_blank');
+                    }
+
+                </script>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Main Footer -->
+            <!-- Choose between footer styles:"footer-type-1" or"footer-type-2" -->
+            <!-- Add class"sticky" to  always stick the footer to the end of page (if page contents is small) -->
+            <!-- Or class"fixed" to  always fix the footer to the end of page -->
+            <footer class="main-footer sticky footer-type-2 sticky fixed">
+
+                <div class="footer-inner">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">                               
+                                <a id="actions-toggle" class="btn btn-sm btn-info dropdown-toggle " data-bs-toggle="dropdown"  data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">                            
+                                    操作                                                      
+                                </a>                                    
+                                <div id="actions" class="dropdown-menu">
+                                    <div class="dropdown dropend">
+                                        <a  class="dropdown-item dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true"   aria-expanded="false">
+                                            创建</a>
+                                        <div class="dropdown-menu " >
+                                            <div  class="dropdown-item-text" >
+                                                创建空的散列表，其大小为
+                                            </div>   
+                                            <div id="insert-head" class="dropdown-item-text" >
+                                                <input type="number" id="v-create" title="Enter an Integer" autocomplete="off" min="0" max="99" value="10">
+                                                <div id="inserthead-go" class="btn btn-sm btn-blue " onclick="createTable()" >
+                                                    执行
+                                                </div>                                          
+                                            </div>                                          
+                                        </div>  
+                                    </div>
+                                    
+                                    <div class="dropdown dropend">
+                                        <a  class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"  aria-expanded="false">
+                                            搜索</a>
+                                        <div class="dropdown-menu" >
+                                            <div id="create-random-fixed-size" class="dropdown-header" style="min-width: 200px;">
+                                                <p>搜索值</p>
+                                            </div>    
+                                            <div id="" class="  dropdown-item-text" >                          
+                                                
+                                                    <input type="number" id="v-search" title="Enter an Integer" autocomplete="off" min="0" max="99" value="5">
+                                                <div id="search-go" class="btn btn-sm btn-blue  " onclick="searchInteger()">
+                                                    执行</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="search" class="dropdown-item dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"  aria-expanded="false">
+                                            插入</a>
+                                        <div class="dropdown-menu" >
+                                            <div id="create-random-fixed-size" class="dropdown-header" style="min-width: 200px;">
+                                                <p>插入值列表</p>
+                                            </div>    
+                                            <div id="" class="  dropdown-item-text" >  
+                                                    <input type="text" id="v-insert"  autocomplete="off" min="0" max="99" value="2,12">
+                                                <div id="search-go" class="btn btn-sm btn-blue  " onclick="insertInteger()">
+                                                    执行</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown dropend">
+                                        <a id="search" class="dropdown-item dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"  aria-expanded="false">
+                                            移除</a>
+                                        <div class="dropdown-menu" >
+                                            <div id="create-random-fixed-size" class="dropdown-header" style="min-width: 200px;">
+                                                <p>搜索值</p>
+                                            </div>    
+                                            <div id="" class="  dropdown-item-text" > 
+                                                    <input type="number" id="v-remove" title="Enter an Integer" autocomplete="off" min="0" max="99" value="5">
+                                                <div id="search-go" class="btn btn-sm btn-blue  " onclick="removeInteger()">
+                                                    执行</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-auto">
+                            <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick="goToBeginning()"><img
+                                src="../assets/images/goToBeginning.png" alt="go to beginning"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="previous" class="media-control-button" title="step backward" onclick="stepBackward()"><img
+                                src="../assets/images/prevFrame.png" alt="previous frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="pause" class="media-control-button" title="pause" onclick="pause()" ><img
+                                src="../assets/images/pause.png" alt="pause"></span>
+                            <span id="play" class="media-control-button" title="play" onclick="play()" style="display: none;">
+                                <img src="../assets/images/play.png" alt="play"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="next" class="media-control-button" title="step forward" onclick="stepForward()"><img
+                                src="../assets/images/nextFrame.png" alt="next frame"></span>
+                        </div>
+                        <div class="col-auto">
+                            <span id="go-to-end" class="media-control-button" title="go to end" onclick="goToEnd()"><img
+                                src="../assets/images/goToEnd.png" alt="go to end"></span>
+                        </div>
+
+
+                        <div class="col-5 me-auto">
+                            <div id="progress-bar" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="0" data-max="1800" data-value="223">
+                            </div>
+
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group dropdown dropup">
+                                <a id="codetrace-toggle" class="btn btn-sm btn-warning dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false" data-bs-offset="0,20">                            
+                                    代码跟踪
+                                                  
+                                </a>
+                                <div id="codetrace-panel" class="dropdown-menu dropdown-menu-end">
+                                    <div class="row" style="width: 600px;">
+                                        <div class="col-sm-12">
+                                            <div id="status" class=" col-sm-12" >
+                                                <p></p>
+                                            </div>
+                                            <div id="codetrace" class=" col-sm-12">
+                                                <p id="code1" style="padding-top: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code2" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code3" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code4" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code5" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code6" style="background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                                <p id="code7" style="padding-bottom: 10px; background-color: rgb(82, 188, 105); color: rgb(255, 255, 255);"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                       </div>
+            </footer>
+        </div>
+    </div>    
+
+    <div class="page-loading-overlay">
+        <div class="loader-2"></div>
+    </div>
+
+  
+
+
+    <!-- Bottom Scripts -->
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/bootstrap5.dropdown.ml.hack.js"></script>
+    <script src="../assets/js/TweenMax.min.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/xenon-api.js"></script>
+    <script src="../assets/js/xenon-toggles.js"></script>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="../assets/js/xenon-widgets.js"></script>
+    <script src="../assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+    <!--   <script src="../assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>-->
+    <script src="../assets/js/toastr/toastr.min.js"></script>
+
+
+    
+    <script src="../assets/js/jquery-ui/jquery-ui.js"></script>
+    <script src="../assets/js/knob/jquery.knob.min.js"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="../assets/js/xenon-custom.js"></script>
+    
+    <script src="../assets/js/d3.min.js"></script>
+    <script src="../assets/js/viz-1.0.3.js"></script>
+    <script src="../assets/js/visualgo_print.js"></script>
+    <script src="../assets/js/graph_library.js"></script>
+    <script type="text/javascript">
+        // HashTable Widget
+        // original author: Steven Halim
+        // Defines a HashTable object; keeps implementation of Hash Table internally and interact with GraphWidget to display Hash Table visualizations
+        // will add Separate Chaining sometime soon...
+        
+        var HashTable = function() {
+          var self = this;
+          var gw = new GraphWidget();
+          var activeStatus = "-";
+          var maxHashTableSize = 19; // we only allow primes up to 17
+          var primes = [3, 5, 7, 11, 13, 17, 19]; // OK, only these 5 primes are actually within our range of allowed Hash Table size
+          var EMPTY = -1; // use -1 to indicate EMPTY element
+          var DELETED = -2; // use -2 to indicate DELETED element
+          var HT;  // HT: the Array that represents the state of the Hash Table in Open Addressing
+          var HT_SC; // HT_SC: Adjacency List like structure to represent the state of the Hash Table in Separate Chaining
+          var N = 4; // number of elements actually present in the hash table
+        
+          this.setActiveStatus = function(newActiveStatus) {
+            if (activeStatus != newActiveStatus) {
+              activeStatus = newActiveStatus;
+              if (activeStatus == "SC") { // Separate Chaining
+                HT_SC = [[11], [1], [24,13,35], [14], [], [27], [28], [18,7], [8], [], [21,10]];
+                N = 13;
+                initSC(HT_SC);
+              }
+              else { // Open Addressing
+                if (activeStatus == "LP") {
+                  HT = [14, 21, 1, EMPTY, 18, EMPTY, EMPTY];
+                  N = 4;
+                }
+                else if (activeStatus == "QP") {
+                  HT = [38, EMPTY, EMPTY, 3, 18, EMPTY, EMPTY];
+                  N = 3;
+                }
+                else if (activeStatus == "DH") {
+                  HT = [14, EMPTY, EMPTY, 7, 18, EMPTY, EMPTY];
+                  N = 3;
+                }
+                init(HT);
+              }
+            }
+          }
+        
+          this.getActiveStatus = function() { return activeStatus; }
+        
+          this.getGraphWidget = function() { return gw; }
+        
+          this.createTable = function(sz) {
+            if (sz > maxHashTableSize) {
+              // Sorry, maximum allowed Hash Table size is
+              $('#create-err').html('抱歉，哈希表的最大上限为' + maxHashTableSize);
+              return false;
+            }
+            else if (sz < 5) {
+              // Sorry, Hash Table size should be ≥
+              $('#create-err').html('抱歉，哈希表的大小应该 <span style="white-space: normal;">&nbsp;≥</span>' + "5");
+              return false;
+            }
+        
+            N = 0;
+            if (activeStatus == "SC") { // Separate Chaining
+              HT_SC = new Array(sz);
+              for (var i = 0; i < sz; i++) HT_SC[i] = [];
+              initSC(HT_SC);
+            }
+            else if (activeStatus != "SC") { // NOT Separate Chaining means Open Addressing where we cannot have big table
+              HT = new Array(sz);
+              for (var i = 0; i < sz; i++) HT[i] = EMPTY;
+              init(HT);
+            }
+          };
+        
+          this.createTableSpecial = function(_HT) {
+            HT = _HT;
+            N = 0;
+            for (var i = 0; i < HT.length; i++) if (HT[i] != EMPTY) N++;
+            init(HT);
+          }
+        
+          this.generate = function(arr) {
+            if (arr.length > maxHashTableSize) {
+              // Sorry, maximum allowed Hash Table size is
+              $('#create-err').html('抱歉，哈希表的最大上限为' + maxHashTableSize);
+              return;
+            }
+            if (arr.length < 5) {
+              // Sorry, Hash Table size should be ≥
+              $('#create-err').html('抱歉，哈希表的大小应该 <span style="white-space: normal;">&nbsp;≥</span>' + "5");
+              return;
+            }
+        
+            for (var i = 0; i < arr.length; i++) {
+              arr[i] = parseInt(arr[i]);
+              if (arr[i] < EMPTY) { 
+                $('#create-err').html('Sorry, Hash Table cannot contain negative integers'); // put in variable soon
+                return; // can't create this hashtable
+              }
+            }
+            init(arr);
+          };
+        
+          function init(initArr) {
+            var scale = (1000-100) / (initArr.length-1);
+        
+            // remove old ones first (if exist)
+            try {
+              for (var i = 0; i < 20*8; i++) { // I don't record how many but not more than 19*7
+                gw.removeVertex(i);
+                gw.removeEdge(i);
+              }
+            }
+            catch (e) { // do nothing if that vertex actually not yet exist
+        
+            }
+        
+            HT = new Array(); // destroy previous content first...
+            for (var i = 0; i < initArr.length; i++) {
+              HT[i] = initArr[i];
+              gw.addVertex(50 + i*scale, 100, (HT[i] == EMPTY ? '' : (HT[i] == DELETED ? 'DEL' : HT[i])), i, true, "i:" + i);
+            }
+          }
+        
+          function initSC(arr) {
+            var M = arr.length;
+            var scale = (1000-100) / (M-1);
+        
+            // remove old ones first (if exist)
+            try {
+              for (var i = 0; i < 20*8; i++) { // I don't record how many but not more than 19*7
+                gw.removeVertex(i);
+                gw.removeEdge(i);
+              }
+            }
+            catch (e) { // do nothing if that vertex actually not yet exist
+        
+            }
+        
+            for (var i = 0; i < M; i++) gw.addVertex(50 + i*scale, 100, "H", i*7, true, "i:" + i);
+            N = 0;
+            for (var i = 0; i < M; i++) {
+              for (var j = 0; j < arr[i].length; j++) {
+                gw.addVertex(80 + i*scale, 100 + (j+1)*70, arr[i][j], i*7+(j+1), 1, "");
+                gw.addEdge(i*7+j, i*7+(j+1), i*7+(j+1), (j == 0) ? EDGE_TYPE_DE : EDGE_TYPE_UDE, 1, true);
+              }
+            }
+          }
+        
+          this.search = function(key, callback) {
+            var stateList = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cs;
+        
+            if (key < 0 || key > 99) {
+              cs = createState(vertexTraversed, edgeTraversed);
+              // key = {key}, it must be between [0..99] in this visualization.
+              // -1 = empty cell (blank) and -2 = deleted item.
+              cs["status"] = '<span style="white-space: normal;">键 = {key}, 在这个可视化动画中它必须在&nbsp;[0..99] 之间</span><br style="white-space: normal;"><span style="white-space: normal;">-1 用来标记空白格&nbsp;(空) 以及 -2 用来标记以及被删除的项</span><br>'.replace("{key}", key);
+              stateList.push(cs);
+            }
+            else {
+              var i = key%(HT.length), base = i;
+              var i_next;
+              var jump = 1;
+              var step = 1;
+              var k = 5, smallerPrime = primes[k]; // start from 17
+              while (smallerPrime >= HT.length)
+                smallerPrime = primes[k--];
+              var secondary = smallerPrime - key%smallerPrime; // so it will always be positive
+              var strategy = "linear probing";
+        
+              cs = createState(vertexTraversed, edgeTraversed);
+              // key = {key} is hashed to i = base = {key}%{length} = {i}.
+              cs["status"] = '<span style="white-space: normal;">键 = {key} 映射到&nbsp;i = base = {key}%{length} = {i}.</span>'.replace("{key}", key).replace("{key}", key).replace("{length}", HT.length).replace("{i}", i);
+              cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+              vertexTraversed[i] = true; // this is traversed in future iteration
+        
+              while (true) {
+                if (HT[i] == EMPTY) { // Not Found
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // HT[{i}] is empty.
+                  // Therefore key = {key} is not found in Hash Table HT.
+                  cs["status"] = '<span style="white-space: normal;">&nbsp;HT 第[{i}]项为空</span><br style="white-space: normal;"><span style="white-space: normal;">所以键&nbsp;= {key} 不能再哈希表中被找到</span>'.replace("{i}", i).replace("{key}", key);
+                  cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 3;
+                  stateList.push(cs);
+                  break;
+                }
+                else if (HT[i] == key) { // Found
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // HT[{i}] = {key}.
+                  // Therefore key = {key} is found in Hash Table HT at index {i}.
+                  cs["status"] = '<span style="white-space: normal;">HT 第[{i}]项&nbsp;= {key}</span><br style="white-space: normal;"><span style="white-space: normal;">所以 键 = {key} 能够在哈希表下标为{i} 的项上被找到</span>'.replace("{i}", i).replace("{key}", key).replace("{key}", key).replace("{i}", i);
+                  cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 4;
+                  stateList.push(cs);
+                  break;
+                }
+                else {
+                  if (step == HT.length) {
+                    cs = createState(vertexTraversed, edgeTraversed);
+                    // After probing all possibilities, key = {key} is not found in Hash Table HT.
+                    cs["status"] = '探测过所有可能后，键<span style="white-space: normal;">&nbsp;= {key} 不能够在哈希表HT中被找到</span><br>'.replace("{key}", key);
+                    stateList.push(cs);
+                    break;
+                  }
+        
+                  if (activeStatus == "LP") {
+                    jump = 1;
+                    strategy = "linear probing";
+                  }
+                  else if (activeStatus == "QP") {
+                    jump = step;
+                    strategy = "quadratic probing";
+                  }
+                  else if (activeStatus == "DH") {
+                    jump = secondary;
+                    strategy = "double hashing";
+                  }
+        
+                  i_next = (base + step*jump) % HT.length;
+        
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // HT[{i}] = {val} != key.
+                  // Use {strategy} to check the next index i_next = ({base}+{step}*{jump})%{length} = {i_next}.
+                  cs["status"] = '<span style="white-space: normal;">HT 第[{i}] 项 = {val} != 键</span><br style="white-space: normal;"><span style="white-space: normal;">用 {strategy} 来检查下一个下标&nbsp;= ({base}+{step}*{jump})%{length} = {i_next}</span>'
+                                    .replace("{i}", i).replace("{val}", HT[i]).replace("{strategy}", strategy)
+                                    .replace("{base}", base).replace("{step}", step).replace("{jump}", jump).replace("{length}", HT.length).replace("{i_next}", i_next);
+                  cs["vl"][i_next]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 5;
+                  stateList.push(cs);
+                  vertexTraversed[i_next] = true; // this is traversed in future iteration
+                  i = i_next;
+                  step++;
+                }
+              }
+            }
+        
+            gw.startAnimation(stateList, callback);
+            populatePseudocode(0);
+            return true;
+          }
+        
+          this.searchSC = function(key, callback) {
+            var stateList = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cs;
+        
+            if (key < 0 || key > 99) {
+              cs = createStateSC(vertexTraversed, edgeTraversed);
+              // key = {key}, it must be between [0..99] in this visualization.
+              // -1 = empty cell (blank) and -2 = deleted item.
+              cs["status"] = '<span style="white-space: normal;">键 = {key}, 在这个可视化动画中它必须在&nbsp;[0..99] 之间</span><br style="white-space: normal;"><span style="white-space: normal;">-1 用来标记空白格&nbsp;(空) 以及 -2 用来标记以及被删除的项</span><br>'.replace("{key}", key);
+              stateList.push(cs);
+            }
+            else {
+              var M = HT_SC.length;
+              var i = key%M;
+              var j = 0;
+        
+              cs = createStateSC(vertexTraversed, edgeTraversed);
+              // key = {key} is hashed to i = base = {key}%{length} = {i}.
+              cs["status"] = '<span style="white-space: normal;">键 = {key} 映射到&nbsp;i = base = {key}%{length} = {i}.</span>'.replace("{key}", key).replace("{key}", key).replace("{length}", M).replace("{i}", i);
+              cs["vl"][i*7]["state"] = VERTEX_HIGHLIGHTED;
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+              vertexTraversed[i*7] = true; // this is traversed in future iteration
+        
+              for (var j = 0; j < HT_SC[i].length; j++) {
+                cs = createStateSC(vertexTraversed, edgeTraversed);
+                cs["status"] = 'Checking this vertex';
+                cs["vl"][i*7+(j+1)]["state"] = VERTEX_HIGHLIGHTED;
+                cs["lineNo"] = [2, 3];
+                stateList.push(cs);
+                vertexTraversed[i*7+(j+1)] = true; // this is traversed in future iteration
+                if (HT_SC[i][j] == key) {
+                  cs = createStateSC(vertexTraversed, edgeTraversed);
+                  cs["status"] = '{key} is found in Hash Table'.replace("{key}", key);
+                  cs["vl"][i*7+(j+1)]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = [4];
+                  stateList.push(cs);
+                  break;
+                }
+              }
+        
+              if (j == HT_SC[i].length) { // not found
+                cs = createStateSC(vertexTraversed, edgeTraversed);
+                cs["status"] = '{key} is not found in Hash Table'.replace("{key}", key);
+                cs["lineNo"] = 5;
+                stateList.push(cs);
+              }
+            }
+        
+            gw.startAnimation(stateList, callback);
+            populatePseudocode(3);
+            return true;
+          }
+        
+          this.insert = function(keys, callback) {
+            var stateList = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cs;
+        
+            var the_keys = keys.split(",");
+            for (idx in the_keys) {
+              key = parseInt(the_keys[idx]);
+        
+              if (key < 0 || key > 99) {
+                cs = createState(vertexTraversed, edgeTraversed);
+                // key = {key}, it must be between [0..99] in this visualization.
+                // -1 = empty cell (blank) and -2 = deleted item.
+                cs["status"] = '<span style="white-space: normal;">键 = {key}, 在这个可视化动画中它必须在&nbsp;[0..99] 之间</span><br style="white-space: normal;"><span style="white-space: normal;">-1 用来标记空白格&nbsp;(空) 以及 -2 用来标记以及被删除的项</span><br>'.replace("{key}", key);
+                stateList.push(cs);
+              }
+              else if (HT.indexOf(key) != -1) {
+                cs = createState(vertexTraversed, edgeTraversed);
+                // key = {key} is already in the Hash Table.
+                // We prevent insertion of duplicate keys.
+                cs["status"] = 'key = {key} 已经在哈希表中.<br> 不允许插入重复的值.'.replace("{key}", key);
+                stateList.push(cs);
+              }
+              else {
+                if (N+1 == HT.length) { // one item before full (if we allow full, our search can get into infinite loop)
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // Sorry, the Hash Table HT is nearly full (load factor too high).
+                  // We cannot insert a new integer.
+                  cs["status"] = '抱歉，哈希表HT几乎满了（负荷系数太高）<div>无法插入一个新的整数</div>';
+                  cs["lineNo"] = 1;
+                  stateList.push(cs);
+                }
+                else { // not yet full, do the insertion
+                  var i = key%(HT.length), base = i;
+                  var i_next;
+                  var jump = 1;
+                  var step = 1;
+                  var k = 5, smallerPrime = primes[k]; // start from 17
+                  while (smallerPrime >= HT.length)
+                    smallerPrime = primes[k--];
+                  var secondary = smallerPrime - key%smallerPrime; // so it will always be positive
+                  var strategy = "linear probing";
+        
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // The hash table is not yet full.
+                  // key = {key} is hashed to i = base = {key}%{length} = {i}.
+                  cs["status"] = '哈希表还没有满<div><div><span style="white-space: normal;">键 = {key} 映射为&nbsp;i = base = {key}%{length} = {i}.</span><br></div></div>'.replace("{key}", key).replace("{key}", key).replace("{length}", HT.length).replace("{i}", i);
+                  cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 2;
+                  stateList.push(cs);
+                  vertexTraversed[i] = true; // this is traversed in future iteration
+        
+                  while (HT[i] > 0 && step < HT.length) {
+                    if (activeStatus == "LP") {
+                      jump = 1;
+                      strategy = "linear probing";
+                    }
+                    else if (activeStatus == "QP") {
+                      jump = step;
+                      strategy = "quadratic probing";
+                    }
+                    else if (activeStatus == "DH") {
+                      jump = secondary;
+                      strategy = "double hashing";
+                    }
+        
+                    i_next = (base + step*jump) % HT.length;
+        
+                    var special = (HT[i] == key ? '（实际上是一个重复的键）' : ""); // ' (actually a duplicate key)'
+                    cs = createState(vertexTraversed, edgeTraversed);
+                    // HT[{i}] = {val} is occupied{special}.
+                    // Use {strategy} to check the next index i_next ({base}+{step}*{jump})%{length} = {i_next}.
+                    cs["status"] = '<span style="white-space: normal;">HT第[{i}]项&nbsp;= {val} 已经被{special} 占用</span><br style="white-space: normal;"><span style="white-space: normal;">用 {strategy} 来检查下一个下标 ({base}+{step}*{jump})%{length} = {i_next}</span>'
+                                      .replace("{i}", i).replace("{val}", HT[i]).replace("{special}", special)
+                                      .replace("{strategy}", strategy).replace("{base}", base).replace("{step}", step).replace("{jump}", jump).replace("{length}", HT.length).replace("{i_next}", i_next);
+                    cs["vl"][i_next]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["lineNo"] = 3;
+                    stateList.push(cs);
+                    vertexTraversed[i_next] = true; // this is traversed in future iteration
+                    i = i_next;
+                    step++;
+                  }
+        
+                  if (step == HT.length) {
+                    cs = createState(vertexTraversed, edgeTraversed);
+                    // After {step} probe steps, we still cannot find an insertion point.
+                    // Reporting failure...
+                    cs["status"] = '<span style="white-space: normal;">{step} 歩探测后，我们仍然不能找到插入点。</span><div><span style="white-space: normal;">报错......</span><div><span style="white-space: normal;"> </span></div><div><span style="white-space: normal;"> </span></div></div>'.replace("{step}", step);
+                    stateList.push(cs);
+                  }
+                  else {
+                    HT[i] = key;
+                    N++;
+                    cs = createState(vertexTraversed, edgeTraversed);
+                    // Found insertion point: Insert {key} at HT[{i}].
+                    // There are now {N} items in the Hash Table.
+                    cs["status"] = '<span style="white-space: normal;">找到了插入点：在 哈希表第</span><span style="white-space: normal;">[{i}] 项插入。</span><div>现在哈希表中有<span style="white-space: normal;">{N} 项</span><br></div>'.replace("{key}", key).replace("{i}", i).replace("{N}", N);
+                    cs["vl"][i]["state"] = VERTEX_TRAVERSED;
+                    cs["lineNo"] = 4;
+                    stateList.push(cs);
+                  }
+                }
+              }
+            }
+        
+            gw.startAnimation(stateList, callback);
+            populatePseudocode(1);
+            return true;
+          }
+        
+          this.insertSC = function(keys, callback) {
+            var stateList = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cs;
+        
+            var the_keys = keys.split(",");
+            for (idx in the_keys) {
+              key = parseInt(the_keys[idx]);
+        
+              if (key < 0 || key > 99) {
+                cs = createStateSC(vertexTraversed, edgeTraversed);
+                // key = {key}, it must be between [0..99] in this visualization.
+                // -1 = empty cell (blank) and -2 = deleted item.
+                cs["status"] = '<span style="white-space: normal;">键 = {key}, 在这个可视化动画中它必须在&nbsp;[0..99] 之间</span><br style="white-space: normal;"><span style="white-space: normal;">-1 用来标记空白格&nbsp;(空) 以及 -2 用来标记以及被删除的项</span><br>'.replace("{key}", key);
+                stateList.push(cs);
+              }
+              else {
+                var already_inside = false;
+                var M = HT_SC.length;
+                for (var i = 0; i < M; i++)
+                  if (HT_SC[i].indexOf(key) != -1)
+                    already_inside = true;
+        
+                if (already_inside) {
+                  cs = createStateSC(vertexTraversed, edgeTraversed);
+                  // key = {key} is already in the Hash Table.
+                  // We prevent insertion of duplicate keys.
+                  cs["status"] = 'key = {key}  已经在哈希表中.<br> 不允许插入重复的值.'.replace("{key}", key);
+                  stateList.push(cs);
+                }
+                else { // key [0..99] and not inside
+                  var i = key%M;
+                  cs = createStateSC(vertexTraversed, edgeTraversed);
+                  // The hash table is not yet full.
+                  // key = {key} is hashed to i = base = {key}%{length} = {i}.
+                  cs["status"] = '哈希表还没有满<div><div><span style="white-space: normal;">键 = {key} 映射为&nbsp;i = base = {key}%{length} = {i}.</span><br></div></div>'.replace("{key}", key).replace("{key}", key).replace("{length}", M).replace("{i}", i);
+                  cs["vl"][i*7]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 1;
+                  stateList.push(cs);
+                  vertexTraversed[i*7] = true; // this is traversed in future iteration
+        
+                  if (HT_SC[i].length == 6) {
+                    cs = createStateSC(vertexTraversed, edgeTraversed);
+                    cs["status"] = '抱歉，本系统不允许更多的值插入到此链表中：键值 {i}'.replace("{i}", i);
+                    cs["vl"][i*7]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["lineNo"] = 2;
+                    stateList.push(cs);
+                  }
+                  else {
+                    HT_SC[i].push(key); // put at the back of this doubly linked list (assume that we have access to tail pointer)
+                    cs = createStateSC(vertexTraversed, edgeTraversed);
+                    cs["status"] = '将键值 {key} 加入到双链表尾端 {i}<br>使用尾指针复杂度为 O(1) '.replace("{key}", key).replace("{i}", i);
+                    cs["vl"][i*7+(HT_SC[i].length-1)]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["vl"][i*7+(HT_SC[i].length)]["state"] = VERTEX_HIGHLIGHTED;
+                    cs["lineNo"] = 3;
+                    stateList.push(cs);
+                  }
+                }
+              }
+            }
+        
+            gw.startAnimation(stateList, callback);
+            populatePseudocode(4);
+            return true;
+          }
+        
+          this.remove = function(key, callback) {
+            var stateList = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cs;
+        
+            if (key < 0 || key > 99) {
+              cs = createState(vertexTraversed, edgeTraversed);
+              // key = {key}, it must be between [0..99] in this visualization.
+              // -1 = empty cell (blank) and -2 = deleted item.
+              cs["status"] = '<span style="white-space: normal;">键 = {key}, 在这个可视化动画中它必须在&nbsp;[0..99] 之间</span><br style="white-space: normal;"><span style="white-space: normal;">-1 用来标记空白格&nbsp;(空) 以及 -2 用来标记以及被删除的项</span><br>'.replace("{key}", key);
+              stateList.push(cs);
+            }
+            else {
+              var i = key % (HT.length), base = i;
+              var i_next;
+              var jump = 1;
+              var step = 1;
+              var k = 5, smallerPrime = primes[k]; // start from 17
+              while (smallerPrime >= HT.length)
+                smallerPrime = primes[k--];
+              var secondary = smallerPrime - key%smallerPrime; // so it will always be positive
+              var strategy = "linear probing";
+        
+              cs = createState(vertexTraversed, edgeTraversed);
+              // key = {key} is hashed to i = base = {key}%{length} = {i}.
+              cs["status"] = '<span style="white-space: normal;">键 = {key} 映射到&nbsp;i = base = {key}%{length} = {i}.</span>'.replace("{key}", key).replace("{key}", key).replace("{length}", HT.length).replace("{i}", i);
+              cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+              vertexTraversed[i] = true; // this is traversed in future iteration
+        
+              while (true) {
+                if (HT[i] == EMPTY) { // Not Found
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // HT[{i}] is empty.
+                  // Therefore key = {key} is not found in Hash Table HT.
+                  cs["status"] = '<span style="white-space: normal;">&nbsp;HT 第[{i}]项为空</span><br style="white-space: normal;"><span style="white-space: normal;">所以键&nbsp;= {key} 不能再哈希表中被找到</span>'.replace("{i}", i).replace("{key}", key);
+                  cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 3;
+                  stateList.push(cs);
+                  break;
+                }
+                else if (HT[i] == key) { // Found
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // HT[{i}] = {key}.
+                  // Therefore key = {key} is found in Hash Table HT at index {i}.
+                  cs["status"] = '<span style="white-space: normal;">HT 第[{i}]项&nbsp;= {key}</span><br style="white-space: normal;"><span style="white-space: normal;">所以 键 = {key} 能够在哈希表下标为{i} 的项上被找到</span>'.replace("{i}", i).replace("{key}", key).replace("{key}", key).replace("{i}", i);
+                  cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 4;
+                  stateList.push(cs);
+        
+                  HT[i] = DELETED;
+                  N--;
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // Now we mark HT[{i}] as deleted.
+                  // There are now {N} items in the Hash Table.
+                  cs["status"] = '<span style="white-space: normal;">现在我们将哈希表[{i}] 标记为已删除。</span><div><span style="white-space: normal;">现在哈希表中有{N}项</span></div>'.replace("{i}", i).replace("{N}", N);
+                  cs["vl"][i]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 5;
+                  stateList.push(cs);
+                  break;
+                }
+                else {
+                  if (activeStatus == "LP") {
+                    jump = 1;
+                    strategy = "linear probing";
+                  }
+                  else if (activeStatus == "QP") {
+                    jump = step;
+                    strategy = "quadratic probing";
+                  }
+                  else if (activeStatus == "DH") {
+                    jump = secondary;
+                    strategy = "double hashing";
+                  }
+        
+                  i_next = (base + step * jump) % HT.length;
+        
+                  cs = createState(vertexTraversed, edgeTraversed);
+                  // HT[{i}] = {val} != key.
+                  // Use {strategy} to check the next index i_next = ({base}+{step}*{jump})%{length} = {i_next}.
+                  cs["status"] = '<span style="white-space: normal;">HT 第[{i}] 项 = {val} != 键</span><br style="white-space: normal;"><span style="white-space: normal;">用 {strategy} 来检查下一个下标&nbsp;= ({base}+{step}*{jump})%{length} = {i_next}</span>'
+                                    .replace("{i}", i).replace("{val}", HT[i])
+                                    .replace("{strategy}", strategy).replace("{base}", base).replace("{step}", step).replace("{jump}", jump).replace("{length}", HT.length).replace("{i_next}", i_next);
+                  cs["vl"][i_next]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = 6;
+                  stateList.push(cs);
+                  vertexTraversed[i_next] = true; // this is traversed in future iteration
+                  i = i_next;
+                  step++;
+                }
+              }
+            }
+        
+            gw.startAnimation(stateList, callback);
+            populatePseudocode(2);
+            return true;
+          }
+        
+          this.removeSC = function(key, callback) {
+            var stateList = [];
+            var vertexTraversed = {};
+            var edgeTraversed = {};
+            var cs;
+        
+            if (key < 0 || key > 99) {
+              cs = createStateSC(vertexTraversed, edgeTraversed);
+              // key = {key}, it must be between [0..99] in this visualization.
+              // -1 = empty cell (blank) and -2 = deleted item.
+              cs["status"] = '<span style="white-space: normal;">键 = {key}, 在这个可视化动画中它必须在&nbsp;[0..99] 之间</span><br style="white-space: normal;"><span style="white-space: normal;">-1 用来标记空白格&nbsp;(空) 以及 -2 用来标记以及被删除的项</span><br>'.replace("{key}", key);
+              stateList.push(cs);
+            }
+            else {
+              var M = HT_SC.length;
+              var i = key%M;
+              var j = 0;
+        
+              cs = createStateSC(vertexTraversed, edgeTraversed);
+              // key = {key} is hashed to i = base = {key}%{length} = {i}.
+              cs["status"] = '<span style="white-space: normal;">键 = {key} 映射到&nbsp;i = base = {key}%{length} = {i}.</span>'.replace("{key}", key).replace("{key}", key).replace("{length}", M).replace("{i}", i);
+              cs["vl"][i*7]["state"] = VERTEX_HIGHLIGHTED;
+              cs["lineNo"] = 1;
+              stateList.push(cs);
+              vertexTraversed[i*7] = true; // this is traversed in future iteration
+        
+              var found_and_deleted = false;
+              for (var j = 0; j < HT_SC[i].length; j++) {
+                cs = createStateSC(vertexTraversed, edgeTraversed);
+                cs["status"] = '检查此结点';
+                cs["vl"][i*7+(j+1)]["state"] = VERTEX_HIGHLIGHTED;
+                cs["lineNo"] = [2, 3];
+                stateList.push(cs);
+                vertexTraversed[i*7+(j+1)] = true; // this is traversed in future iteration
+                if (HT_SC[i][j] == key) {
+                  cs = createStateSC(vertexTraversed, edgeTraversed);
+                  cs["status"] = '在散列表中找到键值{key} '.replace("{key}", key).replace("{i}", i);
+                  cs["vl"][i*7+(j+1)]["state"] = VERTEX_HIGHLIGHTED;
+                  cs["lineNo"] = [4];
+                  stateList.push(cs);
+        
+                  HT_SC[i].splice(j, 1);
+                  delete vertexTraversed[i*7+(j+1)];
+                  cs = createStateSC(vertexTraversed, edgeTraversed);
+                  cs["status"] = '键值从双链表 {i} 中删除需 O(1+&alpha;)'.replace("{key}", key).replace("{i}", i);
+                  cs["lineNo"] = [4];
+                  stateList.push(cs);
+        
+                  found_and_deleted = true;
+                  break;
+                }
+              }
+        
+              if (!found_and_deleted) { // not found
+                cs = createStateSC(vertexTraversed, edgeTraversed);
+                cs["status"] = '散列表中未找到键值{key} '.replace("{key}", key);
+                cs["lineNo"] = 5;
+                stateList.push(cs);
+              }
+            }
+        
+            gw.startAnimation(stateList, callback);
+            populatePseudocode(5);
+            return true;
+          }
+        
+          /*
+           * vertexTraversed: JS object with the vertexes of the List which are to be marked as traversed as the key
+           * edgeTraversed: JS object with the edges of the List which are to be marked as traversed as the key
+           */
+        
+          function createState(vertexTraversed, edgeTraversed) {
+            if (vertexTraversed == null || vertexTraversed == undefined || !(vertexTraversed instanceof Object))
+              vertexTraversed = {};
+            if (edgeTraversed == null || edgeTraversed == undefined || !(edgeTraversed instanceof Object))
+              edgeTraversed = {};
+        
+            var scale = (1000-100) / (HT.length-1);
+        
+            var state = {
+              "vl": {},
+              "el": {}
+            };
+        
+            for (var i = 0; i < HT.length; i++) {
+              state["vl"][i] = {};
+              state["vl"][i]["cx"] = 50 + i*scale;
+              state["vl"][i]["cy"] = 100;
+              state["vl"][i]["text"] = (HT[i] == EMPTY ? '' : (HT[i] == DELETED ? 'DEL' : HT[i]));
+              state["vl"][i]["extratext"] = "i:" + i;
+              state["vl"][i]["state"] = VERTEX_DEFAULT;
+            }
+        
+            for (var key in vertexTraversed)
+              state["vl"][key]["state"] = VERTEX_TRAVERSED;
+        
+            return state;
+          }
+        
+          function createStateSC(vertexTraversed, edgeTraversed) {
+            if (vertexTraversed == null || vertexTraversed == undefined || !(vertexTraversed instanceof Object))
+              vertexTraversed = {};
+            if (edgeTraversed == null || edgeTraversed == undefined || !(edgeTraversed instanceof Object))
+              edgeTraversed = {};
+        
+            var M = HT_SC.length;
+            var scale = (1000-100) / (M-1);
+        
+            var state = {
+              "vl": {},
+              "el": {}
+            };
+        
+            for (var i = 0; i < M; i++) {
+              state["vl"][i*7] = {};
+              state["vl"][i*7]["cx"] = 50 + i*scale;
+              state["vl"][i*7]["cy"] = 100;
+              state["vl"][i*7]["text"] = "H";
+              state["vl"][i*7]["extratext"] = "i:" + i;
+              state["vl"][i*7]["state"] = VERTEX_DEFAULT;
+            }
+        
+            for (var i = 0; i < M; i++) {
+              for (var j = 0; j < HT_SC[i].length; j++) {
+                state["vl"][i*7+(j+1)] = {};
+                state["vl"][i*7+(j+1)]["cx"] = 80 + i*scale;
+                state["vl"][i*7+(j+1)]["cy"] = 100 + (j+1)*70;
+                state["vl"][i*7+(j+1)]["text"] = HT_SC[i][j];
+                state["vl"][i*7+(j+1)]["state"] = VERTEX_DEFAULT;
+        
+                state["el"][i*7+(j+1)] = {};
+                state["el"][i*7+(j+1)]["vertexA"] = i*7+j;
+                state["el"][i*7+(j+1)]["vertexB"] = i*7+(j+1);
+                state["el"][i*7+(j+1)]["type"] = (j == 0) ? EDGE_TYPE_DE : EDGE_TYPE_UDE;
+                state["el"][i*7+(j+1)]["weight"] = 1;
+                state["el"][i*7+(j+1)]["state"] = EDGE_DEFAULT;
+                state["el"][i*7+(j+1)]["animateHighlighted"] = false;
+              }
+            }
+        
+            for (var key in vertexTraversed)
+              state["vl"][key]["state"] = VERTEX_TRAVERSED;
+        
+            return state;
+          }
+        
+          function populatePseudocode(act) {
+            var jump = '1';
+            if (activeStatus == "LP")
+              jump = '1';
+            else if (activeStatus == "QP")
+              jump = 'step';
+            else if (activeStatus == "DH")
+              jump = 'sec';
+        
+            switch (act) {
+              case 0: // search
+                $('#code1').html('step = 0; i = base = key%HT.length;');
+                $('#code2').html('while (true)');
+                $('#code3').html('&nbsp&nbspif (HT[i] == EMPTY) return NOT_FOUND');
+                $('#code4').html('&nbsp&nbspelse if (HT[i] == key) return i');
+                $('#code5').html('&nbsp;&nbsp;else step++; i = (base+step*{jump})%HT.length'.replace('{jump}', jump));
+                $('#code6').html((activeStatus == 'DH' ? '// sec = prime - key%prime' : ''));
+                $('#code7').html('');
+                break;
+              case 1: // insert
+                $('#code1').html('if N+1 == M, return OVERFLOW;');
+                $('#code2').html('step = 0; i = base = key%HT.length;');
+                $('#code3').html('while (HT[i] != null || HT[i] != DELETED)');
+                $('#code4').html('&nbsp;&nbsp;step++; i = (base + step * {jump})%HT.length'.replace('{jump}', jump));
+                $('#code5').html('HT[i]= key');
+                $('#code6').html((activeStatus == 'DH' ? '// sec = prime - key%prime' : ''));
+                $('#code7').html('');
+                break;
+              case 2: // remove
+                $('#code1').html('step = 0; i = base = key%HT.length;');
+                $('#code2').html('while (true)');
+                $('#code3').html('&nbsp&nbspif (HT[i] == EMPTY) break  // &nbsp;键未找到');
+                $('#code4').html('&nbsp&nbspelse if (HT[i] == key)' );
+                $('#code5').html('&nbsp&nbsp&nbsp&nbspHT[i] = DELETED, break;');
+                $('#code6').html('&nbsp&nbspelse step++; i = (base+step*{jump})%HT.length'.replace('{jump}', jump));
+                $('#code7').html((activeStatus == 'DH' ? '// sec = prime - key%prime' : ''));
+                break;
+              case 3: // search SC
+                $('#code1').html('i = key%HT.length;');
+                $('#code2').html('for j = 0 to HT_SC[i].length');
+                $('#code3').html('&nbsp&nbspif (HT_SC[i][j] == key)');
+                $('#code4').html('&nbsp&nbsp&nbsp&nbspreturn i');
+                $('#code5').html('return NOT_FOUND');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+              case 4: // insert SC
+                $('#code1').html('i = key%HT.length;');
+                $('#code2').html('if HT_SC[i].length == 6, return OVERFLOW');
+                $('#code3').html('insert key to the back of this list i');
+                $('#code4').html('');
+                $('#code5').html('');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+              case 5: // remove SC
+                $('#code1').html('i = key%HT.length;');
+                $('#code2').html('for j = 0 to HT_SC[i].length');
+                $('#code3').html('&nbsp&nbspif (HT_SC[i][j] == key)');
+                $('#code4').html('&nbsp&nbsp&nbsp&nbspremove key from list i');
+                $('#code5').html('// do nothing');
+                $('#code6').html('');
+                $('#code7').html('');
+                break;
+            }
+          }
+        }
+        
+        
+        
+        // HashTable_action.js
+        // actions panel stuff
+        var actionsWidth = 150;
+        var statusCodetraceWidth = 420;
+        
+        var isCreateOpen = false;
+        var isSearchOpen = false;
+        var isInsertOpen = false;
+        var isRemoveOpen = false;
+        
+        function openCreate() {
+          $(".create").css("bottom", "146px");
+          $('#createfixedsize-input').hide();
+          $('#createuserdefined-input').hide();
+          if (!isCreateOpen) {
+            $('.create').fadeIn('fast');
+            isCreateOpen = true;
+          }
+        }
+        
+        function closeCreate() {
+          if (isCreateOpen) {
+            $('.create').fadeOut('fast');
+            $('#create-err').html("");
+            isCreateOpen = false;
+          }
+        }
+        
+        function openSearch() {
+          if (!isSearchOpen) {
+            $('.search').fadeIn('fast');
+            isSearchOpen = true;
+          }
+        }
+        
+        function closeSearch() {
+          if (isSearchOpen) {
+            $('.search').fadeOut('fast');
+            $('#search-err').html("");
+            isSearchOpen = false;
+          }
+        }
+        
+        function openInsert() {
+          $(".insert").css("bottom", "92px");
+          $('#insertkth-input').hide();
+          $('#inserthead-input').hide();
+          $('#inserttail-input').hide();
+          if (!isInsertOpen) {
+            $('.insert').fadeIn('fast');
+            isInsertOpen = true;
+          }
+        }
+        
+        function closeInsert() {
+          if (isInsertOpen) {
+            $('.insert').fadeOut('fast');
+            $('#insert-err').html("");
+            isInsertOpen = false;
+          }
+        }
+        
+        function openRemove() {
+          $(".remove").css("bottom", "65px");
+          $('#removekth-input').hide();
+          if (!isRemoveOpen) {
+            $('.remove').fadeIn('fast');
+            isRemoveOpen = true;
+          }
+        }
+        
+        function closeRemove() {
+          if (isRemoveOpen) {
+            $('.remove').fadeOut('fast');
+            $('#remove-err').html("");
+            isRemoveOpen = false;
+          }
+        }
+        
+        function hideEntireActionsPanel() {
+          closeCreate();
+          closeSearch();
+          closeInsert();
+          closeRemove();
+          hideActionsPanel();
+        }
+        
+        
+        // title changing
+        function AbbreviateTitle() {
+          $('#title-LP').text("LP");
+          $('#title-QP').text("QP");
+          $('#title-DH').text("DH");
+          $('#title-SC').text("SC");
+        }
+        $('#title-LP').click(function() {
+          if (isPlaying) stop();
+          htw.setActiveStatus("LP");
+          AbbreviateTitle();
+          $('#title-LP').text('线性探测');
+        });
+        $('#title-QP').click(function() {
+          if (isPlaying) stop();
+          htw.setActiveStatus("QP");
+          AbbreviateTitle();
+          $('#title-QP').text('二次探测');
+        });
+        $('#title-DH').click(function() {
+          if (isPlaying) stop();
+          htw.setActiveStatus("DH");
+          AbbreviateTitle();
+          $('#title-DH').text('双倍散列');
+        });
+        $('#title-SC').click(function() {
+          if (isPlaying) stop();
+          htw.setActiveStatus("SC");
+          AbbreviateTitle();
+          $('#title-SC').text('分离链接');
+        });
+        
+        
+        
+        // local
+        $('#play').hide();
+        var htw = new HashTable();
+        var gw = htw.getGraphWidget();
+        
+        $(function() {
+          var four_modes = ["LP", "QP", "DH", "SC"];
+          $('#title-'+four_modes[Math.floor(Math.random()*4)]).click(); // randomly open one of the four default example every time
+        
+          var hashMode = getQueryVariable("mode");
+          if (hashMode.length > 0) {
+            $('#title-'+hashMode).click();
+          }
+          var createHT = getQueryVariable("create");
+          if (createHT.length > 0) {
+            var newHT = createHT.split(",");
+            if (newHT.length == 1)
+              htw.createTable(createHT);
+            else
+              htw.generate(newHT);
+          }
+          var insert = getQueryVariable("insert");
+          if (insert.length > 0) {
+            $('#v-insert').val(insert);
+            openInsert();
+          }
+          var remove = getQueryVariable("remove");
+          if (remove.length > 0) {
+            $('#v-remove').val(remove);
+            openRemove();
+          }
+        
+          $('#create').click(function() {
+            closeSearch();
+            closeInsert();
+            closeRemove();
+            openCreate();
+          });
+          $('#search').click(function() {
+            closeCreate();
+            closeInsert();
+            closeRemove();
+            openSearch();
+          });
+          $('#insert').click(function() {
+            closeCreate();
+            closeSearch();
+            closeRemove();
+            openInsert();
+          });
+          $('#remove').click(function() {
+            closeCreate();
+            closeSearch();
+            closeInsert();
+            openRemove();
+          });
+        });
+        
+        
+        function createTable() {
+          if (isPlaying) stop();
+          var input = parseInt($('#v-create').val());
+          if (htw.createTable(input)) {
+            $('#progress-bar').slider("option", "max", 0);
+            closeCreate();
+            isPlaying = false;
+          }
+          hideStatusPanel();
+          hideCodetracePanel();
+        }
+        
+        function createTableSpecial(_HT) {
+          if (isPlaying) stop();
+          htw.createTableSpecial(_HT);
+          $('#progress-bar').slider("option", "max", 0);
+          closeCreate();
+          isPlaying = false;
+          hideStatusPanel();
+          hideCodetracePanel();
+        }
+        
+        function insertInteger(callback) {
+          if (isPlaying) stop();
+          var input = $('#v-insert').val();
+          commonAction(htw.getActiveStatus() == "SC" ? htw.insertSC(input, callback) : htw.insert(input, callback), "插入 " + input);
+          // setTimeout(function() {
+          //   var existing = hw.saveArray();
+          //   var next_num = 1 + Math.floor(Math.random()*88);
+          //   while (existing.includes(next_num)) next_num = 1 + Math.floor(Math.random()*88);
+          //   $("#v-insert").val(next_num); // randomized for next click between [1..89}, and it won't exist before (allow for a few more insertion of 90-99, still two digits)
+          // }, 500);
+        }
+        
+        function searchInteger(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#v-search').val());
+          commonAction(htw.getActiveStatus() == "SC" ? htw.searchSC(input, callback) : htw.search(input, callback), "搜索 " + input);
+        }
+        
+        function removeInteger(callback) {
+          if (isPlaying) stop();
+          var input = parseInt($('#v-remove').val());
+          commonAction(htw.getActiveStatus() == "SC" ? htw.removeSC(input, callback) : htw.remove(input, callback), "移除 " + input);
+        }
+        
+        // Implement these functions in each visualisation
+        // var userGraph = {
+        //   'vl': {},
+        //   'el': {},
+        // };
+        
+        // This function will be called before entering E-Lecture Mode
+        function ENTER_LECTURE_MODE() {
+          //if (bw) userGraph = bw.getGraph();
+        }
+        
+        // This function will be called before returning to Explore Mode
+        function ENTER_EXPLORE_MODE() {
+          //loadGraph(userGraph);
+        }
+        
+        // Lecture action functions
+        function CUSTOM_ACTION(action, data, mode) {
+          if (action == 'create_special') {
+            createTableSpecial(data);
+          }
+          else if (action == 'search') {
+            hideSlide(function() {
+              $('#v-search').val(data); // force
+              searchInteger(showSlide);
+            });
+          }
+          else if (action == 'insert') {
+            hideSlide(function() {
+              $('#v-insert').val(data); // force
+              insertInteger(showSlide);
+            });
+          }
+          else if (action == 'remove') {
+            hideSlide(function() {
+              $('#v-remove').val(data); // force
+              removeInteger(showSlide);
+            });
+          }
+        }
+        </script>
+       <script type="text/javascript">
+        jQuery(document).ready(function($) {     
+            // Charts
+            var xenonPalette = ['#68b828', '#7c38bc', '#0e62c7', '#fcd036', '#4fcdfc', '#00b19d', '#ff6264', '#f7aa47'];
+            // Pageviews Visitors Chart
+            htw.setActiveStatus("LP");
+                $("#page-title").text('线性探查');
+        });
+       
+        $('#title-LP').click(function() {
+        if (isPlaying) stop();
+        htw.setActiveStatus("LP");
+        AbbreviateTitle();
+        $('#title-LP').text('线性探测');
+        });
+        $('#title-QP').click(function() {
+        if (isPlaying) stop();
+        htw.setActiveStatus("QP");
+        AbbreviateTitle();
+        $('#title-QP').text('二次探测');
+        });
+        $('#title-DH').click(function() {
+        if (isPlaying) stop();
+        htw.setActiveStatus("DH");
+        AbbreviateTitle();
+        $('#title-DH').text('双倍散列');
+        });
+        $('#title-SC').click(function() {
+        if (isPlaying) stop();
+        htw.setActiveStatus("SC");
+        AbbreviateTitle();
+        $('#title-SC').text('分离链接');
+        });
+    </script>        
+
+</body>
+
+</html>
